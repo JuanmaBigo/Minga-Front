@@ -1,0 +1,35 @@
+.button-1 {
+    height: 50px;
+    width: 50px;
+    background-color: brown;
+    color: yellow;
+    font-size: 15px;
+    border-radius: 5px;
+    border: 0 solid;
+    margin: 10px;
+}
+
+.button-2 {
+    height: 50px;
+    width: 200px;
+    background-color: red;
+    color: white;
+    font-weight: 1000;
+    font-size: 15px;
+    border-radius: 25px;
+    border: 0 solid;
+    margin: 10px;
+}
+
+.button-3 {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    border: 0 solid;
+    margin: 10px;
+}
+
+.app-button-img {
+    height: 100%;
+    width: 100%;
+}
