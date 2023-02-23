@@ -1,0 +1,23 @@
+.card-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+  }
+  
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+  
+.card-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}

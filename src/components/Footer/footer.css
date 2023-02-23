@@ -1,0 +1,7 @@
+.footer-box {
+    height: 50px;
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
