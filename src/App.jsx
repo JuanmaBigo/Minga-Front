@@ -1,11 +1,10 @@
 import './App.css'
-
-
+import Hero from './components/Hero/Hero'
 function App() {
 
 	return (
 		<div>
-			<h1>Minga App</h1>
+			<Hero />
 		</div>
 	)
 }

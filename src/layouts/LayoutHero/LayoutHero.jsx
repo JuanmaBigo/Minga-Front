@@ -3,7 +3,7 @@ import './layoutHero.css'
 
 export default function LayoutHero(props) {
   return (
-    <div class="hero-container">
+    <div className="hero-container">
         {props.children}
     </div>
   )

@@ -1,0 +1,106 @@
+@media screen and (max-width: 767px) {
+    .section-1 {
+        min-height: 100vh !important;
+        align-items: center;
+        justify-content: center;
+        padding: 22px;
+    }
+
+    .text-container {
+        margin: 0 !important;
+        margin-top: 72px !important;
+        width: fit-content;
+        align-items: center;
+        gap: 25px !important;
+    }
+
+    .text-container h1 {
+        font-size: 40px !important;
+        font-weight: 700 !important;
+        line-height: 38px !important;
+        letter-spacing: 0em !important;
+        text-align: center !important;
+    }
+
+    .text-container h3 {
+        font-size: 20px !important;
+        font-weight: 400 !important;
+        line-height: 19px !important;
+        letter-spacing: 0em !important;
+        text-align: center !important;
+    }
+
+    .text-container p {
+        display: none;
+    }
+
+    .btn-1 {
+        font-size: 20px !important;
+        width: 363px !important;
+        height: 59px !important;
+    }
+
+    .section-2 {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .container-2 {
+        height: fit-content !important;
+    }
+
+    img {
+        margin: 0 !important;
+    }
+
+    .img-container-1 {
+        margin-right: 0 !important;
+        height: 18rem !important;
+        object-fit: contain;
+    }
+
+    .img-container-2 {
+        margin-right: 2rem !important;
+        height: 18rem !important;
+        object-fit: contain;
+        bottom: 60px !important;
+    }
+}
+
+.section-1 {
+    min-height: 62.9vh;
+    background-image: url(../../assets/img/Background1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: fit-content;
+    margin-left: 107.63px;
+    margin-top: 25px;
+    gap: 15px;
+}
+
+.text-container h1 {
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 60.92px;
+}
+
+.text-container h3 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 22.84px;
+}
+
+.text-container p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 15.23px;
+}
