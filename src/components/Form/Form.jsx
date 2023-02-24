@@ -23,7 +23,6 @@ export default function Form() {
                 [password.current.name]: password.current.value,
                 [emailNotification.current.name]: emailNotification.current.checked,
             }
-            console.log(data)
             let url = 'http://localhost:8080/users'
             try {
                 await axios.post(
