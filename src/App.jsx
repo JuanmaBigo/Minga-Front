@@ -1,10 +1,12 @@
 import './App.css'
-import Hero from './components/Hero/Hero'
+// import Hero from './components/Hero/Hero'
+import Register from './components/Register/Register'
 function App() {
 
 	return (
 		<div>
-			<Hero />
+			{/* <Hero /> */}
+			<Register />
 		</div>
 	)
 }
