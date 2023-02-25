@@ -1,0 +1,126 @@
+@media screen and (max-width: 767px) {
+    .nav {
+        width: 100vw !important;
+    }
+
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    padding: 46px 91px;
+}
+
+.nav-toggler img{
+    width: 57px;
+    height: 55px;
+}
+.nav-toggler img:hover{
+    cursor: pointer;
+}
+
+.logo{
+    width: 193px;
+    height: 42px;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 430px;
+    height: 100vh;
+    background: linear-gradient(162.88deg, #FF5722 -11.37%, #F97316 73.97%);
+    border-radius: 10px;
+    z-index: 2;
+}
+.open{
+    display: none;
+}
+
+.nav-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 24px;
+    padding-bottom: 32px;
+}
+
+.nav-user {
+    display: flex;
+    gap: 12px;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+}
+
+.username {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.email {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 12px;
+}
+
+.nav-user img {
+    height: 46px;
+    width: 46px;
+}
+
+.nav-close-btn img{
+    height: 14px;
+    width: 14px;
+}
+.nav-close-btn button{
+    background: transparent;
+    border: none;
+}
+.nav-close-btn button:hover{
+    cursor: pointer;
+}
+
+
+.nav-btn-1 {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 24px;
+    width: 382px;
+    padding: 12px 0 12px 0;
+    background: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color:#FF5722;
+}
+
+.nav-btn {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 24px;
+    width: 382px;
+    padding: 12px 0 12px 0;
+    background: transparent;
+    color: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
