@@ -4,6 +4,7 @@ import Logo from '../../assets/img/Logo-2.png'
 import BtnLogo from '../../assets/img/Menu.png'
 import UserImage from '../../assets/img/userimage.png'
 import BtnClose from '../../assets/img/Union.png'
+import LogoMin from '../../assets/img/logo-min.png'
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(true)
@@ -36,7 +37,8 @@ export default function Header() {
                 <a className='nav-btn' href='#'>Logout</a>
             </div>
 
-            <img src={Logo} alt="logo" className="logo" />
+            <img src={Logo} alt="logo" className="logo-1" />
+            <img src={LogoMin} alt="logo" className="logo-min" />
         </div>
     )
 }

@@ -1,10 +1,54 @@
+@media screen and (max-width: 1000px) {
+    .subscribe {
+        flex-direction: column !important;
+        width: 95vw !important;
+        justify-content: space-evenly !important;
+        padding-top: 40px !important;
+    }
+
+    .subscribe h3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .footer-links {
+        flex-direction: column !important;
+        width: 95vw !important;
+        margin-top: 0 !important;
+        gap: 1rem;
+    }
+
+    hr{
+        display: none;
+    }
+
+    .links {
+        display: none !important;
+    }
+
+    .footer-interaction{
+        padding: 0 !important;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .subscribe-input button {
+        padding: 9px 20px !important;
+        font-size: 12px !important;
+        line-height: 15px !important;
+    }
+
+    .subscribe-input input {
+        padding: 15px !important;
+        max-width: 50vw !important;
+    }
+}
+
 .footer-container {
     height: 50vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 !important;
 }
 
 .footer-img {
@@ -12,8 +56,8 @@
     width: 100%;
     border-bottom-right-radius: 50%;
     border-bottom-left-radius: 50%;
+    object-fit: contain;
 }
-
 
 .subscribe {
     width: 75vw;
@@ -25,7 +69,6 @@
     align-items: center;
     justify-content: space-evenly;
     position: relative;
-    height: 250px;
     bottom: 60px;
     box-shadow: #51525324 0px 10px 50px 0px;
 }
@@ -75,21 +118,20 @@
 .footer-links {
     display: flex;
     align-items: center;
-    width: 75vw;
-    height: 143.22px;
     position: relative;
     bottom: 60px;
     margin-top: 35px;
     justify-content: space-between;
-    padding-bottom: 98px;
     padding-top: 35px;
+    width: 75vw;
 }
 
 .links {
     display: flex;
     gap: 62px;
 }
-.links:hover{
+
+.links:hover {
     cursor: pointer;
 }
 
@@ -105,6 +147,7 @@
 .logo2 {
     width: 169px;
     height: 50px;
+    object-fit: contain;
 }
 
 .social-media {
@@ -142,10 +185,24 @@
     letter-spacing: 0em;
     color: white;
 }
-.donate:hover{
+
+.donate:hover {
     cursor: pointer;
 }
+
 .donate img {
     height: 16.5px;
     width: 18px;
+}
+
+.footer-interaction {
+    padding-bottom: 97.21px;
+}
+
+hr {
+    width: 75vw;
+    border: 1px solid #2B3D51;
+    opacity: 0.2;
+    position: relative;
+    bottom: 40px;
 }

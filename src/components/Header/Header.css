@@ -2,7 +2,18 @@
     .nav {
         width: 100vw !important;
     }
-
+    .logo-1 {
+        display: none !important;
+    }
+    .logo-min{
+        display: block !important;
+        height: 48px;
+        width: 40px;
+        object-fit: contain;
+    }
+    .header-container {
+        padding: 46px 50px !important;
+    }
 }
 
 .header-container {
@@ -23,9 +34,13 @@
     cursor: pointer;
 }
 
-.logo{
+.logo-1{
     width: 193px;
     height: 42px;
+}
+
+.logo-min{
+    display: none;
 }
 
 .nav {
