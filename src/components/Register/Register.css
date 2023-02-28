@@ -43,6 +43,11 @@
     width: 154.61px;
     height: 48px;
 }
+.logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
 .text-container-3 h5 {
     color: #1F1F1F;

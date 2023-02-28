@@ -1,13 +1,13 @@
 import React from 'react'
-import './layoutMain.css'
-import LayoutHero from '../LayoutHero/LayoutHero'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
 
 export default function LayoutMain(props) {
   return (
     <div className="main-container">
-      <LayoutHero>
-        {props.children}
-      </LayoutHero>
+      <Header />
+      {props.children}
+      <Footer />
     </div>
   )
 }
