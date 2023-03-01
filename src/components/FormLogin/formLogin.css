@@ -1,0 +1,66 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.form-cont {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.email-notification {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    gap: 4px;
+    color: #1F1F1F;
+}
+
+.input-email {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #1F1F1F;
+    border-radius: 5px;
+    background-color: #EBEBEB;
+    cursor: pointer;
+}
+
+.btn-submit {
+    width: 384px;
+    height: 48px;
+    background: #F97316;
+    border-radius: 10px;
+    box-shadow: #F4B333 4px 4px 0px 0px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    color: #EBEBEB;
+}
+
+.btn-submit:hover {
+    cursor: pointer;
+}
+
+.google-btn {
+    display: flex;
+    width: 384px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    background: #EBEBEB;
+    border: 1px solid #1f1f1f78;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    cursor: pointer;
+    gap: 1vh;
+}
+
+.google-btn p {
+    opacity: 0.5;
+}

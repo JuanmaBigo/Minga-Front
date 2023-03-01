@@ -18,7 +18,7 @@ export default function Header() {
             <div className={`nav ${isOpen && "open"}`}>
                 <div className="nav-top">
                     <div className='nav-user'>
-                        <img src={UserImage} alt="user image" />
+                        <img src={UserImage} alt="userimage" />
                         <div className='user-info'>
                             <p className='username'>Lucas Ezequiel Silva</p>
                             <p className='email'>lucasezequielsilva@gmail.com</p>

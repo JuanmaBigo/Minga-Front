@@ -1,16 +1,15 @@
+import React from 'react'
 import { useRef } from 'react'
 import { Toaster,toast } from 'react-hot-toast';
-import './Form.css'
+import './formLogin.css'
 import axios from 'axios'
 import GoogleLogo from '../../assets/img/Google.png'
-import Profile from '../../assets/img/profile.png'
 import Email from '../../assets/img/@.png'
 import Lock from '../../assets/img/lock1.png'
 import FormFields from '../FormFields/FormFields'
-import Camera from '../../assets/img/Camera.png'
 
 
-export default function Form() {
+export default function FormLogin() {
     let formReg = useRef()
     
 
@@ -32,37 +31,32 @@ export default function Form() {
         let data = {
             [dataInputs[0].name]:dataInputs[0].value,
             [dataInputs[1].name]:dataInputs[1].value,
-            [dataInputs[3].name]:dataInputs[3].value,
-            [dataInputs[2].name]:dataInputs[2].value,
         }
 
-        if (dataInputs[3].value) {
-            let url = 'http://localhost:8080/users'
-            try {
-                await axios.post(
-                    url,    /* URL del endpoint para crear una categoria */
-                    data    /* objeto necesario para crear una categoria (tal cual lo armo en postman) */
-                )
-                formReg.current.reset()
-                toast.success("User Successfully Created")
-            } catch (error) {
-                console.log(error)
-                console.log('ocurrio un error')
-            }
-            event.target.reset()
-        } else {
-            toast.error('Passwords do not match')
+        // if (dataInputs[1].value) {
+        //     let url = 'http://localhost:8080/users'
+        //     try {
+        //         await axios.post(
+        //             url,    /* URL del endpoint para crear una categoria */
+        //             data    /* objeto necesario para crear una categoria (tal cual lo armo en postman) */
+        //         )
+        //         formReg.current.reset()
+        //         toast.success("Successful session start")
+        //     } catch (error) {
+        //         console.log(error)
+        //         console.log('ocurrio un error')
+        //     }
+        //     event.target.reset()
+        // } else {
+        //     toast.error('Passwords do not match')
             
-        }
+        // }
 
     }
-
-    return (
-        <form className='form-cont' onSubmit={handleSubmit} ref={formReg}>
+  return (
+    <form className='form-cont' onSubmit={handleSubmit} ref={formReg}>
             <div className='form-container'>
-                <FormFields legend = 'Name' type = 'text' id = 'name' name = 'name'  src = {Profile}/>
                 <FormFields legend = 'Email' type = 'email' id = 'email' name = 'email'  src = {Email}/>
-                <FormFields legend = 'Photo' type = 'text' id = 'photo' name = 'photo'  src = {Camera}/>
                 <FormFields legend = 'Password' type = 'password' id = 'password' name = 'password'  src = {Lock}/>
             </div>
 
@@ -80,5 +74,5 @@ export default function Form() {
             />
 
         </form>
-    )
+  )
 }
