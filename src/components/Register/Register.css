@@ -14,6 +14,9 @@
     min-height: 100vh;
     display: flex;
 }
+.register-container.reverse{
+    flex-direction: row-reverse;
+}
 
 .form {
     width: 50vw;
@@ -31,6 +34,10 @@
     background-image: url(../../assets/img/Rectangle81.png);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.img-container.reverse{
+    background-image: url(../../assets/img/img-form-login.png);
 }
 
 .text-container-3 {

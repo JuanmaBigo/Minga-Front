@@ -65,7 +65,7 @@ export default function FormLogin() {
                 <label htmlFor="email_notification">Send notification to my email</label>
             </div>
 
-            <input type="submit" className='btn-submit' value="Sign up" />
+            <input type="submit" className='btn-submit' value="Sign in" />
             <button className='google-btn'><img src={GoogleLogo} alt='Google logo' /><p>Sign in with Google</p></button>
 
             <Toaster
