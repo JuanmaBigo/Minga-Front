@@ -1,11 +1,15 @@
 import './App.css'
-import Index from './pages/Index'
+import IndexLayout from './layouts/IndexLayout/IndexLayout'
+import Index from './pages/Index/Index'
+import Auth from './pages/Auth/Auth'
 
 function App() {
 
 	return (
 		<div>
-			<Index/>
+			<IndexLayout>
+				<Auth/>
+			</IndexLayout>
 		</div>
 	)
 }
