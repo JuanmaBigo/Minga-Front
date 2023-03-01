@@ -30,7 +30,7 @@ export default function Header() {
                     </div>
                 </div>
            
-                <a className='nav-btn-1' href='#'>Home</a>
+                <a className='nav-btn' href='#'>Home</a>
                 <a className='nav-btn' href='#'>Mangas</a>
                 <a className='nav-btn' href='#'>My Mangas</a>
                 <a className='nav-btn' href='#'>Favourites</a>

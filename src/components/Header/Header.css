@@ -23,7 +23,7 @@
     background-color: transparent;
     position: absolute;
     width: 100%;
-    padding: 46px 91px;
+    padding: 30px 91px;
 }
 
 .nav-toggler img{
@@ -53,11 +53,14 @@
     width: 430px;
     height: 100vh;
     background: linear-gradient(162.88deg, #FF5722 -11.37%, #F97316 73.97%);
-    border-radius: 10px;
     z-index: 2;
+    transition: 0.3s ease all;
+    transform: translateX(0);
+    gap: 1vh;
+    
 }
 .open{
-    display: none;
+    transform: translateX(-101%) !important;
 }
 
 .nav-top{
@@ -109,22 +112,6 @@
     cursor: pointer;
 }
 
-
-.nav-btn-1 {
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 24px;
-    width: 382px;
-    padding: 12px 0 12px 0;
-    background: #FFFFFF;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color:#FF5722;
-}
-
 .nav-btn {
     font-weight: 600;
     font-size: 15px;
@@ -138,4 +125,14 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+}
+
+.nav-btn:hover{
+    color:#FF5722;
+    background: #FFFFFF;
+}
+
+.nav-btn:focus{
+    color:#FF5722;
+    background: #FFFFFF;
 }
