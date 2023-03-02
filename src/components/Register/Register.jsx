@@ -37,7 +37,7 @@ export default function Register({text}) {
                     {TipeForm}
                 </div>
                 <p className='link first-link'>Already have an account? <Anchor  className='link-2' onClick={handleClick}>{textoLogin}</Anchor></p>
-                <p className='link'>Go back to <Anchor to='./index' className='link-2'>Home Page</Anchor></p>
+                <p className='link'>Go back to <Anchor to='/' className='link-2'>Home Page</Anchor></p>
             </div>
             <div className={`img-container ${!esTexto2 && "reverse"}`}>
             </div>
