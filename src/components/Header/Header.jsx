@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 import './Header.css'
 import Logo from '../../assets/img/Logo-2.png'
