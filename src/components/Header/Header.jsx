@@ -20,9 +20,11 @@ export default function Header() {
         try{
             await axios.post(url,null,headers).then(res => 
                 localStorage.setItem('token',''));
-                localStorage.setItem('name','');
-                localStorage.setItem('email','');
-                localStorage.setItem('photo','');
+                localStorage.setItem('user',JSON.stringify({
+                    name:'',
+                    email:'',
+                    photo: ''
+                 }))
         }catch(error){
             console.log(error)
             toast.error("You're already signed out or not signed in")
@@ -34,6 +36,7 @@ export default function Header() {
     let name = user.name
     let email = user.email
     let photo = user.photo
+    
 
     return (
         <div className='header-container'>
@@ -44,7 +47,7 @@ export default function Header() {
             <div className={`nav ${isOpen && "open"}`}>
                 <div className="nav-top">
                     <div className='nav-user'>
-                        <img src={photo?photo:'UserImage'} alt="userimage" />
+                        <img src={photo?photo: UserImage} alt="userimage" />
                         <div className='user-info'>
                             <p className='username'>{name?name:'Username'}</p>
                             <p className='email'>{email?email:'User Mail'}</p>

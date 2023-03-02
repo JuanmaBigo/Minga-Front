@@ -8,7 +8,10 @@ import AuthForm from "./AuthForm/AuthForm";
 import { createBrowserRouter } from "react-router-dom"
 
 
+
 export const router = createBrowserRouter([
+
+    
 
     {
         path:'/',
