@@ -43,9 +43,11 @@ export default function FormLogin() {
                     email:res.data.user.email,
                     photo: res.data.user.photo
                  }))
+                 setInterval(() => window.location.href='/index', 1000)
                 })
                 formReg.current.reset()
                 toast.success("Successful session start")
+        
             } catch (error) {
                 console.log(error)
                 console.log('ocurrio un error')
@@ -54,6 +56,8 @@ export default function FormLogin() {
             event.target.reset()
 
     }
+    
+
   return (
     <form className='form-cont' onSubmit={handleSubmit} ref={formReg}>
             <div className='form-container'>
