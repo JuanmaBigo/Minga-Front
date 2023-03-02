@@ -28,10 +28,12 @@ export default function Header() {
             toast.error("You're already signed out or not signed in")
         }
     }
-
-    let email = localStorage.getItem('email')
-    let photo = localStorage.getItem('photo')
-    let name = localStorage.getItem('name')
+    
+    
+    let user = JSON.parse(localStorage.getItem('user'));
+    let name = user.name
+    let email = user.email
+    let photo = user.photo
 
     return (
         <div className='header-container'>
@@ -42,10 +44,10 @@ export default function Header() {
             <div className={`nav ${isOpen && "open"}`}>
                 <div className="nav-top">
                     <div className='nav-user'>
-                        <img src={photo? photo : UserImage} alt="userimage" />
+                        <img src={photo?photo:'UserImage'} alt="userimage" />
                         <div className='user-info'>
-                            <p className='username'>{name? name : 'Username'}</p>
-                            <p className='email'>{email? email : 'User Mail'}</p>
+                            <p className='username'>{name?name:'Username'}</p>
+                            <p className='email'>{email?email:'User Mail'}</p>
                         </div>
                     </div>
 

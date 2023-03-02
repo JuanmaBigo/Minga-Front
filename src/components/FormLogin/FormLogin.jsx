@@ -38,9 +38,11 @@ export default function FormLogin() {
                 await axios.post(url,data)
                 .then(res => {
                  localStorage.setItem('token',res.data.token);
-                 localStorage.setItem('name',res.data.user.name);
-                 localStorage.setItem('email',res.data.user.email);
-                 localStorage.setItem('photo',res.data.user.photo);
+                 localStorage.setItem('user',JSON.stringify({
+                    name:res.data.user.name,
+                    email:res.data.user.email,
+                    photo: res.data.user.photo
+                 }))
                 })
                 formReg.current.reset()
                 toast.success("Successful session start")
