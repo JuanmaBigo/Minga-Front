@@ -70,7 +70,7 @@ export default function Header() {
                     </div>
                 </div>
            
-                <Anchor className='nav-btn' to='/index'>Home</Anchor>
+                <Anchor className='nav-btn' to='/'>Home</Anchor>
                 <Anchor className='nav-btn' to='/auth'>Auth</Anchor>
                 {token?'':<Anchor className='nav-btn' to='/register'>Register</Anchor>}
                 {token?'':<Anchor className='nav-btn' to='/signin' text={false}>Login</Anchor>}
