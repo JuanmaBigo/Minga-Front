@@ -98,6 +98,7 @@
 .nav-user img {
     height: 46px;
     width: 46px;
+    border-radius: 100%;
 }
 
 .nav-close-btn img{
