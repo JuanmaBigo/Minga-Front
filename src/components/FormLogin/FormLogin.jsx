@@ -33,24 +33,21 @@ export default function FormLogin() {
             [dataInputs[1].name]:dataInputs[1].value,
         }
 
-        // if (dataInputs[1].value) {
-        //     let url = 'http://localhost:8080/users'
-        //     try {
-        //         await axios.post(
-        //             url,    /* URL del endpoint para crear una categoria */
-        //             data    /* objeto necesario para crear una categoria (tal cual lo armo en postman) */
-        //         )
-        //         formReg.current.reset()
-        //         toast.success("Successful session start")
-        //     } catch (error) {
-        //         console.log(error)
-        //         console.log('ocurrio un error')
-        //     }
-        //     event.target.reset()
-        // } else {
-        //     toast.error('Passwords do not match')
-            
-        // }
+        let url = 'http://localhost:8080/auth/signin'
+            try {
+                await axios.post(url,data)
+                .then(res => {
+                 localStorage
+                 .setItem('token',res.data);console.log(res.data)
+                })
+                formReg.current.reset()
+                toast.success("Successful session start")
+            } catch (error) {
+                console.log(error)
+                console.log('ocurrio un error')
+                toast.error("wrong credentials!")
+            }
+            event.target.reset()
 
     }
   return (
@@ -65,7 +62,7 @@ export default function FormLogin() {
                 <label htmlFor="email_notification">Send notification to my email</label>
             </div>
 
-            <input type="submit" className='btn-submit' value="Sign up" />
+            <input type="submit" className='btn-submit' value="Sign in" />
             <button className='google-btn'><img src={GoogleLogo} alt='Google logo' /><p>Sign in with Google</p></button>
 
             <Toaster

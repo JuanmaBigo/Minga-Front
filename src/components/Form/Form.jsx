@@ -37,7 +37,7 @@ export default function Form() {
         }
 
         if (dataInputs[3].value) {
-            let url = 'http://localhost:8080/users'
+            let url = 'http://localhost:8080/auth/signup'
             try {
                 await axios.post(
                     url,    /* URL del endpoint para crear una categoria */

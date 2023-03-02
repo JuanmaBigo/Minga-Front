@@ -1,16 +1,13 @@
 import './App.css'
 import IndexLayout from './layouts/IndexLayout/IndexLayout'
 import Index from './pages/Index/Index'
-import Auth from './pages/Auth/Auth'
+import { router } from './pages/index'
+import { RouterProvider } from 'react-router-dom'
 
 function App() {
 
 	return (
-		<div>
-			<IndexLayout>
-				<Auth/>
-			</IndexLayout>
-		</div>
+		<RouterProvider router={router} />
 	)
 }
 
