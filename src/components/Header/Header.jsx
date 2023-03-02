@@ -1,13 +1,24 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
+import axios from 'axios'
 import './Header.css'
 import Logo from '../../assets/img/Logo-2.png'
 import BtnLogo from '../../assets/img/Menu.png'
 import UserImage from '../../assets/img/userimage.png'
 import BtnClose from '../../assets/img/Union.png'
 import LogoMin from '../../assets/img/logo-min.png'
+import {Link as Anchor} from 'react-router-dom'
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(true)
+
+    // useEffect(() => {
+    //     let url = `http://localhost:8080/auth/token`
+    //     let token = localStorage.getItem('token')
+    //     if (token) {
+    //     let headers = {headers:{'Authorization':`Bearer ${token}`}}
+    //     axios.post(url,null,headers).then(res => localStorage.setItem('email',res.data.email))
+    //     }
+    //    },[])
 
     return (
         <div className='header-container'>
@@ -30,11 +41,11 @@ export default function Header() {
                     </div>
                 </div>
            
-                <a className='nav-btn' href='#'>Home</a>
-                <a className='nav-btn' href='#'>Mangas</a>
-                <a className='nav-btn' href='#'>My Mangas</a>
-                <a className='nav-btn' href='#'>Favourites</a>
-                <a className='nav-btn' href='#'>Logout</a>
+                <Anchor className='nav-btn' to='/index'>Home</Anchor>
+                <Anchor className='nav-btn' to='/auth'>Auth</Anchor>
+                <Anchor className='nav-btn' to='/register'>Register</Anchor>
+                <Anchor className='nav-btn' to='/signin'>Login</Anchor>
+                <Anchor className='nav-btn' >Logout</Anchor>
             </div>
 
             <img src={Logo} alt="logo" className="logo-1" />

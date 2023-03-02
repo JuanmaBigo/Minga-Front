@@ -56,8 +56,13 @@
     object-fit: contain;
 }
 
-.text-container-3 h5 {
+.title-form {
     color: #1F1F1F;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+}
+.title-form h5{
     font-weight: 600;
     font-size: 32px;
     line-height: 48px;
