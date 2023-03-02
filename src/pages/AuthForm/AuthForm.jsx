@@ -1,10 +1,10 @@
 import React from 'react'
 import Register from '../../components/Register/Register'
 
-export default function Auth() {
+export default function Auth({text}) {
   return (
     <div>
-        <Register/>
+        <Register text={text}/>
     </div>
   )
 }

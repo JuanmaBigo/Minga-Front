@@ -1,10 +1,11 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './Register.css'
 import ImgLogo from '../../assets/img/Logo.png'
 import Form from '../Form/Form'
 import FormLogin from '../FormLogin/FormLogin'
+import {Link as Anchor} from 'react-router-dom'
 
-export default function Register() {
+export default function Register({text}) {
 
     const [esTexto2, setEsTexto2] = useState(true);
     const textoLogin = esTexto2 ? "Log in" : "Sign up";
@@ -17,6 +18,10 @@ export default function Register() {
 
         setEsTexto2(!esTexto2);
     }
+
+    useEffect(()=>{
+        setEsTexto2(text)
+    },[text])
 
     return (
         <div className={`register-container ${!esTexto2 && "reverse"}`}>
@@ -31,8 +36,8 @@ export default function Register() {
                 <div>
                     {TipeForm}
                 </div>
-                <p className='link first-link'>Already have an account? <a href='#' className='link-2' onClick={handleClick}>{textoLogin}</a></p>
-                <p className='link'>Go back to <a href='#' className='link-2'>Home Page</a></p>
+                <p className='link first-link'>Already have an account? <Anchor  className='link-2' onClick={handleClick}>{textoLogin}</Anchor></p>
+                <p className='link'>Go back to <Anchor to='/' className='link-2'>Home Page</Anchor></p>
             </div>
             <div className={`img-container ${!esTexto2 && "reverse"}`}>
             </div>

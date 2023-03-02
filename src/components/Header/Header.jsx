@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 import './Header.css'
 import Logo from '../../assets/img/Logo-2.png'
@@ -25,12 +25,23 @@ export default function Header() {
                     email:'',
                     photo: ''
                  }))
+            setIsOpen(!isOpen)    
         }catch(error){
             console.log(error)
             toast.error("You're already signed out or not signed in")
         }
     }
+
     
+
+    if (!token){
+
+        localStorage.setItem('user',JSON.stringify({
+            name:'',
+            email:'',
+            photo:''
+          }))
+    }
     
     let user = JSON.parse(localStorage.getItem('user'));
     let name = user.name
@@ -59,11 +70,11 @@ export default function Header() {
                     </div>
                 </div>
            
-                <Anchor className='nav-btn' to='/index'>Home</Anchor>
+                <Anchor className='nav-btn' to='/'>Home</Anchor>
                 <Anchor className='nav-btn' to='/auth'>Auth</Anchor>
-                <Anchor className='nav-btn' to='/register'>Register</Anchor>
-                <Anchor className='nav-btn' to='/signin'>Login</Anchor>
-                <Anchor className='nav-btn' onClick={handleSignOut}>Logout</Anchor>
+                {token?'':<Anchor className='nav-btn' to='/register'>Register</Anchor>}
+                {token?'':<Anchor className='nav-btn' to='/signin' text={false}>Login</Anchor>}
+                {token?<Anchor className='nav-btn' onClick={handleSignOut}>Logout</Anchor> : ''}
             </div>
 
             <img src={Logo} alt="logo" className="logo-1" />
