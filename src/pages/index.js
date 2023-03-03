@@ -3,6 +3,7 @@ import IndexLayout from "../layouts/IndexLayout/IndexLayout";
 import MainLayout from '../layouts/MainLayout/MainLayout'
 import Index from "./Index/Index";
 import AuthForm from "./AuthForm/AuthForm";
+import ChapterForm from "./ChapterForm/ChapterForm"
 
 
 import { createBrowserRouter } from "react-router-dom"
@@ -19,7 +20,8 @@ export const router = createBrowserRouter([
         children:[
             {path:'/',element:<Index/>},
             {path:'/hero',element:<Hero/>},
-            {path:'/auth',element:<AuthForm/>}
+            {path:'/auth',element:<AuthForm/>},
+            {path: '/chapter-form', element: <ChapterForm/>}
         ]
 
     },
