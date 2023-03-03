@@ -36,24 +36,22 @@ export default function Form() {
             [dataInputs[2].name]:dataInputs[2].value,
         }
 
-        if (dataInputs[3].value) {
-            let url = 'http://localhost:8080/auth/signup'
-            try {
-                await axios.post(
-                    url,    /* URL del endpoint para crear una categoria */
-                    data    /* objeto necesario para crear una categoria (tal cual lo armo en postman) */
-                )
-                formReg.current.reset()
-                toast.success("User Successfully Created")
-            } catch (error) {
-                console.log(error)
-                console.log('ocurrio un error')
+        let url = 'http://localhost:8080/auth/signup'
+        try {
+            await axios.post(
+                url,    /* URL del endpoint para crear una categoria */
+                data    /* objeto necesario para crear una categoria (tal cual lo armo en postman) */
+            )
+            formReg.current.reset()
+            toast.success("User Successfully Created")
+        } catch (error) {
+            if(typeof error.response.data.message === 'string'){
+                toast.error(error.response.data.message)
+            }else{
+                error.response.data.message.forEach(err => toast.error(err))
             }
-            event.target.reset()
-        } else {
-            toast.error('Passwords do not match')
-            
         }
+        event.target.reset()
 
     }
 
