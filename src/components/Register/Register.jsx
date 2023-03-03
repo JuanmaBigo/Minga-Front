@@ -20,7 +20,7 @@ export default function Register({text}) {
     }
 
     useEffect(()=>{
-        setEsTexto2(text)
+        setEsTexto2(Boolean(!text))
     },[text])
 
     return (
