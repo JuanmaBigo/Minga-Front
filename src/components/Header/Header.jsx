@@ -28,7 +28,6 @@ export default function Header() {
             setIsOpen(!isOpen)
             toast.success('The session was closed with Exito!')    
         }catch(error){
-            console.log(error)
             toast.error("You're already signed out or not signed in")
         }
     }
