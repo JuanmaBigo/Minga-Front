@@ -26,7 +26,7 @@ export default function Header() {
                     photo: ''
                  }))
             setIsOpen(!isOpen)
-            toast.success('The session was closed with Exito!')    
+            toast.success('The session was closed successfully!')    
         }catch(error){
             toast.error("You're already signed out or not signed in")
         }
