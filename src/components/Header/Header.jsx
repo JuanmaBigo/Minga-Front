@@ -25,9 +25,9 @@ export default function Header() {
                     email:'',
                     photo: ''
                  }))
-            setIsOpen(!isOpen)    
+            setIsOpen(!isOpen)
+            toast.success('The session was closed successfully!')    
         }catch(error){
-            console.log(error)
             toast.error("You're already signed out or not signed in")
         }
     }
