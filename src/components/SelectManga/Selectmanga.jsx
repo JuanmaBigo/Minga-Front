@@ -4,7 +4,6 @@ import './selectmanga.css'
 import { useState, useEffect } from 'react';
 
 
-
 export default function Selectmanga() {
 
     let url = 'http://localhost:8080/mangas'
