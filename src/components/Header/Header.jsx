@@ -68,8 +68,9 @@ export default function Header() {
                         <button onClick={() => setIsOpen(!isOpen)}><img src={BtnClose} alt="logo" className="logo" /></button>
                     </div>
                 </div>
-
+        
                 <Anchor className='nav-btn' to='/'>Home</Anchor>
+                <Anchor className='nav-btn' to='/manga-form'>Manga-Form</Anchor>
                 <Anchor className='nav-btn' to='/auth'>Auth</Anchor>
                 {token ? '' : <Anchor className='nav-btn' to='/register'>Register</Anchor>}
                 {token ? '' : <Anchor className='nav-btn' to='/signin' text={'false'}>Login</Anchor>}
