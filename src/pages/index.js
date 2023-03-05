@@ -4,6 +4,7 @@ import MainLayout from '../layouts/MainLayout/MainLayout'
 import Index from "./Index/Index";
 import AuthForm from "./AuthForm/AuthForm";
 import MangaForm from "./MangaForm/MangaForm";
+import ChapterForm from './ChapterForm/ChapterForm'
 
 
 import { createBrowserRouter } from "react-router-dom"
@@ -18,9 +19,10 @@ export const router = createBrowserRouter([
         path:'/',
         element: <IndexLayout/>,
         children:[
-            {path:'/index',element:<Index/>},
+            {path:'/',element:<Index/>},
             {path:'/hero',element:<Hero/>},
-            {path:'/auth',element:<AuthForm/>}
+            {path:'/auth',element:<AuthForm/>},
+            {path: '/chapter-form/:manga_id', element: <ChapterForm/>}
         ]
 
     },
@@ -32,6 +34,6 @@ export const router = createBrowserRouter([
             {path:'signin',element : <AuthForm state ='login'/>},
             {path:'/manga-form', element: <MangaForm />}
         ]
-    }
+    } 
     
 ])

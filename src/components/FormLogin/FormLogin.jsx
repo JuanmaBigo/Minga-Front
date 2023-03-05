@@ -7,11 +7,12 @@ import GoogleLogo from '../../assets/img/Google.png'
 import Email from '../../assets/img/@.png'
 import Lock from '../../assets/img/lock1.png'
 import FormFields from '../FormFields/FormFields'
+import {useNavigate} from 'react-router-dom'
 
 
 export default function FormLogin() {
     let formReg = useRef()
-    
+    const navigate = useNavigate()
 
 
     async function handleSubmit(event) {
@@ -26,7 +27,6 @@ export default function FormLogin() {
             }
         })
         dataInputs.pop()
-        console.log(dataInputs);
 
         let data = {
             [dataInputs[0].name]:dataInputs[0].value,
@@ -43,17 +43,21 @@ export default function FormLogin() {
                     email:res.data.user.email,
                     photo: res.data.user.photo
                  }))
+                 setTimeout(() => {
+                    navigate('/');
+                  }, 1000);
                 })
                 formReg.current.reset()
                 toast.success("Successful session start")
+        
             } catch (error) {
-                console.log(error)
-                console.log('ocurrio un error')
                 toast.error("wrong credentials!")
             }
             event.target.reset()
 
     }
+    
+
   return (
     <form className='form-cont' onSubmit={handleSubmit} ref={formReg}>
             <div className='form-container'>
