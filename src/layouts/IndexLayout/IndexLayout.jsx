@@ -7,7 +7,7 @@ export default function IndexLayout() {
     name:'',
     email:'',
     photo:''
- }))
+  }))
   return (
     <div>
         <Header/>

@@ -24,7 +24,7 @@ export default function Header() {
                     name:'',
                     email:'',
                     photo: ''
-                 }))
+                }))
         }catch(error){
             console.log(error)
             toast.error("You're already signed out or not signed in")
@@ -58,8 +58,9 @@ export default function Header() {
                         <button onClick={() => setIsOpen(!isOpen)}><img src={BtnClose} alt="logo" className="logo" /></button>
                     </div>
                 </div>
-           
+        
                 <Anchor className='nav-btn' to='/index'>Home</Anchor>
+                <Anchor className='nav-btn' to='/manga-form'>Manga-Form</Anchor>
                 <Anchor className='nav-btn' to='/auth'>Auth</Anchor>
                 <Anchor className='nav-btn' to='/register'>Register</Anchor>
                 <Anchor className='nav-btn' to='/signin'>Login</Anchor>

@@ -3,6 +3,7 @@ import IndexLayout from "../layouts/IndexLayout/IndexLayout";
 import MainLayout from '../layouts/MainLayout/MainLayout'
 import Index from "./Index/Index";
 import AuthForm from "./AuthForm/AuthForm";
+import MangaForm from "./MangaForm/MangaForm";
 
 
 import { createBrowserRouter } from "react-router-dom"
@@ -28,7 +29,8 @@ export const router = createBrowserRouter([
         element: <MainLayout/>,
         children:[
             {path:'register',element : <AuthForm state ='register'/>},
-            {path:'signin',element : <AuthForm state ='login'/>}
+            {path:'signin',element : <AuthForm state ='login'/>},
+            {path:'/manga-form', element: <MangaForm />}
         ]
     }
     

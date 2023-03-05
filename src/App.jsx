@@ -1,13 +1,13 @@
 import './App.css'
-import IndexLayout from './layouts/IndexLayout/IndexLayout'
-import Index from './pages/Index/Index'
 import { router } from './pages/index'
 import { RouterProvider } from 'react-router-dom'
+// import FormManga from './components/FormManga/FormManga'
 
 function App() {
 
 	return (
 		<RouterProvider router={router} />
+		// <FormManga />
 	)
 }
 
