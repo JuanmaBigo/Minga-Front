@@ -9,9 +9,9 @@ export default function FormManga(props) {
         <div className='manga'>
             <h1>New Manga</h1>
             <form className='formManga'>
-                <input type='text' placeholder='Insert title'/>
+                <input className='input-manga' type='text' placeholder='Insert title'/>
                 <SelectManga />
-                <input type='text' placeholder='Insert description'/>
+                <input className='input-manga' type='text' placeholder='Insert description'/>
                 <input className='button' type='submit' value='Send' />
             </form>
             </div>

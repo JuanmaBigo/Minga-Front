@@ -30,8 +30,8 @@ export const router = createBrowserRouter([
         path:'/',
         element: <MainLayout/>,
         children:[
-            {path:'register',element : <AuthForm state ='register'/>},
-            {path:'signin',element : <AuthForm state ='login'/>},
+            {path:'register',element : <AuthForm />},
+            {path:'signin',element : <AuthForm text ={'false'}/>},
             {path:'/manga-form', element: <MangaForm />}
         ]
     } 
