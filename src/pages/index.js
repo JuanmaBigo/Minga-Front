@@ -21,8 +21,7 @@ export const router = createBrowserRouter([
         children:[
             {path:'/',element:<Index/>},
             {path:'/hero',element:<Hero/>},
-            {path:'/auth',element:<AuthForm/>},
-            {path: '/chapter-form/:manga_id', element: <ChapterForm/>}
+            {path:'/auth',element:<AuthForm/>}
         ]
 
     },
@@ -30,9 +29,10 @@ export const router = createBrowserRouter([
         path:'/',
         element: <MainLayout/>,
         children:[
-            {path:'register',element : <AuthForm state ='register'/>},
-            {path:'signin',element : <AuthForm state ='login'/>},
-            {path:'/manga-form', element: <MangaForm />}
+            {path:'register',element : <AuthForm />},
+            {path:'signin',element : <AuthForm text ={'false'}/>},
+            {path:'/manga-form', element: <MangaForm />},
+            {path: '/chapter-form/:manga_id', element: <ChapterForm/>}
         ]
     } 
     

@@ -17,9 +17,8 @@ export default function Selectmanga(props) {
                 .catch(e => {
                 console.log(e);
             })
-            },
-            []
-        )
+            },[url])
+            
         categories = categories.map( item => item.name)
         
         return (

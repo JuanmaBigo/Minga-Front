@@ -34,9 +34,9 @@ export default function FormManga() {
         <div className='manga' onSubmit={handleSubmit}>
             <h1>New Manga</h1>
             <form className='formManga'>
-                <input type='text' placeholder='Insert tittle' ref={tittle} name='tittle'/>
+                <input className='input-manga' type='text' placeholder='Insert tittle' ref={tittle} name='tittle'/>
                 <SelectManga parentref={category} name='category' />
-                <input type='text' placeholder='Insert description' ref={description} name='description'/>
+                <input className='input-manga' type='text' placeholder='Insert description' ref={description} name='description'/>
                 <input className='submit' type='submit' value='Send' />
             </form>
             </div>
