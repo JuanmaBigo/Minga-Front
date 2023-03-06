@@ -24,7 +24,8 @@
     border-bottom: 1px solid rgb(165, 164, 164);
 }
 
-.button {
+
+.submit {
     font-weight: 700;
     font-size: larger;
     color: white;
