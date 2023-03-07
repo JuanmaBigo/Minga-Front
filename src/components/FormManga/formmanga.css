@@ -17,13 +17,13 @@
     gap: 1rem;
 }
 
-.input-manga {
+
+input {
     width: 100%;
     padding-left: 2%;
     border: none;
     border-bottom: 1px solid rgb(165, 164, 164);
 }
-
 
 .submit {
     font-weight: 700;
