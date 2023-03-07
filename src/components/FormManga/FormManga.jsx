@@ -14,8 +14,7 @@ export default function FormManga() {
     
     async function handleSubmit(e){
         e.preventDefault()
-            
-            console.log(Object.keys(category.current))
+        
             let data = {
             [title.current.name]: title.current.value,
             [category.current.name]: category.current.value,
@@ -43,3 +42,4 @@ export default function FormManga() {
             </div>
     )
 }
+
