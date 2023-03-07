@@ -2,15 +2,18 @@
     .nav {
         width: 100vw !important;
     }
+
     .logo-1 {
         display: none !important;
     }
-    .logo-min{
+
+    .logo-min {
         display: block !important;
         height: 48px;
         width: 40px;
         object-fit: contain;
     }
+
     .header-container {
         padding: 46px 50px !important;
     }
@@ -23,23 +26,24 @@
     background-color: transparent;
     position: absolute;
     width: 100%;
-    padding: 46px 91px;
+    padding: 30px 91px;
 }
 
-.nav-toggler img{
+.nav-toggler img {
     width: 57px;
     height: 55px;
 }
-.nav-toggler img:hover{
+
+.nav-toggler img:hover {
     cursor: pointer;
 }
 
-.logo-1{
+.logo-1 {
     width: 193px;
     height: 42px;
 }
 
-.logo-min{
+.logo-min {
     display: none;
 }
 
@@ -53,14 +57,18 @@
     width: 430px;
     height: 100vh;
     background: linear-gradient(162.88deg, #FF5722 -11.37%, #F97316 73.97%);
-    border-radius: 10px;
     z-index: 2;
-}
-.open{
-    display: none;
+    transition: 0.3s ease all;
+    transform: translateX(0);
+    gap: 1vh;
+
 }
 
-.nav-top{
+.open {
+    transform: translateX(-101%) !important;
+}
+
+.nav-top {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -95,34 +103,23 @@
 .nav-user img {
     height: 46px;
     width: 46px;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
-.nav-close-btn img{
+.nav-close-btn img {
     height: 14px;
     width: 14px;
 }
-.nav-close-btn button{
+
+.nav-close-btn button {
     background: transparent;
     border: none;
 }
-.nav-close-btn button:hover{
+
+.nav-close-btn button:hover {
     cursor: pointer;
-}
-
-
-.nav-btn-1 {
-    font-weight: 600;
-    font-size: 15px;
-    line-height: 24px;
-    width: 382px;
-    padding: 12px 0 12px 0;
-    background: #FFFFFF;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color:#FF5722;
 }
 
 .nav-btn {
@@ -138,4 +135,14 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+}
+
+.nav-btn:hover {
+    color: #FF5722;
+    background: #FFFFFF;
+}
+
+.nav-btn:focus {
+    color: #FF5722;
+    background: #FFFFFF;
 }

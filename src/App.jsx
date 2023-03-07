@@ -1,12 +1,13 @@
 import './App.css'
-import Index from './pages/Index'
+import { router } from './pages/index'
+import { RouterProvider } from 'react-router-dom'
+// import FormManga from './components/FormManga/FormManga'
 
 function App() {
 
 	return (
-		<div>
-			<Index/>
-		</div>
+		<RouterProvider router={router} />
+		// <FormManga />
 	)
 }
 

@@ -1,0 +1,35 @@
+fieldset {
+    margin: 0;
+    width: 384px;
+    height: 32px;
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(31, 31, 31, 0.5);
+    z-index: 1;
+    padding: 16px;
+    color: #F97316;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+fieldset img {
+    height: 16px;
+    width: 16px;
+    position: relative;
+    bottom: 4px;
+}
+
+input {
+    width: 340px;
+    height: 30px;
+    background-color: #EBEBEB;
+    border: none;
+    z-index: 0;
+}
+
+input:focus {
+    outline: none;
+}

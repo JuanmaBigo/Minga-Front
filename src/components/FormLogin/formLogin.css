@@ -4,6 +4,15 @@
     gap: 32px;
 }
 
+.title-form{
+    display: flex;
+    gap: 1vh;
+}
+
+.title-form h5{
+    color: #F97316;
+}
+
 .form-cont {
     display: flex;
     flex-direction: column;

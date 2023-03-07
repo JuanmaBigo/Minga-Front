@@ -14,6 +14,9 @@
     min-height: 100vh;
     display: flex;
 }
+.register-container.reverse{
+    flex-direction: row-reverse;
+}
 
 .form {
     width: 50vw;
@@ -33,6 +36,10 @@
     background-repeat: no-repeat;
 }
 
+.img-container.reverse{
+    background-image: url(../../assets/img/img-form-login.png);
+}
+
 .text-container-3 {
     display: flex;
     flex-direction: column;
@@ -49,8 +56,13 @@
     object-fit: contain;
 }
 
-.text-container-3 h5 {
+.title-form {
     color: #1F1F1F;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+}
+.title-form h5{
     font-weight: 600;
     font-size: 32px;
     line-height: 48px;

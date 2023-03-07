@@ -1,18 +1,18 @@
+import React from 'react'
 import { useRef } from 'react'
 import { Toaster,toast } from 'react-hot-toast';
-import './Form.css'
+import './formLogin.css'
 import axios from 'axios'
 import GoogleLogo from '../../assets/img/Google.png'
-import Profile from '../../assets/img/profile.png'
 import Email from '../../assets/img/@.png'
 import Lock from '../../assets/img/lock1.png'
 import FormFields from '../FormFields/FormFields'
-import Camera from '../../assets/img/Camera.png'
+import {useNavigate} from 'react-router-dom'
 
 
-export default function Form() {
+export default function FormLogin() {
     let formReg = useRef()
-    
+    const navigate = useNavigate()
 
 
     async function handleSubmit(event) {
@@ -27,40 +27,41 @@ export default function Form() {
             }
         })
         dataInputs.pop()
-        console.log(dataInputs);
 
         let data = {
             [dataInputs[0].name]:dataInputs[0].value,
             [dataInputs[1].name]:dataInputs[1].value,
-            [dataInputs[3].name]:dataInputs[3].value,
-            [dataInputs[2].name]:dataInputs[2].value,
         }
 
-        let url = 'http://localhost:8080/auth/signup'
-        try {
-            await axios.post(
-                url,    /* URL del endpoint para crear una categoria */
-                data    /* objeto necesario para crear una categoria (tal cual lo armo en postman) */
-            )
-            formReg.current.reset()
-            toast.success("User Successfully Created")
-        } catch (error) {
-            if(typeof error.response.data.message === 'string'){
-                toast.error(error.response.data.message)
-            }else{
-                error.response.data.message.forEach(err => toast.error(err))
+        let url = 'http://localhost:8080/auth/signin'
+            try {
+                await axios.post(url,data)
+                .then(res => {
+                 localStorage.setItem('token',res.data.token);
+                 localStorage.setItem('user',JSON.stringify({
+                    name:res.data.user.name,
+                    email:res.data.user.email,
+                    photo: res.data.user.photo
+                 }))
+                 setTimeout(() => {
+                    navigate('/');
+                  }, 1000);
+                })
+                formReg.current.reset()
+                toast.success("Successful session start")
+        
+            } catch (error) {
+                toast.error("wrong credentials!")
             }
-        }
-        event.target.reset()
+            event.target.reset()
 
     }
+    
 
-    return (
-        <form className='form-cont' onSubmit={handleSubmit} ref={formReg}>
+  return (
+    <form className='form-cont' onSubmit={handleSubmit} ref={formReg}>
             <div className='form-container'>
-                <FormFields legend = 'Name' type = 'text' id = 'name' name = 'name'  src = {Profile}/>
                 <FormFields legend = 'Email' type = 'email' id = 'email' name = 'email'  src = {Email}/>
-                <FormFields legend = 'Photo' type = 'text' id = 'photo' name = 'photo'  src = {Camera}/>
                 <FormFields legend = 'Password' type = 'password' id = 'password' name = 'password'  src = {Lock}/>
             </div>
 
@@ -69,7 +70,7 @@ export default function Form() {
                 <label htmlFor="email_notification">Send notification to my email</label>
             </div>
 
-            <input type="submit" className='btn-submit' value="Sign up" />
+            <input type="submit" className='btn-submit' value="Sign in" />
             <button className='google-btn'><img src={GoogleLogo} alt='Google logo' /><p>Sign in with Google</p></button>
 
             <Toaster
@@ -78,5 +79,5 @@ export default function Form() {
             />
 
         </form>
-    )
+  )
 }

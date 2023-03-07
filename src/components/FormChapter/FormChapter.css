@@ -1,0 +1,61 @@
+.form-chapter {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #EBEBEB;
+}
+
+.new-chapter-title {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 54px;
+    color: #222222;
+    margin-bottom: 75px;
+}
+
+.chapter-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 115px;
+}
+
+.chapter-inputs input {
+    background-color: #EBEBEB;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    width: 280px;
+    height: 24px;
+}
+
+.chapter-inputs input::placeholder {
+    color: #9D9D9D;
+}
+
+.line {
+    position: relative;
+    bottom: 3px;
+    border-bottom: 1px solid #424242;
+}
+
+.form-chapter-btn {
+    background: linear-gradient(162.88deg, #FF5722 -11.37%, #F97316 73.97%);
+    border-radius: 50000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    color: white;
+    letter-spacing: 0em;
+    width: 280px;
+    height: 62px;
+}
+
+.form-chapter-btn:hover {
+    cursor: pointer;
+}
