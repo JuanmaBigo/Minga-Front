@@ -3,6 +3,7 @@ import './formmanga.css'
 import SelectManga from '../SelectManga/Selectmanga'
 import { useRef } from 'react'
 import axios from 'axios'
+import {Toaster,toast} from 'react-hot-toast'
 
 
 
@@ -24,9 +25,9 @@ export default function FormManga() {
         let url = 'http://localhost:8080/mangas'
         try {
             await axios.post(url,data) 
-            alert('Manga created susccesfully')
+            toast.success('Manga created susccesfully')
         } catch (error) {
-            alert(error.response.data.message)
+            toast.error(error.response.data.message)
         }
         e.target.reset()
     }
@@ -34,11 +35,15 @@ export default function FormManga() {
         <div className='manga' onSubmit={handleSubmit}>
             <h1>New Manga</h1>
             <form className='formManga'>
-                <input type='text' placeholder='Insert title' ref={title} name='title'/>
+                <input className='input-manga' type='text' placeholder='Insert title' ref={title} name='title'/>
                 <SelectManga  parentref={category} name='category' />
-                <input type='text' placeholder='Insert description' ref={description} name='description'/>
+                <input className='input-manga' type='text' placeholder='Insert description' ref={description} name='description'/>
                 <input className='submit' type='submit' value='Send' />
             </form>
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+            />
             </div>
     )
 }
