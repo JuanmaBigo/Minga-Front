@@ -29,7 +29,11 @@ export default function FormManga() {
             await axios.post(url,data) 
             toast.success('Manga created susccesfully')
         } catch (error) {
-            toast.error(error.response.data.message)
+            if(typeof error.response.data.message === 'string'){
+                toast.error(error.response.data.message)
+            }else{
+                error.response.data.message.forEach(err => toast.error(err))
+            }
         }
         e.target.reset()
     }
