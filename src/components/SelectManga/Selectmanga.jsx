@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 export default function Selectmanga(props) {
 
-    let url = 'http://localhost:8080/mangas'
+    let url = 'http://localhost:8080/mangas/category-manga'
 
     let [ categories, setCategories ] = useState([])
         useEffect(
@@ -17,7 +17,7 @@ export default function Selectmanga(props) {
                 console.log(e);
             })
             },
-            []
+            [url]
         )
         return (
             <select  name={props.name} ref={props.parentref} className='selectmanga'>

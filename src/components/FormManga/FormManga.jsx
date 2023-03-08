@@ -12,6 +12,7 @@ export default function FormManga() {
     let title  = useRef()
     let category = useRef()
     let description = useRef()
+    let photo = useRef()
     
     async function handleSubmit(e){
         e.preventDefault()
@@ -20,6 +21,7 @@ export default function FormManga() {
             [title.current.name]: title.current.value,
             [category.current.name]: category.current.value,
             [description.current.name]: description.current.value,
+            [photo.current.name]:photo.current.value
 
         }
         let url = 'http://localhost:8080/mangas'
@@ -38,6 +40,7 @@ export default function FormManga() {
                 <input className='input-manga' type='text' placeholder='Insert title' ref={title} name='title'/>
                 <SelectManga  parentref={category} name='category' />
                 <input className='input-manga' type='text' placeholder='Insert description' ref={description} name='description'/>
+                <input className='input-manga' type='text' placeholder='Insert photo' ref={photo} name='photo'/>
                 <input className='submit' type='submit' value='Send' />
             </form>
             <Toaster
