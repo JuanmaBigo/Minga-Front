@@ -38,7 +38,7 @@ export default function FormManga() {
         e.target.reset()
     }
     return (
-        <div className='manga' onSubmit={handleSubmit}>
+        <div className='manga-form' onSubmit={handleSubmit}>
             <h1>New Manga</h1>
             <form className='formManga'>
                 <input className='input-manga' type='text' placeholder='Insert title' ref={title} name='title'/>

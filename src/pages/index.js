@@ -5,7 +5,7 @@ import Index from "./Index/Index";
 import AuthForm from "./AuthForm/AuthForm";
 import MangaForm from "./MangaForm/MangaForm";
 import ChapterForm from './ChapterForm/ChapterForm'
-
+import Mangas from "./Mangas/Mangas";
 
 import { createBrowserRouter } from "react-router-dom"
 
@@ -33,7 +33,8 @@ export const router = createBrowserRouter([
             {path:'register',element : <AuthForm />},
             {path:'signin',element : <AuthForm text ={'false'}/>},
             {path:'/manga-form', element: <MangaForm />},
-            {path: '/chapter-form/:manga_id', element: <ChapterForm/>}
+            {path: '/chapter-form/:manga_id', element: <ChapterForm/>},
+            {path: '/manga/:page', element: <Mangas/>}
         ]
     } 
     

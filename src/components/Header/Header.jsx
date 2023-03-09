@@ -6,8 +6,10 @@ import BtnLogo from '../../assets/img/Menu.png'
 import UserImage from '../../assets/img/userimage.png'
 import BtnClose from '../../assets/img/Union.png'
 import LogoMin from '../../assets/img/logo-min.png'
+import Manga from '../Manga/Manga'
 import { Link as Anchor } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
+
 
 
 export default function Header() {
@@ -70,8 +72,9 @@ export default function Header() {
                 </div>
         
                 <Anchor className='nav-btn' to='/'>Home</Anchor>
-                <Anchor className='nav-btn' to='/manga-form'>Manga-Form</Anchor>
-                <Anchor className='nav-btn' to='/auth'>Auth</Anchor>
+                {token ? <Anchor className='nav-btn' to='/manga-form'>Manga-Form</Anchor> : ''}
+                <Anchor className='nav-btn' to='/manga/:page'>Manga</Anchor>
+                {token ? '' : <Anchor className='nav-btn' to='/auth'>Auth</Anchor>}
                 {token ? '' : <Anchor className='nav-btn' to='/register'>Register</Anchor>}
                 {token ? '' : <Anchor className='nav-btn' to='/signin' text={'false'}>Login</Anchor>}
                 {token ? <Anchor className='nav-btn' onClick={handleSignOut}>Logout</Anchor> : ''}
