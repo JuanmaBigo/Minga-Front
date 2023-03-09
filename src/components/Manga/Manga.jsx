@@ -28,6 +28,10 @@ export default function Manga() {
                 <CardsManga/>
                 <CardsManga/>
             </div>
+            <div className='page-manga'>
+                <button className='btn-prev'>Prev</button>
+                <button className='btn-next'>Next</button>
+            </div>
         </div>
     </div>
   )

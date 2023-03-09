@@ -60,5 +60,55 @@
     line-height: 95.19%;
     border:none;
     color: #00BA88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+}
+
+@media (max-width:1023px){
+    .card{
+        width: 50vw;
+    }
+    .span-card{
+        width: 0.8vw;
+    }
+    .inf-card{
+        width: 25vw;
+    }
+    .img-card{
+        width: 25vw;
+    }
+}
+
+@media (max-width:767px){
+    .card{
+        width: 80vw;
+    }
+    .span-card{
+        width: 0.8vw;
+    }
+    .inf-card{
+        width: 30vw;
+    }
+    .img-card{
+        width: 32vw;
+    }
+}
+
+@media (max-width:424px){
+    .card{
+        height: 20vh;
+    }
+    .span-card{
+        width: 1vw;
+        height: 14vh;
+    }
+    .inf-card{
+        height: 20vh;
+        padding-top: 4vh;
+    }
+    .img-card{
+        height: 20vh;
+    }
 }
