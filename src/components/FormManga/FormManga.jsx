@@ -15,13 +15,16 @@ export default function FormManga() {
     
     async function handleSubmit(e){
         e.preventDefault()
+
             let data = {
             [title.current.name]: title.current.value,
             [category.current.name]: category.current.value,
             [description.current.name]: description.current.value,
 
         }
+
         let url = 'http://localhost:8080/api/mangas'
+
         try {
             await axios.post(url,data) 
             toast.success('Manga created susccesfully')

@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 
 export default function Selectmanga(props) {
 
+
     let url = 'http://localhost:8080/api/mangas'
 
     let [ categories, setCategories ] = useState([])
