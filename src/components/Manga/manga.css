@@ -78,7 +78,9 @@
 .cont-checks{
     height: 17vh;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
 }
 
 .cont-cards{
@@ -138,13 +140,19 @@
     cursor: pointer;
 }
 
+
 @media (max-width: 1023px){
     .cont-checks{
-        justify-content: center;
+        align-items: center;
     }
 }
 
 @media (max-width:767px){
+    .cont-checks{
+        height: 20vh;
+        padding: 2vh 0;
+        gap: 2vh;
+    }
     .page-manga{
         gap: 8vh;
     }

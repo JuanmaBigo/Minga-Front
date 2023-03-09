@@ -1,0 +1,92 @@
+.typeMangas{
+    display: none;
+}
+.cont-btn{
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    margin-top: 1vh;
+    gap: 6vh;
+}
+.btn-adventure{
+    border: none;
+    width: 12vw;
+    height: 8vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    padding-bottom: 1vh;
+    background: transparent;
+    background-image: url(../../assets/img/adventures.png);
+    background-size: cover;
+    background-position: center;
+}
+.btn-nostalgic{
+    border: none;
+    width: 12vw;
+    height: 8vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    padding-bottom: 1vh;
+    background: transparent;
+    background-image: url(../../assets/img/nostalgic.png);
+    background-size: cover;
+    background-position: center;
+}
+.btn-popular{
+    border: none;
+    width: 12vw;
+    height: 8vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    padding-bottom: 1vh;
+    background: transparent;
+    background-image: url(../../assets/img/popular.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.name-typemanga{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 95.19%;
+    align-self: self-start;
+    margin-left: 6vh;
+}
+
+@media (max-width: 767px){
+    .typeMangas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70vw;
+        height: 20vh;
+    }
+}
+@media (max-width: 424px){
+    .name-typemanga{
+        margin-left: 0;
+    }
+    .cont-btn{
+        gap: 2vh;
+    }
+    .btn-adventure{
+        width: 20vw;
+    }
+    .btn-nostalgic{
+        width: 20vw;
+    }
+    .btn-popular{
+        width: 20vw;
+    }
+}

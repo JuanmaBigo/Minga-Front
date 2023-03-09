@@ -3,6 +3,7 @@ import './manga.css'
 import search from '../../assets/img/Search.png'
 import CardsManga from '../CardsManga/CardsManga'
 import ChecksManga from '../ChecksManga/ChecksManga'
+import TypeManga from '../TypeManga/TypeManga'
 
 export default function Manga() {
   return (
@@ -18,6 +19,7 @@ export default function Manga() {
         </div>
         <div className='card-manga'>
             <div className='cont-checks'>
+                <TypeManga/>
                 <ChecksManga/>
             </div>
             <div className='cont-cards'>
