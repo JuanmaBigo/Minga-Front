@@ -35,6 +35,7 @@ export const router = createBrowserRouter([
             {path:'/manga-form', element: <MangaForm />},
             {path: '/chapter-form/:manga_id', element: <ChapterForm/>},
             {path: '/chapters/:id/:page'}
+
         ]
     } 
     
