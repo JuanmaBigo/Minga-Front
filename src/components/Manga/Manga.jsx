@@ -4,25 +4,40 @@ import searchImg from '../../assets/img/Search.png'
 import CardsManga from '../CardsManga/CardsManga'
 import ChecksManga from '../ChecksManga/ChecksManga'
 import TypeManga from '../TypeManga/TypeManga'
-import axios from 'axios'
+import { useSelector,useDispatch } from 'react-redux'
+import textAction from '../../store/search/actions'
+import eventActions from '../../store/Events/actions'
+const {captureText} = textAction
+const {read_events} = eventActions
 
 export default function Manga() {
+    const title = useRef("")
+    const dispatch = useDispatch()
     let category = useRef()
-    let [ mangas, setCategories ] = useState([])
-
-    let url = `http://localhost:8080/api/mangas`
+    const [reload,setReload] = useState(false)
+    
+    
     useEffect(
         () => {
-            axios.get(url)
-            .then( response => setCategories( response.data.mangas ) )
-            .catch(e => {
-            console.log(e);
-        })
+            console.log(!mangas);
+            if (!mangas){
+                dispatch(read_events({inputText:title.current.value}))
+            }
+            
         },
-        [url]
+        [reload]
     )
 
-  
+    function handleChange(){
+        setReload(!reload)
+        dispatch(captureText({inputText: title.current.value}))
+    }
+
+    let defaultText = useSelector(store => store.text.text)
+    let mangas = useSelector(store => store.events.events)
+    console.log(useSelector(store => store));
+    
+    
   return (
     <div className='manga'>
         <div className='search-manga'>
@@ -30,7 +45,7 @@ export default function Manga() {
             <div className='cont-searh-manga'>
                 <img className='img-search' src={searchImg} alt="search" />
                 <form className='form-search' >
-                    <input className='input-search' type="text" name="title" id="title" placeholder='Find your manga here' />
+                    <input ref={title} defaultValue={defaultText} className='input-search' type="text" name="title" id="title" placeholder='Find your manga here' onChange={handleChange}/>
                 </form>
             </div>
         </div>
