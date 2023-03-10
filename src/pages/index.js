@@ -1,3 +1,4 @@
+import React from 'react'
 import Hero from "../components/Hero/Hero";
 import IndexLayout from "../layouts/IndexLayout/IndexLayout";
 import MainLayout from '../layouts/MainLayout/MainLayout'
@@ -7,6 +8,7 @@ import MangaForm from "./MangaForm/MangaForm";
 import ChapterForm from './ChapterForm/ChapterForm'
 import Mangas from "./Mangas/Mangas";
 import Chapters from "../components/Chapters/Chapters";
+import MangaDetails from './MangaDetails/MangaDetails';
 
 
 
@@ -38,7 +40,9 @@ export const router = createBrowserRouter([
             {path:'/manga-form', element: <MangaForm />},
             {path: '/chapter-form/:manga_id', element: <ChapterForm/>},
             {path: '/mangas/:page', element: <Mangas/>},
-            {path: '/chapters/:id/:page',element: <Chapters /> }
+            {path: '/chapters/:id/:page',element: <Chapters /> },
+            {path: '/manga/:id/:page', element: <MangaDetails/>}
+
 
         ]
     } 

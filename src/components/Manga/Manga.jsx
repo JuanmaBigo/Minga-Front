@@ -16,16 +16,17 @@ export default function Manga() {
     let category = useRef()
     const [reload,setReload] = useState(false)
     
-    
+    let mangas = useSelector(store => store.events.events)
+
     useEffect(
         () => {
-            console.log(!mangas);
-            if (!mangas){
+           
+            if (!mangas.length){
                 dispatch(read_events({inputText:title.current.value}))
             }
             
         },
-        [reload]
+        [reload,title]
     )
 
     function handleChange(){
@@ -34,8 +35,6 @@ export default function Manga() {
     }
 
     let defaultText = useSelector(store => store.text.text)
-    let mangas = useSelector(store => store.events.events)
-    console.log(useSelector(store => store));
     
     
   return (
