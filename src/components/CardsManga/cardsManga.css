@@ -1,0 +1,114 @@
+.card{
+    width: 26.17vw;
+    height: 25vh;
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
+}
+.span-card{
+    height: 17.78vh;
+    width: 0.4vw;
+    background: #F97316;
+}
+.inf-card{
+    width: 13.02vw;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+    padding-left: 1.5vh;
+    padding-top: 8vh;
+}
+.img-card{
+    width: 12.7vw;
+    height: 25vh;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 90px 10px 10px 90px;
+}
+
+.title-card{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 95.19%;
+}
+.type-card{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 95.19%;
+    color: #F97316;
+}
+.btn-card{
+    width: 92px;
+    height: 35px;
+    margin-top: 2vh;
+    background: #D1FBF0;
+    padding: 1.68vh 4.48vh;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 50px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 95.19%;
+    border:none;
+    color: #00BA88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+@media (max-width:1023px){
+    .card{
+        width: 50vw;
+    }
+    .span-card{
+        width: 0.8vw;
+    }
+    .inf-card{
+        width: 25vw;
+    }
+    .img-card{
+        width: 25vw;
+    }
+}
+
+@media (max-width:767px){
+    .card{
+        width: 80vw;
+    }
+    .span-card{
+        width: 0.8vw;
+    }
+    .inf-card{
+        width: 30vw;
+    }
+    .img-card{
+        width: 32vw;
+    }
+}
+
+@media (max-width:424px){
+    .card{
+        height: 20vh;
+    }
+    .span-card{
+        width: 1vw;
+        height: 14vh;
+    }
+    .inf-card{
+        height: 20vh;
+        padding-top: 4vh;
+    }
+    .img-card{
+        height: 20vh;
+    }
+}

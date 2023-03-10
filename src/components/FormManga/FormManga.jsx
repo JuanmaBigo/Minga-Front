@@ -12,6 +12,7 @@ export default function FormManga() {
     let title  = useRef()
     let category = useRef()
     let description = useRef()
+    let photo = useRef()
     
     async function handleSubmit(e){
         e.preventDefault()
@@ -20,6 +21,7 @@ export default function FormManga() {
             [title.current.name]: title.current.value,
             [category.current.name]: category.current.value,
             [description.current.name]: description.current.value,
+            [photo.current.name]:photo.current.value
 
         }
 
@@ -29,17 +31,22 @@ export default function FormManga() {
             await axios.post(url,data) 
             toast.success('Manga created susccesfully')
         } catch (error) {
-            toast.error(error.response.data.message)
+            if(typeof error.response.data.message === 'string'){
+                toast.error(error.response.data.message)
+            }else{
+                error.response.data.message.forEach(err => toast.error(err))
+            }
         }
         e.target.reset()
     }
     return (
-        <div className='manga' onSubmit={handleSubmit}>
+        <div className='manga-form' onSubmit={handleSubmit}>
             <h1>New Manga</h1>
             <form className='formManga'>
                 <input className='input-manga' type='text' placeholder='Insert title' ref={title} name='title'/>
                 <SelectManga  parentref={category} name='category' />
                 <input className='input-manga' type='text' placeholder='Insert description' ref={description} name='description'/>
+                <input className='input-manga' type='text' placeholder='Insert photo' ref={photo} name='photo'/>
                 <input className='submit' type='submit' value='Send' />
             </form>
             <Toaster
