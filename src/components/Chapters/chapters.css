@@ -5,3 +5,40 @@
     align-items: center;
 }
 
+.image {
+    object-fit: contain;
+    height: 80%;
+    width: 40%;
+
+}
+
+.prev {
+    height: 80%;
+    width: 21%;
+    position: relative;
+    left: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.prev img {
+    width: 0.8rem;
+    background-color: rgba(128, 128, 128, 0.534);
+    padding: 0.1rem;    
+}
+
+.next {
+    height: 80%;
+    width: 21%;
+    position: relative;
+    right: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.next img {
+    width: 0.8rem;
+    background-color: rgba(128, 128, 128, 0.534);
+    padding: 0.1rem;
+}

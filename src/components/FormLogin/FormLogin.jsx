@@ -33,7 +33,9 @@ export default function FormLogin() {
             [dataInputs[1].name]:dataInputs[1].value,
         }
 
+
         let url = 'http://localhost:8080/api/auth/signin'
+
             try {
                 await axios.post(url,data)
                 .then(res => {
