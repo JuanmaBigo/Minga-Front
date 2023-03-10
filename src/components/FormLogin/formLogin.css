@@ -50,6 +50,7 @@
     font-size: 14px;
     line-height: 21px;
     color: #EBEBEB;
+    border: none;
 }
 
 .btn-submit:hover {
