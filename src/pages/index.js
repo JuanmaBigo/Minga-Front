@@ -5,13 +5,10 @@ import Index from "./Index/Index";
 import AuthForm from "./AuthForm/AuthForm";
 import MangaForm from "./MangaForm/MangaForm";
 import ChapterForm from './ChapterForm/ChapterForm'
-<<<<<<< HEAD
 import Mangas from "./Mangas/Mangas";
-=======
 import Chapters from "../components/Chapters/Chapters";
 
 
->>>>>>> f034c991e08e199adc2febc0c13974cc973ffe76
 
 import { createBrowserRouter } from "react-router-dom"
 
