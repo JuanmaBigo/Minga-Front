@@ -6,7 +6,6 @@ import BtnLogo from '../../assets/img/Menu.png'
 import UserImage from '../../assets/img/userimage.png'
 import BtnClose from '../../assets/img/Union.png'
 import LogoMin from '../../assets/img/logo-min.png'
-import Manga from '../Manga/Manga'
 import { Link as Anchor } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 
@@ -14,40 +13,6 @@ import { toast } from 'react-hot-toast'
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(true)
-    let url = `http://localhost:8080/api/auth/token`
-    let token = localStorage.getItem('token')
-    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-
-    async function handleSignOut() {
-        try {
-            await axios.post(url, null, headers).then(res =>
-                localStorage.setItem('token', ''));
-            localStorage.setItem('user', JSON.stringify({
-                name: '',
-                email: '',
-                photo: ''
-            }))
-            setIsOpen(!isOpen)
-            toast.success('The session was closed successfully!')
-        } catch (error) {
-            toast.error("You're already signed out or not signed in")
-        }
-    }
-
-
-
-    if (!token) {
-        localStorage.setItem('user', JSON.stringify({
-            name: '',
-            email: '',
-            photo: ''
-        }))
-    }
-
-    let user = JSON.parse(localStorage.getItem('user'));
-    let name = user.name
-    let email = user.email
-    let photo = user.photo
 
 
     let url = `http://localhost:8080/api/auth/token`
@@ -111,8 +76,6 @@ export default function Header() {
                 {token ? <Anchor className='nav-btn' to='/manga-form'>Manga-Form</Anchor> : ''}
                 <Anchor className='nav-btn' to='/manga/:page'>Manga</Anchor>
                 {token ? '' : <Anchor className='nav-btn' to='/auth'>Auth</Anchor>}
-                <Anchor className='nav-btn' to='/manga-form'>Mangas</Anchor>
-                <Anchor className='nav-btn' to='/chapters/:id/:page'>Chapters</Anchor>
                 <Anchor className='nav-btn' to='/auth'>Auth</Anchor>
                 {token ? '' : <Anchor className='nav-btn' to='/register'>Register</Anchor>}
                 {token ? '' : <Anchor className='nav-btn' to='/signin' text={'false'}>Login</Anchor>}
