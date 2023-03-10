@@ -1,6 +1,6 @@
 import React,{useRef,useState,useEffect} from 'react'
 import './manga.css'
-import search from '../../assets/img/Search.png'
+import searchImg from '../../assets/img/Search.png'
 import CardsManga from '../CardsManga/CardsManga'
 import ChecksManga from '../ChecksManga/ChecksManga'
 import TypeManga from '../TypeManga/TypeManga'
@@ -8,41 +8,27 @@ import axios from 'axios'
 
 export default function Manga() {
     let category = useRef()
-
-    // console.log(category.current[1]);
-
-    // let dataInputs = []
-        
-
-    //     Object.values(category.current).forEach(inputForm => {
-    //         if(inputForm.name){
-    //             dataInputs.push(inputForm)
-    //         }
-    //     })
-
-        
-    // console.log(dataInputs );
-
-    let url = 'http://localhost:8080/api/mangas'
-
     let [ mangas, setCategories ] = useState([])
-        useEffect(
-            () => {
-                axios.get(url)
-                .then( response => setCategories( response.data.mangas ) )
-                .catch(e => {
-                console.log(e);
-            })
-            },
-            [url]
-        )
 
+    let url = `http://localhost:8080/api/mangas`
+    useEffect(
+        () => {
+            axios.get(url)
+            .then( response => setCategories( response.data.mangas ) )
+            .catch(e => {
+            console.log(e);
+        })
+        },
+        [url]
+    )
+
+  
   return (
     <div className='manga'>
         <div className='search-manga'>
             <h2 className='name-page'>Manga</h2>
             <div className='cont-searh-manga'>
-                <img className='img-search' src={search} alt="search" />
+                <img className='img-search' src={searchImg} alt="search" />
                 <form className='form-search' >
                     <input className='input-search' type="text" name="title" id="title" placeholder='Find your manga here' />
                 </form>
