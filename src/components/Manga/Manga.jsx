@@ -5,6 +5,7 @@ import searchImg from '../../assets/img/Search.png'
 import CardsManga from '../CardsManga/CardsManga'
 import ChecksManga from '../ChecksManga/ChecksManga'
 import TypeManga from '../TypeManga/TypeManga'
+import NoCard from '../NoCard/NoCard'
 import { useSelector,useDispatch } from 'react-redux'
 import textActions from '../../store/search/actions'
 import eventActions from '../../store/Events/actions'
@@ -63,9 +64,9 @@ export default function Manga() {
                 <ChecksManga />
             </div>
             <div className='cont-cards'>
-                {mangas.map((manga) => (
-                    <CardsManga key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id}/>
-                ))}   
+                {mangas.length?(mangas.map((manga) => (
+                        <CardsManga key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id}/>
+                    ))):<NoCard/>} 
             </div>
             <div className='page-manga'>
                 {pageNumber === 1 ? "" :<Anchor  className='btn-prev' to={'/mangas/' + (pageNumber - 1)}>Prev</Anchor>}
