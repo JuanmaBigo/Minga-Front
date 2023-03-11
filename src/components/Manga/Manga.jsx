@@ -1,4 +1,5 @@
 import React,{useRef,useState,useEffect} from 'react'
+import { useParams,Link as Anchor,useNavigate } from 'react-router-dom'
 import './manga.css'
 import searchImg from '../../assets/img/Search.png'
 import CardsManga from '../CardsManga/CardsManga'
@@ -14,6 +15,15 @@ export default function Manga() {
     const title = useRef("")
     const dispatch = useDispatch()
     const [reload,setReload] = useState(false)
+    const {page} = useParams()
+    const pageNumber = Number(page)
+    let navigate = useNavigate()
+
+    useEffect(() => {
+        if (page === ':page') {
+          navigate('/mangas/1')
+        }
+      }, [page]);
     
     
     let mangas = useSelector(store => store.events.events)
@@ -33,8 +43,6 @@ export default function Manga() {
         dispatch(captureText({inputText: title.current.value}))
     }   
 
-    // console.log(useSelector(store =>store));
-    // console.log(defaultChecks);
 
   return (
     <div className='manga'>
@@ -58,8 +66,8 @@ export default function Manga() {
                 ))}   
             </div>
             <div className='page-manga'>
-                <button className='btn-prev'>Prev</button>
-                <button className='btn-next'>Next</button>
+                {pageNumber === 1 ? "" :<Anchor  className='btn-prev' to={'/mangas/' + (pageNumber - 1)}>Prev</Anchor>}
+                {mangas.length === 6 || mangas.length === 10 ? <Anchor  className='btn-next' to={'/mangas/' + (pageNumber + 1)}>Next</Anchor>: ""}
             </div>
         </div>
     </div>
