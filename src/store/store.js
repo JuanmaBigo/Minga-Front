@@ -7,6 +7,6 @@ export const store = configureStore({
     reducer:{
         text: textReducer,
         events: eventReducer,
-        checks: checkReducer
+        checks: checkReducer, 
     }
 })

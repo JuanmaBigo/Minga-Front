@@ -11,6 +11,7 @@ import eventActions from '../../store/Events/actions'
 const {captureText} = textActions
 const {read_events} = eventActions
 
+
 export default function Manga() {
     const title = useRef("")
     const dispatch = useDispatch()
@@ -32,9 +33,9 @@ export default function Manga() {
 
     useEffect(
         () => {
-            dispatch(read_events({inputText:defaultText,inputCheck:defaultChecks}))
+            dispatch(read_events({inputText:defaultText,inputCheck:defaultChecks,inputPage:page}))
         },
-        [reload,defaultText,defaultChecks]
+        [page,defaultText,defaultChecks,reload]
     )
 
 
@@ -43,6 +44,7 @@ export default function Manga() {
         dispatch(captureText({inputText: title.current.value}))
     }   
 
+    
 
   return (
     <div className='manga'>
@@ -62,7 +64,7 @@ export default function Manga() {
             </div>
             <div className='cont-cards'>
                 {mangas.map((manga) => (
-                    <CardsManga key={manga.title} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo}/>
+                    <CardsManga key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id}/>
                 ))}   
             </div>
             <div className='page-manga'>

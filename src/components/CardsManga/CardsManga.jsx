@@ -7,7 +7,7 @@ export default function CardsManga(props) {
   let navigate = useNavigate()
 
   function handleNavegate(){
-    navigate('/manga-form')
+    navigate(`/manga/${props._id}/1`)
 
   }
 
