@@ -4,8 +4,9 @@ import axios from "axios";
 
 const read_events = createAsyncThunk(
     'read_events',
-    async({inputText}) => {
-        let url = `http://localhost:8080/api/mangas?title=${inputText.trim()}`
+    async({inputText,inputCheck}) => {
+        console.log(inputCheck);
+        let url = `http://localhost:8080/api/mangas?title=${inputText.trim()}&category_id=${inputCheck.join()}`
         try{
             let response = await axios.get(url)
             return{

@@ -5,38 +5,37 @@ import CardsManga from '../CardsManga/CardsManga'
 import ChecksManga from '../ChecksManga/ChecksManga'
 import TypeManga from '../TypeManga/TypeManga'
 import { useSelector,useDispatch } from 'react-redux'
-import textAction from '../../store/search/actions'
+import textActions from '../../store/search/actions'
 import eventActions from '../../store/Events/actions'
-const {captureText} = textAction
+const {captureText} = textActions
 const {read_events} = eventActions
 
 export default function Manga() {
     const title = useRef("")
     const dispatch = useDispatch()
-    let category = useRef()
     const [reload,setReload] = useState(false)
     
+    
     let mangas = useSelector(store => store.events.events)
+    let defaultText = useSelector(store => store.text.text)
+    let defaultChecks = useSelector(store=>store.checks.checks)
 
     useEffect(
         () => {
-           
-            if (!mangas.length){
-                dispatch(read_events({inputText:title.current.value}))
-            }
-            
+            dispatch(read_events({inputText:defaultText,inputCheck:defaultChecks}))
         },
-        [reload,title]
+        [reload,defaultText,defaultChecks]
     )
+
 
     function handleChange(){
         setReload(!reload)
         dispatch(captureText({inputText: title.current.value}))
-    }
+    }   
 
-    let defaultText = useSelector(store => store.text.text)
-    
-    
+    // console.log(useSelector(store =>store));
+    // console.log(defaultChecks);
+
   return (
     <div className='manga'>
         <div className='search-manga'>
@@ -51,7 +50,7 @@ export default function Manga() {
         <div className='card-manga'>
             <div className='cont-checks'>
                 <TypeManga/>
-                <ChecksManga parentref={category}/>
+                <ChecksManga />
             </div>
             <div className='cont-cards'>
                 {mangas.map((manga) => (
