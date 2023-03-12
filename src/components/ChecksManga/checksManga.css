@@ -78,6 +78,27 @@
     cursor:pointer
 }
 
+.select-checks1{
+    background: #424242;
+    color: white;
+}
+.select-checks2{
+    background: #EF8481;
+    color: #FFE0DF;
+}
+.select-checks3{
+    background: #FC9C57;
+    color: #FFDFC8;
+}
+.select-checks4{
+    background: #00BA88;
+    color: #D1FBF0;
+}
+.select-checks5{
+    background: #8883F0;
+    color: #E0DBFF;
+}
+
 @media (max-width:1023px){
     .form-checks{
         width: 50vw;

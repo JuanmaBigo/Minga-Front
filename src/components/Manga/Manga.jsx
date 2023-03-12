@@ -9,8 +9,10 @@ import NoCard from '../NoCard/NoCard'
 import { useSelector,useDispatch } from 'react-redux'
 import textActions from '../../store/search/actions'
 import eventActions from '../../store/Events/actions'
+import alertActions from '../../store/Alert/actions'
 const {captureText} = textActions
 const {read_events} = eventActions
+const {open} =alertActions
 
 
 export default function Manga() {
@@ -27,7 +29,7 @@ export default function Manga() {
         }
       }, [page]);
     
-    
+
     let mangas = useSelector(store => store.events.events)
     let defaultText = useSelector(store => store.text.text)
     let defaultChecks = useSelector(store=>store.checks.checks)
@@ -45,6 +47,14 @@ export default function Manga() {
         dispatch(captureText({inputText: title.current.value}))
     }   
 
+    let dataAler = {
+        icon:'warning',
+        text:'Manga not found Try another search',
+    }
+
+    if(defaultText && !mangas.length){
+        dispatch(open(dataAler))
+    }
     
 
   return (
