@@ -43,7 +43,6 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 95.19%;
-    color: #F97316;
 }
 .btn-card{
     width: 92px;
@@ -65,6 +64,35 @@
     justify-content: center;
     cursor: pointer;
 }
+
+/*color type manga*/
+
+.red-span{
+    background-color:#EF8481 ;
+}
+.orange-span{
+    background-color:#FC9C57 ;
+}
+.green-span{
+    background-color:#00BA88 ;
+}
+.purple-span{
+    background-color:#8883F0;
+}
+
+.red-type{
+    color: #EF8481;
+}
+.orange-type{
+    color: #FC9C57;
+}
+.green-type{
+    color: #00BA88;
+}
+.purple-type{
+    color: #8883F0;
+}
+
 
 @media (max-width:1023px){
     .card{
