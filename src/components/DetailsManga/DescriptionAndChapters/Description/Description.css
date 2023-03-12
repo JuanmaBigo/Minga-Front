@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+.description-of-manga {
+    width: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    margin-top: 27px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: #424242;
+}
