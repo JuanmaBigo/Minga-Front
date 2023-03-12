@@ -1,28 +1,62 @@
 import React,{useRef,useState,useEffect} from 'react'
+import { useParams,Link as Anchor,useNavigate } from 'react-router-dom'
 import './manga.css'
 import searchImg from '../../assets/img/Search.png'
 import CardsManga from '../CardsManga/CardsManga'
 import ChecksManga from '../ChecksManga/ChecksManga'
 import TypeManga from '../TypeManga/TypeManga'
-import axios from 'axios'
+import NoCard from '../NoCard/NoCard'
+import { useSelector,useDispatch } from 'react-redux'
+import textActions from '../../store/search/actions'
+import eventActions from '../../store/Events/actions'
+import alertActions from '../../store/Alert/actions'
+const {captureText} = textActions
+const {read_events} = eventActions
+const {open} =alertActions
+
 
 export default function Manga() {
-    let category = useRef()
-    let [ mangas, setCategories ] = useState([])
+    const title = useRef("")
+    const dispatch = useDispatch()
+    const [reload,setReload] = useState(false)
+    const {page} = useParams()
+    const pageNumber = Number(page)
+    let navigate = useNavigate()
 
-    let url = `http://localhost:8080/api/mangas`
+    useEffect(() => {
+        if (page === ':page') {
+          navigate('/mangas/1')
+        }
+      }, [page]);
+    
+
+    let mangas = useSelector(store => store.events.events)
+    let defaultText = useSelector(store => store.text.text)
+    let defaultChecks = useSelector(store=>store.checks.checks)
+
     useEffect(
         () => {
-            axios.get(url)
-            .then( response => setCategories( response.data.mangas ) )
-            .catch(e => {
-            console.log(e);
-        })
+            dispatch(read_events({inputText:defaultText,inputCheck:defaultChecks,inputPage:page}))
         },
-        [url]
+        [page,defaultText,defaultChecks,reload]
     )
 
-  
+
+    function handleChange(){
+        setReload(!reload)
+        dispatch(captureText({inputText: title.current.value}))
+    }   
+
+    let dataAler = {
+        icon:'warning',
+        text:'Manga not found Try another search',
+    }
+
+    if(defaultText && !mangas.length){
+        dispatch(open(dataAler))
+    }
+    
+
   return (
     <div className='manga'>
         <div className='search-manga'>
@@ -30,23 +64,23 @@ export default function Manga() {
             <div className='cont-searh-manga'>
                 <img className='img-search' src={searchImg} alt="search" />
                 <form className='form-search' >
-                    <input className='input-search' type="text" name="title" id="title" placeholder='Find your manga here' />
+                    <input ref={title} defaultValue={defaultText} className='input-search' type="text" name="title" id="title" placeholder='Find your manga here' onChange={handleChange}/>
                 </form>
             </div>
         </div>
         <div className='card-manga'>
             <div className='cont-checks'>
                 <TypeManga/>
-                <ChecksManga parentref={category}/>
+                <ChecksManga />
             </div>
             <div className='cont-cards'>
-                {mangas.map((manga) => (
-                    <CardsManga key={manga.title} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo}/>
-                ))}   
+                {mangas.length?(mangas.map((manga) => (
+                        <CardsManga key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id}/>
+                    ))):<NoCard/>} 
             </div>
             <div className='page-manga'>
-                <button className='btn-prev'>Prev</button>
-                <button className='btn-next'>Next</button>
+                {pageNumber === 1 ? "" :<Anchor  className='btn-prev' to={'/mangas/' + (pageNumber - 1)}>Prev</Anchor>}
+                {mangas.length === 6 || mangas.length === 10 ? <Anchor  className='btn-next' to={'/mangas/' + (pageNumber + 1)}>Next</Anchor>: ""}
             </div>
         </div>
     </div>
