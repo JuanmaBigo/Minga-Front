@@ -7,7 +7,7 @@ import './chapters.css'
 export default function Chapters() {
 
     let url = `http://localhost:8080/api/chapters/`
-    let { id, page} = useParams()    
+    let { id, page } = useParams()    
     let [ chapterPages, setChapterPages ] = useState([])
 
         useEffect(

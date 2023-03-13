@@ -1,7 +1,11 @@
-.MangaDetails{
+.MangaDetails {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    min-height: 80vh;
+    padding-top: 95px;
+    padding-left: 17px;
+    padding-right: 17px;
+    padding-bottom: 28px;
+    background-color: #EBEBEB;
 }
+

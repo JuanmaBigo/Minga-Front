@@ -1,25 +1,36 @@
-import React from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import "./DetailsManga.css"
+import DetailsMain from "./DetailsMain/DetailsMain"
+import LikeButtons from "./LikeButtons/LikeButtons";
+import ChaptersDetails from "./ChaptersDetails/ChaptersDetails";
+import RatingStats from "./RatingStats/RatingStats";
+import DescriptionAndChapters from "./DescriptionAndChapters/DescriptionAndChapters";
+import { useSelector, useDispatch } from 'react-redux';
+import eventsActions from '../../store/Events/actions';
+const { read_manga, read_chapters } = eventsActions;
 
 export default function DetailsManga() {
+
     let { id, page } = useParams();
-    console.log("id: ", id, "page: ", page);
 
-    let url = "http://localhost:8080/api/mangas/" + id;
-    console.log(url)
+    let dispatch = useDispatch()
+    let chapters = useSelector(store => store.events.chapters)
+
+    useEffect(() => {
+        dispatch(read_manga({ id: id }))
+        dispatch(read_chapters({ id: id, page: page }))
+    }, []);
 
 
-    axios.get(url)
-        .then(function (response) {
-            console.log(response);
-        });
+
+
     return (
         <div className='MangaDetails'>
-        <h1>MangaDetails</h1>
-        <h2>aca van los detalles de un manga</h2>
-        
+            <DetailsMain />
+            <LikeButtons />
+            <RatingStats />
+            <DescriptionAndChapters />
         </div>
     )
 }
