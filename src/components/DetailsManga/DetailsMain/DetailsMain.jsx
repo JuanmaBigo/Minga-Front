@@ -1,20 +1,11 @@
-import React, {useState, useEffect} from 'react'
-import axios from 'axios'
+import React from 'react'
 import './DetailsMain.css'
+import { useSelector } from 'react-redux';
 
 
-export default function DetailsMain(props) {
-    let [manga, setManga] = useState([])
-    
-    useEffect(
-        () => {
-            axios.get(props.url)
-                .then(function (response) {
-                    setManga(response.data.manga)
-                })
-        },
-        []
-    )
+export default function DetailsMain() {
+
+    let manga = useSelector(store => store.events.manga)
 
     return (
         <div className='details-main'>

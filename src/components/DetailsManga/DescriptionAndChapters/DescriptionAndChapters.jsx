@@ -5,19 +5,15 @@ import Description from './Description/Description'
 import ChaptersList from './ChaptersList/ChaptersList'
 
 
-export default function DescriptionAndChapters(props) {
-
-  let urlManga = props.urlManga;
-  let urlChapters = props.urlChapters;
+export default function DescriptionAndChapters() {
 
   let inputRef = useRef(false);
 
-  const [open, setOpen] = useState(false); //change to false
+  const [open, setOpen] = useState(false); 
 
   async function handleClick() {
     setOpen(inputRef.current.checked);
   }
-
 
 
   return (
@@ -28,7 +24,7 @@ export default function DescriptionAndChapters(props) {
           <label htmlFor="color_mode" data-on="Chapters" data-off="Manga" className="btn-color-mode-switch-inner"></label>
         </label>
       </div>
-      {!open ? <Description url={urlManga} /> : <ChaptersList url={urlChapters}/>}
+      {!open ? <Description/> : <ChaptersList/>}
       
       {/*!open ? '' : botones de paginacion */}
     </div>

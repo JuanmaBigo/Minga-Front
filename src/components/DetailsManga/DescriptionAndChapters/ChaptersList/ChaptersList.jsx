@@ -1,21 +1,19 @@
-import React, {useRef, useState, useEffect} from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import ChapterComponent from './ChapterComponent/ChapterComponent'
 import './ChaptersList.css'
+import { useSelector } from 'react-redux';
 
 
-export default function ChaptersList(props) {
-  let urlChapters = props.urlChapters;
-  
+export default function ChaptersList() {
 
+  let chapters = useSelector(store => store.events.chapters)
+  console.log(chapters)
 
   return (
     <div className='chapters-list'>
-      <ChapterComponent/>
-      <ChapterComponent/>
-      <ChapterComponent/>
-      <ChapterComponent/>
-      <ChapterComponent/>
-
+      {/* {(chapters.map((chapter) => (
+        <ChapterComponent key={chapter.order} title={chapter.title} order={chapter.order}/>
+      )))} */}
     </div>
   )
 }
