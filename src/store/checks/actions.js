@@ -2,15 +2,28 @@ import { createAction } from "@reduxjs/toolkit";
 
 let captureChecks = createAction(
     'captureChecks',
-    ({inputCheck}) =>{
+    ({ inputCheck }) => {
 
-        return{
-            payload:{checks: inputCheck}
+        return {
+            payload: { checks: inputCheck }
         }
-        
+
     }
 )
 
-const actions = {captureChecks}
+let captureState = createAction(
+    'captureState',
+    ({ buttonState }) => {
+        return {
+            payload: { checked: buttonState }
+        }
+    }
+)
+
+
+
+
+
+const actions = { captureChecks, captureState }
 
 export default actions

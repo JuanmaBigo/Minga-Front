@@ -10,11 +10,9 @@ import { Link as Anchor } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 
 
-
 export default function Header() {
+    
     const [isOpen, setIsOpen] = useState(true)
-
-
     let url = `http://localhost:8080/api/auth/token`
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
