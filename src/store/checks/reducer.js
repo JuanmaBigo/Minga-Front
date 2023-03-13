@@ -4,7 +4,7 @@ const {captureChecks, captureState} = checkActions
 
 const initiateState= {
     checks: [],
-    checkbox: { checked: false }
+    checked: false
 }
 
 const reducer = createReducer(

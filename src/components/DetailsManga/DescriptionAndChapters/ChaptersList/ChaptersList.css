@@ -32,3 +32,7 @@
     border: 0.5px solid #ff9448;
     transition: all 0.3s ease;
 }
+
+.displayPagination{
+    display: none;
+}

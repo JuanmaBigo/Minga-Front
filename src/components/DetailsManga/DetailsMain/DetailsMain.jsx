@@ -6,7 +6,8 @@ import { useSelector } from 'react-redux';
 export default function DetailsMain() {
     let manga = useSelector(store => store.events.manga)
 
-    // let category = manga.category_id.name;
+    let category = manga.category_id?.name;
+    let company = manga.company_id?.name;
 
 
     return (
@@ -14,8 +15,8 @@ export default function DetailsMain() {
             <img src={manga.cover_photo} />
             <h1>{manga.title}</h1>
             <div className='category-details'>
-                <h3 className={'category'}>{'category'}</h3>
-                <p>Company Name</p>
+                <h3 className={category}>{category}</h3>
+                <p>{company}</p>
             </div>
         </div>
     )

@@ -13,13 +13,11 @@ export default function ChaptersList() {
 
   let dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(read_chapters({ id: id, page: page }))
-  }, []);
-
   let chapters = useSelector(store => store.events.chapters)
   let manga = useSelector(store => store.events.manga)
-
+  let count = useSelector(store => store.events.count)
+  
+  
 
   // BOTONES DE PAGINADO
   let navigate = useNavigate()
@@ -32,11 +30,18 @@ export default function ChaptersList() {
     }
   }
   function handleClickNext() {
-    if (chapters.length === 4){
-      page++
-      dispatch(read_chapters({ id: id, page: page }))
-      navigate(`/manga/${id}/${page}`)
+    if(chapters[3]){
+      if (count !== chapters[3].order) {
+        page++
+        dispatch(read_chapters({ id: id, page: page }))
+        navigate(`/manga/${id}/${page}`)
+      }
     }
+  }
+
+  let displayPagination = 'button-pagination'
+  if (count<5){
+    displayPagination = 'button-pagination displayPagination'
   }
 
   return (
@@ -46,8 +51,8 @@ export default function ChaptersList() {
       )))}
 
       <div className='pagination-buttons-details'>
-        <div className='button-pagination' onClick={handleClickPrev} style={{ userSelect: "none" }}>{`<`}</div>
-        <div className='button-pagination' onClick={handleClickNext} style={{ userSelect: "none" }}>{`>`}</div>
+        <div className={displayPagination} onClick={handleClickPrev} style={{ userSelect: "none" }}>{`<`}</div>
+        <div className={displayPagination} onClick={handleClickNext} style={{ userSelect: "none" }}>{`>`}</div>
       </div>
 
     </div>

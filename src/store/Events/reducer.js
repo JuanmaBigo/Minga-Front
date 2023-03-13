@@ -6,7 +6,8 @@ const {read_events, read_manga, read_chapters} = eventsActions
 const initialState ={
     events: [],
     manga: [],
-    chapters : []
+    chapters : [], 
+    count: 0
 }
 
 const reducer = createReducer(
@@ -37,7 +38,8 @@ const reducer = createReducer(
         (state,actions)=>{
             let newState = {
                 ...state,
-                chapters: actions.payload.chapters
+                chapters: actions.payload.chapters,
+                count: actions.payload.count
             }
             return newState
         }

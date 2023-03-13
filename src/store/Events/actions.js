@@ -45,11 +45,13 @@ const read_chapters = createAsyncThunk(
         try {
             let response = await axios.get(url)
             return {
-                chapters: response.data.chapters
+                chapters: response.data.chapters,
+                count: response.data.count
             }
         } catch (error) {
             return {
-                chapters: []
+                chapters: [],
+                count: 0
             }
         }
     }
