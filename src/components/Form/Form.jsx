@@ -59,7 +59,7 @@ export default function Form() {
         <form className='form-cont' onSubmit={handleSubmit} ref={formReg}>
             <div className='form-container'>
                 <FormFields legend = 'Name' type = 'text' id = 'name' name = 'name'  src = {Profile}/>
-                <FormFields legend = 'Email' type = 'email' id = 'email' name = 'email'  src = {Email}/>
+                <FormFields legend = 'Email' type = 'email' id = 'mail' name = 'mail'  src = {Email}/>
                 <FormFields legend = 'Photo' type = 'text' id = 'photo' name = 'photo'  src = {Camera}/>
                 <FormFields legend = 'Password' type = 'password' id = 'password' name = 'password'  src = {Lock}/>
             </div>

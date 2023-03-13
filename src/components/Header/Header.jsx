@@ -25,7 +25,7 @@ export default function Header() {
                 localStorage.setItem('token', ''));
             localStorage.setItem('user', JSON.stringify({
                 name: '',
-                email: '',
+                mail: '',
                 photo: ''
             }))
             setIsOpen(!isOpen)
@@ -40,14 +40,14 @@ export default function Header() {
     if (!token) {
         localStorage.setItem('user', JSON.stringify({
             name: '',
-            email: '',
+            mail: '',
             photo: ''
         }))
     }
 
     let user = JSON.parse(localStorage.getItem('user'));
     let name = user.name
-    let email = user.email
+    let mail = user.mail
     let photo = user.photo
 
 
@@ -63,7 +63,7 @@ export default function Header() {
                         <img src={photo ? photo : UserImage} alt="userimage" />
                         <div className='user-info'>
                             <p className='username'>{name ? name : 'Username'}</p>
-                            <p className='email'>{email ? email : 'User Mail'}</p>
+                            <p className='email'>{mail ? mail : 'User Mail'}</p>
                         </div>
                     </div>
 

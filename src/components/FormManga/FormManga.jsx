@@ -46,7 +46,7 @@ export default function FormManga() {
                 <input className='input-manga' type='text' placeholder='Insert title' ref={title} name='title'/>
                 <SelectManga  parentref={category} name='category' />
                 <input className='input-manga' type='text' placeholder='Insert description' ref={description} name='description'/>
-                <input className='input-manga' type='text' placeholder='Insert photo' ref={photo} name='photo'/>
+                <input className='input-manga' type='text' placeholder='Insert photo' ref={photo} name='cover_photo'/>
                 <input className='submit' type='submit' value='Send' />
             </form>
             <Toaster
