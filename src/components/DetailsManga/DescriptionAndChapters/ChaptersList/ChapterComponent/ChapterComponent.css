@@ -10,13 +10,16 @@
     height: 73.78px;
     border-radius: 8px;
     object-fit: cover;
+    object-position: top;
 }
 
 .chapter-info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
+    height: 82px;
+    margin-left: 26px;
+    margin-right: 11px;
 }
 
 .chapter-info p {
@@ -38,6 +41,10 @@
     object-fit: contain;
 }
 
+.chapter-comments img:hover{
+    cursor: pointer;
+}
+
 .read-button {
     height: 74px;
     width: 151px;
@@ -48,4 +55,8 @@
     line-height: 36px;
     color: #FFFFFF;
     border: none;
+}
+
+.read-button:hover {
+    cursor: pointer;
 }

@@ -1,9 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
 import checkActions from './actions'
-const {captureChecks} = checkActions
+const {captureChecks, captureState} = checkActions
 
 const initiateState= {
-    checks: []
+    checks: [],
+    checkbox: []
 }
 
 const reducer = createReducer(
@@ -19,6 +20,18 @@ const reducer = createReducer(
             return newState
         }
     )
+    .addCase(
+        captureState,
+        (state,action) => {
+            let newState = {
+                ...state,
+                checkbox : action.payload.checkbox  
+            }
+            return newState
+        }
+    )
 )
+
+
 
 export default reducer

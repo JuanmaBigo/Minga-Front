@@ -4,6 +4,10 @@ import './BtnDescriptionChapters.css'
 import Description from './Description/Description'
 import ChaptersList from './ChaptersList/ChaptersList'
 
+import { useSelector, useDispatch } from 'react-redux';
+import eventsActions from '../../../store/checks/actions';
+const { captureState } = eventsActions;
+
 
 export default function DescriptionAndChapters() {
 
@@ -14,6 +18,8 @@ export default function DescriptionAndChapters() {
   async function handleClick() {
     setOpen(inputRef.current.checked);
   }
+
+
 
 
   return (

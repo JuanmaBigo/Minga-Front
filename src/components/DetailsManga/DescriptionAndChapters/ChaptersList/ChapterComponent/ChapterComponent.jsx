@@ -1,24 +1,37 @@
 import React from 'react'
 import './ChapterComponent.css'
 import icon_comment from '../../../../../assets/img/icon_comment.png'
+import { useNavigate } from 'react-router'
 
-import img from '../../../../../assets/img/narutoprueba.png'
 
 export default function ChapterComponent(props) {
-    console.log(props)
-    
+
+    const chapter = { ...props }
+    const comments = Math.floor(Math.random() * 200)
+
+    let navigate = useNavigate()
+
+    function handleNavigate() {
+        navigate(`/chapters/${chapter._id}/0`)
+    }
+
     return (
         <div className='chapter-component'>
-            <img src={img}/> 
+            <img src={chapter.cover_photo} />
             <div className='chapter-info'>
                 <p>{chapter.title}</p>
                 <div className='chapter-comments'>
-                    <img src={icon_comment}/>
-                    <p>169</p>
+                    <img src={icon_comment} />
+                    <p>{comments}</p>
                 </div>
             </div>
-            <button className='read-button'>Read</button>
+            <button className='read-button' onClick={handleNavigate}>Read</button>
         </div>
 
     )
 }
+
+
+
+
+

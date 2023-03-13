@@ -11,6 +11,17 @@ let captureChecks = createAction(
     }
 )
 
-const actions = {captureChecks}
+let captureState = createAction(
+    'captureState',
+    ({buttonState}) =>{
+
+        return{
+            payload:{checkbox: buttonState}
+        }
+        
+    }
+)
+
+const actions = {captureChecks, captureState}
 
 export default actions
