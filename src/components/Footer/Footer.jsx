@@ -10,7 +10,13 @@ import Youtube from '../../assets/img/Youtube.png'
 
 
 export default function Footer() {
+
+    function handleClick(event){
+        event.preventDefault()
+    }
+    
     return (
+        
 
         <div className='footer-container'>
             <img src={ImgFooter} alt='' className='footer-img' />
@@ -19,7 +25,7 @@ export default function Footer() {
                 <h3>Subscribe</h3>
                 <form className='subscribe-input'>
                     <input type='email' placeholder='Enter your email' />
-                    <button type='submit'>Subscribe Now</button>
+                    <button type='submit' onClick={handleClick}>Subscribe Now</button>
                 </form>
             </div>
             <div className='footer-links'>
