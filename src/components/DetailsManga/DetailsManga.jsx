@@ -5,15 +5,15 @@ import "./DetailsManga.css"
 
 export default function DetailsManga() {
     let { id, page } = useParams();
-    console.log("id: ", id, "page: ", page);
+    // console.log("id: ", id, "page: ", page);
 
     let url = "http://localhost:8080/api/mangas/" + id;
-    console.log(url)
+    // console.log(url)
 
 
     axios.get(url)
         .then(function (response) {
-            console.log(response);
+            // console.log(response);
         });
     return (
         <div className='MangaDetails'>

@@ -1,5 +1,25 @@
-.chapters {
+.conteiner {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.title {
+    background: linear-gradient(162.88deg, #FF5722 -11.37%, #F97316 73.97%);
+    color: white;
+    height: 6%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chapters {
+    height: 70%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7,13 +27,12 @@
 
 .image {
     object-fit: contain;
-    height: 80%;
-    width: 40%;
-
+    height: 100%;
+    width:40%;
 }
 
 .prev {
-    height: 80%;
+    height: 100%;
     width: 21%;
     position: relative;
     left: 20%;
@@ -28,7 +47,7 @@
 }
 
 .next {
-    height: 80%;
+    height: 100%;
     width: 21%;
     position: relative;
     right: 20%;
@@ -41,4 +60,19 @@
     width: 0.8rem;
     background-color: rgba(128, 128, 128, 0.534);
     padding: 0.1rem;
+}
+
+@media (max-width:768px ){
+    .image {
+    width: 90%;
+    height: 90%;
+    }
+
+    .prev {
+        width: 72%;
+    }
+
+    .next {
+        width: 72%;
+    }
 }
