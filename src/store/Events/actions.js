@@ -55,6 +55,8 @@ const read_chapters = createAsyncThunk(
     }
 )
 
+
+
 const actions = { read_events, read_manga, read_chapters }
 
 export default actions

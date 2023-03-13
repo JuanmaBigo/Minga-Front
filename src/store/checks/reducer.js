@@ -4,7 +4,7 @@ const {captureChecks, captureState} = checkActions
 
 const initiateState= {
     checks: [],
-    checkbox: []
+    checkbox: { checked: false }
 }
 
 const reducer = createReducer(
@@ -25,7 +25,7 @@ const reducer = createReducer(
         (state,action) => {
             let newState = {
                 ...state,
-                checkbox : action.payload.checkbox  
+                checked : action.payload.checked 
             }
             return newState
         }

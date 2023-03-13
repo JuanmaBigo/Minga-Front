@@ -20,14 +20,15 @@ export default function DetailsManga() {
             dispatch(read_manga({ id: id }))
     }, []);  
 
-    // let manga = useSelector(store => store.events.manga)
+    let manga = useSelector(store => store.events.manga)
     // let chapters = useSelector(store => store.events.chapters)
+    // console.log(manga)
 
     return (
         <div className='MangaDetails'>
-            <DetailsMain/>
+            <DetailsMain manga={manga}/>
             <LikeButtons />
-            <RatingStats chapterCount={265} />
+            <RatingStats chapterCount={15} />
             <DescriptionAndChapters/>
         </div>
     )

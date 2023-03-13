@@ -1,3 +1,8 @@
+@media screen and (min-width: 550px){
+    .chapter-component {
+        max-width: 550px !important;
+    }
+}
 .chapter-component {
     width: 100%;
     display: flex;

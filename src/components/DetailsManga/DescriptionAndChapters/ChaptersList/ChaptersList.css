@@ -4,4 +4,31 @@
     flex-direction: column;
     gap: 50px;
     width: 100%;
+    align-items: center;
+}
+
+.pagination-buttons-details{
+    margin-top: 35px;
+    display: flex;
+    gap: 10px;
+}
+
+.button-pagination{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #F97316;
+    color: whitesmoke;
+    border: 0.5px solid #d6d6d6;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.button-pagination:hover{
+    background-color: #ff9448 ;
+    border: 0.5px solid #ff9448;
+    transition: all 0.3s ease;
 }

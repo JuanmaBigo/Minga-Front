@@ -1,9 +1,8 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './DescriptionAndChapters.css'
 import './BtnDescriptionChapters.css'
 import Description from './Description/Description'
 import ChaptersList from './ChaptersList/ChaptersList'
-
 import { useSelector, useDispatch } from 'react-redux';
 import eventsActions from '../../../store/checks/actions';
 const { captureState } = eventsActions;
@@ -11,14 +10,23 @@ const { captureState } = eventsActions;
 
 export default function DescriptionAndChapters() {
 
+
+  let estachek = useSelector(store => store.checks.checkbox)
+
+
   let inputRef = useRef(false);
 
-  const [open, setOpen] = useState(false); 
 
-  async function handleClick() {
-    setOpen(inputRef.current.checked);
+
+  const [checked, setChecked] = useState(false);
+
+
+  let dispatch = useDispatch()
+
+  function handleChange() {
+    setChecked(!checked)
+    dispatch(captureState({ buttonState: checked }))
   }
-
 
 
 
@@ -26,13 +34,14 @@ export default function DescriptionAndChapters() {
     <div className='description-and-chapters'>
       <div className="btn-container">
         <label className="switch btn-color-mode-switch">
-          <input type="checkbox" className="input-details" ref={inputRef} onClick={handleClick} name="color_mode" id="color_mode" value="1" />
+          <input type="checkbox" className="input-details" ref={inputRef} name="color_mode" id="color_mode" value="1"
+            defaultChecked={checked} onChange={handleChange} style={{ userSelect: "none" }}/>
           <label htmlFor="color_mode" data-on="Chapters" data-off="Manga" className="btn-color-mode-switch-inner"></label>
         </label>
       </div>
-      {!open ? <Description/> : <ChaptersList/>}
-      
-      {/*!open ? '' : botones de paginacion */}
+      {!checked ? <Description /> : <ChaptersList />}
+
+    
     </div>
   )
 }

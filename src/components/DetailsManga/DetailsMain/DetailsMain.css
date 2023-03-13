@@ -52,3 +52,23 @@
     line-height: 95.19%;
     color: #9D9D9D;
 }
+
+.shonen{
+    background-color: #FFE0DF;
+    color: #EF8481;
+}
+
+.seinen{
+    background-color: #FFDFC8;
+    color: #FC9C57;
+}
+
+.shojo{
+    background-color: #D1FBF0;
+    color: #00BA88;
+}
+
+.marvel {
+    background-color: #8883F0;
+    color: #E0DBFF;
+}
