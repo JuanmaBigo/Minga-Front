@@ -14,8 +14,6 @@ export default function Chapters() {
     let [ prev, setPrev ] = useState('')
     let [ index, setIndex ] = useState(parseInt(page))
 
-
-
         useEffect(
             () => {
                 axios.get(url+id)
@@ -45,8 +43,7 @@ export default function Chapters() {
             navigate(`/chapters/${id}/${index + 1}`) 
             if( index >= chapter.pages.length-1){
                 navigate(`/chapters/${next}/0`)
-                window.location.reload(true)
-                
+                window.location.reload(true)    
             }
         }
 
