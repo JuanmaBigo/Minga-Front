@@ -28,24 +28,26 @@ export default function FormAuthor() {
                 date: date,
                 photo: photo,
             }
-            toast.success("Author Successfully Created")
+
+            let url = 'http://localhost:8080/api/authors'
+
+            try {
+                await axios.post(url,data) 
+                toast.success('Authors created susccesfully')//*te permite crear el author pero recuerda implementar el passport en el back y en el front por headers para que se cumpla la condicion de autenticacion
+            } catch (error) {
+                if(typeof error.response.data.message === 'string'){
+                    toast.error(error.response.data.message)
+                }else{
+                    error.response.data.message.forEach(err => toast.error(err))
+                }
+            }
             event.target.reset()
+            
         }else{
             toast.error("Error in your credentials (don't forget the comma after the city)")
         }
 
-        let url = 'http://localhost:8080/api/authors'
-
-        try {
-            await axios.post(url,data) 
-            toast.success('Authors created susccesfully')
-        } catch (error) {
-            if(typeof error.response.data.message === 'string'){
-                toast.error(error.response.data.message)
-            }else{
-                error.response.data.message.forEach(err => toast.error(err))
-            }
-        }
+        
     }
   return (
     <>
