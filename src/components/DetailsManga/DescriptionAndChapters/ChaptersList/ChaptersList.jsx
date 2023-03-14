@@ -47,7 +47,7 @@ export default function ChaptersList() {
   return (
     <div className='chapters-list'>
       {(chapters.map((chapter) => (
-        <ChapterComponent key={chapter._id} title={chapter.title} order={chapter.order} cover_photo={manga.cover_photo} _id={chapter._id} />
+        <ChapterComponent key={chapter.title} title={chapter.title} order={chapter.order} cover_photo={manga.cover_photo} _id={chapter._id} />
       )))}
 
       <div className='pagination-buttons-details'>

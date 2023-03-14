@@ -9,7 +9,7 @@ import ChapterForm from './ChapterForm/ChapterForm'
 import Mangas from "./Mangas/Mangas";
 import Chapters from "../components/Chapters/Chapters";
 import MangaDetails from './MangaDetails/MangaDetails';
-
+import AuthorForm from './AuthorForm/AuthorForm';
 
 
 import { createBrowserRouter } from "react-router-dom"
@@ -41,8 +41,8 @@ export const router = createBrowserRouter([
             {path: '/chapter-form/:manga_id', element: <ChapterForm/>},
             {path: '/mangas/:page', element: <Mangas/>},
             {path: '/chapters/:id/:page',element: <Chapters /> },
-            {path: '/manga/:id/:page', element: <MangaDetails/>}
-
+            {path: '/manga/:id/:page', element: <MangaDetails/>},
+            {path: '/author-form' , element:<AuthorForm/>}
 
         ]
     } 
