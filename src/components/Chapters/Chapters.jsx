@@ -44,8 +44,7 @@ export default function Chapters() {
             navigate(`/chapters/${id}/${index + 1}`) 
             if( index >= chapter.pages.length-1){
                 navigate(`/chapters/${next}/0`)
-                window.location.reload(true)
-                
+                window.location.reload(true)    
             }
         }
 
