@@ -15,6 +15,7 @@ export default function DetailsManga() {
     let { id, page } = useParams();
 
 
+
     let dispatch = useDispatch()
     let chapters = useSelector(store => store.events.chapters)
 
