@@ -44,8 +44,6 @@ export default function ChecksManga(props) {
   
   return (
     <form className='form-checks' ref={props.parentref} >
-        <label className={`class-checks1 ${checkboxValues.includes('')? 'select-checks1':''}`} htmlFor="All">All</label>
-        <input className='input-checks' type="checkbox" name="All" id="All" value={''} defaultChecked={checkboxValues.includes('')} onChange={handleCheck}/>
 
         <label className={`class-checks2 ${checkboxValues.includes(category_id[0])? 'select-checks2':''}`} htmlFor={category_name[0]}>{category_name[0]}</label>
         <input className='input-checks' type="checkbox" name={category_name[0]} id={category_name[0]} value={category_id[0]} defaultChecked={checkboxValues.includes(category_id[0])} onChange={handleCheck}/>

@@ -26,9 +26,11 @@ export default function FormManga() {
         }
 
         let url = 'http://localhost:8080/api/mangas'
+        let token = localStorage.getItem('token')
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
         try {
-            await axios.post(url,data) 
+            await axios.post(url,data,headers) 
             toast.success('Manga created susccesfully')
         } catch (error) {
             if(typeof error.response.data.message === 'string'){
@@ -44,7 +46,7 @@ export default function FormManga() {
             <h1>New Manga</h1>
             <form className='formManga'>
                 <input className='input-manga' type='text' placeholder='Insert title' ref={title} name='title'/>
-                <SelectManga  parentref={category} name='category' />
+                <SelectManga  parentref={category} name='category_id' />
                 <input className='input-manga' type='text' placeholder='Insert description' ref={description} name='description'/>
                 <input className='input-manga' type='text' placeholder='Insert photo' ref={photo} name='cover_photo'/>
                 <input className='submit' type='submit' value='Send' />

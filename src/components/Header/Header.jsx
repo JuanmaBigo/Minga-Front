@@ -10,11 +10,9 @@ import { Link as Anchor } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 
 
-
 export default function Header() {
+    
     const [isOpen, setIsOpen] = useState(true)
-
-
     let url = `http://localhost:8080/api/auth/token`
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
@@ -73,9 +71,10 @@ export default function Header() {
                 </div>
         
                 <Anchor className='nav-btn' to='/'>Home</Anchor>
+                {token ? <Anchor className='nav-btn' to='/mangas/:page'>Manga</Anchor> :''}
                 {token ? <Anchor className='nav-btn' to='/manga-form'>Manga-Form</Anchor> : ''}
-                <Anchor className='nav-btn' to='/mangas/:page'>Manga</Anchor>
-                {token ? '' : <Anchor className='nav-btn' to='/auth'>Auth</Anchor>}
+                {token ? <Anchor className='nav-btn' to='/chapter-form/:manga_id'>Chapter-Form</Anchor> : ''}
+                {token ? <Anchor className='nav-btn' to='/author-form'>Author-Form</Anchor> : ''}
                 {token ? '' : <Anchor className='nav-btn' to='/register'>Register</Anchor>}
                 {token ? '' : <Anchor className='nav-btn' to='/signin' text={'false'}>Login</Anchor>}
                 {token ? <Anchor className='nav-btn' onClick={handleSignOut}>Logout</Anchor> : ''}

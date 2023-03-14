@@ -8,10 +8,10 @@ import TypeManga from '../TypeManga/TypeManga'
 import NoCard from '../NoCard/NoCard'
 import { useSelector,useDispatch } from 'react-redux'
 import textActions from '../../store/search/actions'
-import eventActions from '../../store/Events/actions'
+import mangaActions from '../../store/Mangas/actions'
 import alertActions from '../../store/Alert/actions'
 const {captureText} = textActions
-const {read_events} = eventActions
+const {read_mangas} = mangaActions
 const {open} =alertActions
 
 
@@ -30,13 +30,13 @@ export default function Manga() {
       }, [page]);
     
 
-    let mangas = useSelector(store => store.events.events)
+    let mangas = useSelector(store => store.mangas.mangas)
     let defaultText = useSelector(store => store.text.text)
     let defaultChecks = useSelector(store=>store.checks.checks)
 
     useEffect(
         () => {
-            dispatch(read_events({inputText:defaultText,inputCheck:defaultChecks,inputPage:page}))
+            dispatch(read_mangas({inputText:defaultText,inputCheck:defaultChecks,inputPage:page}))
         },
         [page,defaultText,defaultChecks,reload]
     )

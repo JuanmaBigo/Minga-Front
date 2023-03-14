@@ -34,6 +34,7 @@
     border-radius: 50000px;
     background: linear-gradient(162.88deg, #FF5722 -11.37%, #F97316 73.97%);
     margin-top: 12%;
+    cursor: pointer;
 }
 
 h1 {

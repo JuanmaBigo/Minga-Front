@@ -2,18 +2,18 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
-const read_events = createAsyncThunk(
-    'read_events',
+const read_mangas = createAsyncThunk(
+    'read_mangas',
     async ({ inputText, inputCheck, inputPage }) => {
         let url = `http://localhost:8080/api/mangas?page=${inputPage}&title=${inputText.trim()}&category_id=${inputCheck.join()}`
         try {
             let response = await axios.get(url)
             return {
-                events: response.data.mangas
+                mangas: response.data.mangas
             }
         } catch (error) {
             return {
-                events: []
+                mangas: []
             }
         }
     }
@@ -59,6 +59,6 @@ const read_chapters = createAsyncThunk(
 
 
 
-const actions = { read_events, read_manga, read_chapters }
+const actions = { read_mangas, read_manga, read_chapters }
 
 export default actions
