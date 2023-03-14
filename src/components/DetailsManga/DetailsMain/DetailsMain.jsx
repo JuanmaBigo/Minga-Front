@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 
 export default function DetailsMain() {
-    let manga = useSelector(store => store.events.manga)
+    let manga = useSelector(store => store.mangas.manga)
 
     let category = manga.category_id?.name;
     let company = manga.company_id?.name;

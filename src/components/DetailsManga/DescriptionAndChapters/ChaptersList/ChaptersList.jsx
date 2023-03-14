@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router'
 import ChapterComponent from './ChapterComponent/ChapterComponent'
 import './ChaptersList.css'
 import { useSelector, useDispatch } from 'react-redux';
-import eventsActions from '../../../../store/Events/actions';
-const { read_chapters } = eventsActions;
+import mangasActions from '../../../../store/Mangas/actions';
+const { read_chapters } = mangasActions;
 
 
 export default function ChaptersList() {
@@ -13,9 +13,9 @@ export default function ChaptersList() {
 
   let dispatch = useDispatch()
 
-  let chapters = useSelector(store => store.events.chapters)
-  let manga = useSelector(store => store.events.manga)
-  let count = useSelector(store => store.events.count)
+  let chapters = useSelector(store => store.mangas.chapters)
+  let manga = useSelector(store => store.mangas.manga)
+  let count = useSelector(store => store.mangas.count)
   
   
 
