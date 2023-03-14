@@ -7,22 +7,22 @@ import ChaptersDetails from "./ChaptersDetails/ChaptersDetails";
 import RatingStats from "./RatingStats/RatingStats";
 import DescriptionAndChapters from "./DescriptionAndChapters/DescriptionAndChapters";
 import { useSelector, useDispatch } from 'react-redux';
-import eventsActions from '../../store/Events/actions';
-const { read_manga, read_chapters } = eventsActions;
+import mangasActions from '../../store/Mangas/actions';
+const { read_manga, read_chapters } = mangasActions;
 
 export default function DetailsManga() {
 
     let { id, page } = useParams();
 
+
+
     let dispatch = useDispatch()
-    let chapters = useSelector(store => store.events.chapters)
+    let chapters = useSelector(store => store.mangas.chapters)
 
     useEffect(() => {
         dispatch(read_manga({ id: id }))
         dispatch(read_chapters({ id: id, page: page }))
     }, []);
-
-
 
 
     return (
