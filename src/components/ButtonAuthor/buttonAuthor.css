@@ -1,0 +1,15 @@
+.btn-send-author{
+    width: 240px;
+    height: 50px;
+    background: #F97316;
+    border-radius: 5vh;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2.5vh;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 4vh;
+    cursor: pointer;
+}
