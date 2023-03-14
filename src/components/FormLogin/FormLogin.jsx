@@ -45,6 +45,8 @@ export default function FormLogin() {
                     mail:res.data.user.mail,
                     photo: res.data.user.photo
                  }))
+                 console.log(res.data.user);
+                 console.log(res.data.user.mail);
                  setTimeout(() => {
                     navigate('/');
                   }, 1000);
