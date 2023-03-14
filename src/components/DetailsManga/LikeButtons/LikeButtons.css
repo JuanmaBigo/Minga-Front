@@ -1,0 +1,31 @@
+.like-buttons {
+    display: flex;
+    gap: 12.67px;
+    width: 100%;
+    padding: 0 35px;
+    justify-content: space-between;
+}
+
+.like-buttons button {
+    width: 72px;
+    height: 72px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2), inset -1px -3px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 36px;
+}
+
+.like-buttons img {
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.like-buttons button:hover {
+    cursor: pointer;
+}
+
+.like-buttons button:active{
+    box-shadow: 0px 1px 3px rgba(189, 189, 189, 0.2), inset -1px -3px 0px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,36 @@
+.rating-stats {
+    background-color: #FFFFFF;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 17px 0 9px 0;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    margin-top: 25px;
+    margin-bottom: 37px;
+}
+
+.rating-1 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    color: #424242;
+}
+
+.rating-2 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #9D9D9D;
+}
+
+.component-rating{
+    padding: 0 25.63px
+}
+
+.rate-line{
+border-right: 1px solid black;
+}

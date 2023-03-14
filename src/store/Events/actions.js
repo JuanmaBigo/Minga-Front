@@ -4,21 +4,61 @@ import axios from "axios";
 
 const read_events = createAsyncThunk(
     'read_events',
-    async({inputText}) => {
-        let url = `http://localhost:8080/api/mangas?title=${inputText.trim()}`
-        try{
+    async ({ inputText, inputCheck, inputPage }) => {
+        let url = `http://localhost:8080/api/mangas?page=${inputPage}&title=${inputText.trim()}&category_id=${inputCheck.join()}`
+        try {
             let response = await axios.get(url)
-            return{
+            return {
                 events: response.data.mangas
             }
-        }catch(error){
-            return{
+        } catch (error) {
+            return {
                 events: []
             }
         }
     }
 )
 
-const actions = {read_events}
+const read_manga = createAsyncThunk(
+    'read_manga',
+    async ({ id }) => {
+        let url = 'http://localhost:8080/api/mangas/' + id;
+
+        try {
+            let response = await axios.get(url)
+            return {
+                manga: response.data.manga
+            }
+        } catch (error) {
+            return {
+                manga: []
+            }
+        }
+    }
+)
+
+const read_chapters = createAsyncThunk(
+    'read_chapters',
+    async ({ id, page }) => {
+        let url = 'http://localhost:8080/api/chapters?'+'manga_id='+id+'&page='+ page;
+
+        try {
+            let response = await axios.get(url)
+            return {
+                chapters: response.data.chapters,
+                count: response.data.count
+            }
+        } catch (error) {
+            return {
+                chapters: [],
+                count: 0
+            }
+        }
+    }
+)
+
+
+
+const actions = { read_events, read_manga, read_chapters }
 
 export default actions

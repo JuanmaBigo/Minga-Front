@@ -14,7 +14,6 @@ export default function Chapters() {
     let [ prev, setPrev ] = useState('')
     let [ index, setIndex ] = useState(parseInt(page))
 
-
         useEffect(
             () => {
                 axios.get(url+id)
