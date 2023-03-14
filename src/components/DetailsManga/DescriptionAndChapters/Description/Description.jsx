@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 export default function Description() {
 
-  let description = useSelector(store => store.events.manga.description)
+  let description = useSelector(store => store.mangas.manga.description)
 
   return (
     <div className='description-of-manga'>{description}</div>
