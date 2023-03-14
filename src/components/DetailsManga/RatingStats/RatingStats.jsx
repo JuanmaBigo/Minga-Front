@@ -2,9 +2,9 @@ import React from 'react'
 import './RatingStats.css'
 import {useSelector} from 'react-redux' 
 
-export default function () {
+export default function RatingStats() {
     
-    let count = useSelector(store => store.events.count)
+    let count = useSelector(store => store.mangas.count)
 
 
     return (
