@@ -31,7 +31,7 @@ const read_manga = createAsyncThunk(
             }
         } catch (error) {
             return {
-                manga: []
+                manga: {}
             }
         }
     }

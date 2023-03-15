@@ -5,7 +5,7 @@ const {read_mangas, read_manga, read_chapters} = mangasActions
 
 const initialState ={
     mangas: [],
-    manga: [],
+    manga: {},
     chapters : [], 
     count: 0
 }
