@@ -33,16 +33,20 @@ export default function FormLogin() {
             [dataInputs[1].name]:dataInputs[1].value,
         }
 
-        let url = 'http://localhost:8080/auth/signin'
+
+        let url = 'http://localhost:8080/api/auth/signin'
+
             try {
                 await axios.post(url,data)
                 .then(res => {
                  localStorage.setItem('token',res.data.token);
                  localStorage.setItem('user',JSON.stringify({
                     name:res.data.user.name,
-                    email:res.data.user.email,
+                    mail:res.data.user.mail,
                     photo: res.data.user.photo
                  }))
+                 console.log(res.data.user);
+                 console.log(res.data.user.mail);
                  setTimeout(() => {
                     navigate('/');
                   }, 1000);
@@ -61,7 +65,7 @@ export default function FormLogin() {
   return (
     <form className='form-cont' onSubmit={handleSubmit} ref={formReg}>
             <div className='form-container'>
-                <FormFields legend = 'Email' type = 'email' id = 'email' name = 'email'  src = {Email}/>
+                <FormFields legend = 'Email' type = 'email' id = 'mail' name = 'mail'  src = {Email}/>
                 <FormFields legend = 'Password' type = 'password' id = 'password' name = 'password'  src = {Lock}/>
             </div>
 

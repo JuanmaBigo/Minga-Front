@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { Toaster,toast } from 'react-hot-toast';
 import './Form.css'
 import axios from 'axios'
@@ -36,7 +36,7 @@ export default function Form() {
             [dataInputs[2].name]:dataInputs[2].value,
         }
 
-        let url = 'http://localhost:8080/auth/signup'
+        let url = 'http://localhost:8080/api/auth/signup'
         try {
             await axios.post(
                 url,    /* URL del endpoint para crear una categoria */
@@ -59,7 +59,7 @@ export default function Form() {
         <form className='form-cont' onSubmit={handleSubmit} ref={formReg}>
             <div className='form-container'>
                 <FormFields legend = 'Name' type = 'text' id = 'name' name = 'name'  src = {Profile}/>
-                <FormFields legend = 'Email' type = 'email' id = 'email' name = 'email'  src = {Email}/>
+                <FormFields legend = 'Email' type = 'email' id = 'mail' name = 'mail'  src = {Email}/>
                 <FormFields legend = 'Photo' type = 'text' id = 'photo' name = 'photo'  src = {Camera}/>
                 <FormFields legend = 'Password' type = 'password' id = 'password' name = 'password'  src = {Lock}/>
             </div>

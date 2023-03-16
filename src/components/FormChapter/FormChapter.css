@@ -20,6 +20,7 @@
     flex-direction: column;
     gap: 25px;
     margin-bottom: 115px;
+    
 }
 
 .chapter-inputs input {
@@ -29,11 +30,13 @@
     line-height: 24px;
     width: 280px;
     height: 24px;
-}
 
-.chapter-inputs input::placeholder {
-    color: #9D9D9D;
+    border: none;
 }
+.chapter-inputs:focus{
+    outline: none;
+} 
+
 
 .line {
     position: relative;
@@ -54,6 +57,7 @@
     letter-spacing: 0em;
     width: 280px;
     height: 62px;
+    border: none;
 }
 
 .form-chapter-btn:hover {
