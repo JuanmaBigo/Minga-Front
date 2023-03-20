@@ -57,7 +57,7 @@ export default function FormAuthor() {
             <input className='input-author' type="text" name='city-country' placeholder='City,Country' required/>
             <input className='input-author' type="Date" name='date' />
             <input className='input-author' type="text" name='photo' placeholder='URL Profile Image' required/>  
-            <ButtonAuthor/>
+            <ButtonAuthor value='Send' class='orange'/>
         </form>
         <Toaster
                 position="top-center"

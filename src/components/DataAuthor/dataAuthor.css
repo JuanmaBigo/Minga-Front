@@ -1,0 +1,46 @@
+.data-author{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40vh;
+    width: 50%;
+}
+.title-author{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 5.03vh;
+    line-height: 54px;
+    text-align: center;
+}
+.cont-profileAuthor{
+    width: 40vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.info-profile{
+    margin-left: 6vh;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+@media (max-width: 767px){
+    .data-author{
+        min-height: 100vh;
+        width: 70%;
+        justify-content: center;
+        align-items: center;
+    }
+    .cont-profileAuthor{
+        width: 70vw;
+    }
+    .info-profile{  
+        margin: 0;
+    }
+}

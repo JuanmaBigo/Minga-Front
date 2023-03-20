@@ -39,14 +39,13 @@ export default function FormLogin() {
             try {
                 await axios.post(url,data)
                 .then(res => {
+                    console.log(res.data.user);
                  localStorage.setItem('token',res.data.token);
                  localStorage.setItem('user',JSON.stringify({
                     name:res.data.user.name,
                     mail:res.data.user.mail,
                     photo: res.data.user.photo
                  }))
-                 console.log(res.data.user);
-                 console.log(res.data.user.mail);
                  setTimeout(() => {
                     navigate('/');
                   }, 1000);
