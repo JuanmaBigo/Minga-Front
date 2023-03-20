@@ -1,10 +1,10 @@
 import React from 'react'
 import './buttonAuthor.css'
 
-export default function ButtonAuthor() {
+export default function ButtonAuthor(props) {
   return (
     <div>
-        <input className='btn-send-author' type="submit" value="Send" />
+        <button className={`btn-send-author ${props.class}`} onClick={props.onClick} >{props.value}</button>
     </div>
   )
 }
