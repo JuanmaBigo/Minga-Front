@@ -1,0 +1,70 @@
+.alertSave{
+    width: 100vw;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+.alert{
+    width: 371px;
+    height: 138px;
+    background: #F2F2F7;
+    backdrop-filter: blur(27.1828px);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.text-alert{
+    margin-top: 5vh;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 18px;
+    letter-spacing: -0.078px;
+}
+.cont-btn-delet{
+    display: flex;
+    width: 100%;
+}
+.btn-alertSave{
+    height: 58px;
+    border: none;
+    background-color: transparent;
+    border-top: 1px solid rgba(60, 60, 67, 0.36);
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    letter-spacing: -0.408px;
+    color: #0A7AFF;
+    cursor: pointer;
+}
+.border-btn{
+    border-right: 1px solid rgba(60, 60, 67, 0.36);
+    color: #EE8380;
+}
+@media(max-width:767px){
+    .alertSave{
+        min-height:301%;
+    }
+    .alert{
+      margin-top: 200vh;
+    }
+}
+
+@media (max-width: 423px){
+    .alert{
+        width: 280px;
+    }
+}

@@ -5,9 +5,11 @@ import axios from "axios";
 const read_mangas = createAsyncThunk(
     'read_mangas',
     async ({ inputText, inputCheck, inputPage }) => {
+        let token = localStorage.getItem('token')
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let url = `http://localhost:8080/api/mangas?page=${inputPage}&title=${inputText.trim()}&category_id=${inputCheck.join()}`
         try {
-            let response = await axios.get(url)
+            let response = await axios.get(url,headers)
             return {
                 mangas: response.data.mangas
             }
