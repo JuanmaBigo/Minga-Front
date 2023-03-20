@@ -22,10 +22,12 @@ const read_mangas = createAsyncThunk(
 const read_manga = createAsyncThunk(
     'read_manga',
     async ({ id }) => {
+        let token = localStorage.getItem('token')
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let url = 'http://localhost:8080/api/mangas/' + id;
 
         try {
-            let response = await axios.get(url)
+            let response = await axios.get(url,headers)
             return {
                 manga: response.data.manga
             }
@@ -40,10 +42,12 @@ const read_manga = createAsyncThunk(
 const read_chapters = createAsyncThunk(
     'read_chapters',
     async ({ id, page }) => {
+        let token = localStorage.getItem('token')
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let url = 'http://localhost:8080/api/chapters?'+'manga_id='+id+'&page='+ page;
 
         try {
-            let response = await axios.get(url)
+            let response = await axios.get(url,headers)
             return {
                 chapters: response.data.chapters,
                 count: response.data.count

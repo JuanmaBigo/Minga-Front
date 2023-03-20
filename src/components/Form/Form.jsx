@@ -27,7 +27,6 @@ export default function Form() {
             }
         })
         dataInputs.pop()
-        console.log(dataInputs);
 
         let data = {
             [dataInputs[0].name]:dataInputs[0].value,
