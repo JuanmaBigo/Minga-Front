@@ -35,8 +35,8 @@ export default function FormEditChapter() {
     }
 
     let dataToEdit = useRef()
-
     let formChapter = useRef()
+
     async function handleSubmit(event) {
         event.preventDefault()
         let dataInput = dataToEdit.current.value
@@ -67,7 +67,7 @@ export default function FormEditChapter() {
                 headers
             )
             toast.success("Chapter Successfully Edited")
-            // formChapter.current.reset()
+
             dispatch(get_chapter({ id: chapterSelected.current.value }))
 
         } catch (error) {
@@ -153,7 +153,7 @@ export default function FormEditChapter() {
             <div className='edit-chapter-btns'>
                 <input type='submit' className='form-edit-chapter-btn' value='Edit' />
                 <input type='button' className='delete-btn' value='Delete' onClick={handleDelete} />
-                {showAlertDelete && <AlertDelete onYes={handleYes} onNo={handleNo} text='Are your sure you want to delete?'/>}
+                {showAlertDelete && <AlertDelete onYes={handleYes} onNo={handleNo} text='Are you sure you want to delete?' />}
             </div>
             <Toaster position="top-right" reverseOrder={false} />
 
