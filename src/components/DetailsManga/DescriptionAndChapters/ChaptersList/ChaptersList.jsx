@@ -14,7 +14,6 @@ export default function ChaptersList() {
   let dispatch = useDispatch()
 
   let chapters = useSelector(store => store.mangas.chapters)
-  let manga = useSelector(store => store.mangas.manga)
   let count = useSelector(store => store.mangas.count)
   
   
@@ -47,7 +46,7 @@ export default function ChaptersList() {
   return (
     <div className='chapters-list'>
       {(chapters.map((chapter) => (
-        <ChapterComponent key={chapter.title} title={chapter.title} order={chapter.order} cover_photo={manga.cover_photo} _id={chapter._id} />
+        <ChapterComponent key={chapter.title} title={chapter.title} order={chapter.order} cover_photo={chapter.cover_photo} _id={chapter._id} />
       )))}
 
       <div className='pagination-buttons-details'>
