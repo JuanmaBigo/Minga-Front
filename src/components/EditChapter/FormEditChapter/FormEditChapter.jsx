@@ -6,6 +6,8 @@ import './FormEditChapter.css';
 import { useDispatch, useSelector } from 'react-redux';
 import mangasActions from '../../../store/Mangas/actions';
 import AlertDelete from '../../AlertDelete/AlertDelete';
+import alertActions from '../../../store/Alert/actions';
+const { open } = alertActions
 const { get_chapter, read_chapters } = mangasActions;
 
 
@@ -49,28 +51,40 @@ export default function FormEditChapter() {
             data = {
                 [dataSelected]: dataInput.split(",")
             }
-        } else {
+        } else if([dataSelected][0] === 'title' | [dataSelected][0] === 'order'|[dataSelected][0] === 'pages'|[dataSelected][0] === 'cover_photo'){
             data = {
                 [dataSelected]: dataInput
             }
+        } else {
+            data = ''
         }
+        console.log(data)
 
         let url = 'http://localhost:8080/api/chapters/' + chapter_id;
         let token = localStorage.getItem('token');
         let headers = { headers: { 'Authorization': `Bearer ${token}` } };
 
         try {
-            await axios.put(
-                url,
-                data,
-                headers
-            )
-            toast.success("Chapter Successfully Edited")
+            if (data === '') {
+                throw new Error("You must select a data field to edit")
+            } else {
+                await axios.put(
+                    url,
+                    data,
+                    headers
+                )
 
-            dispatch(get_chapter({ id: chapterSelected.current.value }))
-
+                dispatch(get_chapter({ id: chapterSelected.current.value }))
+                let dataAlert = {
+                    icon: "success",
+                    text: "Your changes has been saved"
+                }
+                dispatch(open(dataAlert))
+            }
         } catch (error) {
-            console.log(error)
+            if(typeof error === 'object'){
+                toast.error(error.message)
+            }
             if (typeof error.response.data.message === 'string') {
                 toast.error(error.response.data.message)
             } else if (Array.isArray(error.response.data.message)) {
@@ -89,9 +103,9 @@ export default function FormEditChapter() {
     }
 
 
-    async function handleYes (event) {
+    async function handleYes(event) {
         event.preventDefault();
-        
+
         let url = 'http://localhost:8080/api/chapters/' + chapter_id;
         let token = localStorage.getItem('token');
         let headers = { headers: { 'Authorization': `Bearer ${token}` } };
