@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import './Chapter.css'
 import { useSelector } from 'react-redux';
-import mangasActions from '../../../store/Mangas/actions';
-const { read_manga, get_chapter } = mangasActions;
-
 
 
 
