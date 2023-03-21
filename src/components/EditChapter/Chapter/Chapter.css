@@ -1,15 +1,28 @@
-.chapter{
-    background-color: rgb(253, 148, 148);
+.chapter {
+    background-color: white;
     width: 50vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* margin-top: 258px; */
+    height: 542px;
+    gap: 8px;
 }
 
 @media screen and (max-width: 768px) {
-    .chapter{
+    .chapter {
         display: none;
     }
+}
+
+.chapter img {
+    max-width: 564px;
+    height: 93%;
+    object-fit: contain;
+}
+
+.chapter h2 {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
 }

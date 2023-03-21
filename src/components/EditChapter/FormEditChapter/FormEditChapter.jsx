@@ -56,7 +56,6 @@ export default function FormEditChapter() {
         let url = 'http://localhost:8080/api/chapters/' + chapter_id;
         let token = localStorage.getItem('token');
         let headers = { headers: { 'Authorization': `Bearer ${token}` } };
-        console.log(url)
 
         try {
             await axios.put(
@@ -80,6 +79,33 @@ export default function FormEditChapter() {
         }
     }
 
+    async function handleDelete(event) {
+        event.preventDefault()
+
+        let url = 'http://localhost:8080/api/chapters/' + chapter_id;
+        let token = localStorage.getItem('token');
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } };
+        
+        try {
+            await axios.delete(
+                url,
+                headers
+            )
+            toast.success("Chapter Successfully Edited")
+            formChapter.current.reset()
+            dispatch(get_chapter({ id: chapterSelected.current.value }))
+
+        } catch (error) {
+            console.log(error)
+            if (typeof error.response.data.message === 'string') {
+                toast.error(error.response.data.message)
+            } else if (Array.isArray(error.response.data.message)) {
+                error.response.data.message.forEach(err => toast.error(err))
+            } else {
+                toast.error(error.response.data)
+            }
+        }
+    }
 
     return (
         <form className='form-edit-chapter' onSubmit={handleSubmit} ref={formChapter}>
@@ -87,7 +113,7 @@ export default function FormEditChapter() {
             <div className='edit-chapter-inputs'>
                 <div className='input-edit-chapter'>
                     <select className='select-chapter' onChange={handleChangeChapter}>
-                        <option value=''>Select Chapter</option>
+                        <option value='' disabled selected>Select chapter</option>
                         {chapters.map((chapter) => (
                             <option id={chapter._id} key={chapter.title} value={chapter._id} ref={chapterSelected}> {chapter.order} </option>
                         ))}
@@ -96,7 +122,7 @@ export default function FormEditChapter() {
                 </div>
                 <div className='input-edit-chapter'>
                     <select className='select-chapter' onChange={handleChangeData}>
-                        <option value=''>Select data</option>
+                        <option value='' disabled selected>Select data</option>
                         <option id='title' value='title'>Title</option>
                         <option id='order' value='order'>Order</option>
                         <option id='pages' value='pages'>Pages</option>
@@ -105,12 +131,14 @@ export default function FormEditChapter() {
                     <p className='line'></p>
                 </div>
                 <div className='input-edit-chapter'>
-                    <input type='text' id='dataToEdit' name='dataToEdit' placeholder='Data to edit' ref={dataToEdit} />
+                    <input className='input-text-edit' type='text' id='dataToEdit' name='dataToEdit' placeholder='Data to edit' ref={dataToEdit} />
                     <p className='line'></p>
                 </div>
             </div>
-            <input type='submit' className='form-edit-chapter-btn' value='Send' />
-
+            <div className='edit-chapter-btns'>
+                <input type='submit' className='form-edit-chapter-btn' value='Edit' />
+                <input type='button' className='delete-btn' value='Delete' onClick={handleDelete} />
+            </div>
             <Toaster position="top-right" reverseOrder={false} />
 
         </form>

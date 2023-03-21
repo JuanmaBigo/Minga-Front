@@ -1,10 +1,12 @@
-
-
 .edit-chapter-page{
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    min-height: 100vh;
+    background-color: white;
+    padding-top: 25vh;
+    align-items: flex-start;
+    justify-content: flex-start;
 } 
+
 
 

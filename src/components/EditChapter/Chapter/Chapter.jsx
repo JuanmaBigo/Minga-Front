@@ -10,11 +10,10 @@ const { read_manga, get_chapter } = mangasActions;
 export default function Chapter() {
     let chapter = useSelector(store => store.mangas.chapter)
 
-
     return (
         <div className='chapter'>
-            <h2>{chapter.title}</h2>
-            <p>añsdlfkañsldfjañsldkfjañsldfjkas dfñalskdjfña lskdjf asdñflkjas dñflkja sd</p>
+            {chapter.title? <h2>Chapter #{`${chapter.order} - ${chapter.title}`}</h2> : ''}
+            <img src={chapter.cover_photo}/>
         </div>
     )
 }
