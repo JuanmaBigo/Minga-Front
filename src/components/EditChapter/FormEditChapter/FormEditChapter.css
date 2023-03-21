@@ -1,6 +1,13 @@
 @media screen and (max-width: 768px) {
     .form-edit-chapter {
         width: 100vw;
+        background-color: #EBEBEB !important;
+    }
+    .edit-chapter-inputs input {
+        background-color: #EBEBEB !important;
+    }
+    .form-edit-chapter select{
+        background-color: #EBEBEB !important;
     }
 }
 
