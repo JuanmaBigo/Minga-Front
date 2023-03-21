@@ -1,5 +1,6 @@
 import React from 'react'
 import './formAuthorUpdate.css'
+import { Toaster, toast } from 'react-hot-toast';
 import { useRef,useEffect,useState } from 'react'
 import ButtonAuthor from '../ButtonAuthor/ButtonAuthor'
 import AlertSave from '../AlertSave/AlertSave'
@@ -38,10 +39,33 @@ export default function FormAuthorUpdate() {
           photo:formRef.current.photo.value
         };
 
-        await dispatch(update_author({data:data}))
-        setReload(!reload)
-        setShowAlert(false) // Ocultar la alerta
-        
+        for (let clave in data) {
+          // verifica que la propiedad sea propia del objeto y no heredada
+          if (data.hasOwnProperty (clave)) {
+            // verifica que la propiedad tenga un valor falso (null, "", false, 0, NaN, etc.)
+            if (!data [clave]) {
+              delete data [clave]; // elimina la propiedad
+            }
+          }
+        }
+
+        try{
+          await dispatch(update_author({data:data}))
+          setReload(!reload)
+          setShowAlert(false) // Ocultar la alerta
+          toast.success("Author Successfully Updated")
+
+        }catch(error){
+            console.log(error)
+            if (typeof error.response.data.message === 'string') {
+                toast.error(error.response.data.message)
+            } else if (Array.isArray(error.response.data.message)) {
+                error.response.data.message.forEach(err => toast.error(err))
+            } else {
+                toast.error(error.response.data)
+            }
+        }
+    
     };
 
     const handleDelete = (event) => {
@@ -54,13 +78,26 @@ export default function FormAuthorUpdate() {
         const data = {
           active:false 
         };
-        await dispatch(update_author({data:data}))
-        setReload(!reload)
-        setShowAlertDelete(false) // Ocultar la alerta
-        setTimeout(() => {
-          navigate('/');
-        }, 500);
-        
+
+        try{
+          await dispatch(update_author({data:data}))
+          setReload(!reload)
+          setShowAlertDelete(false) // Ocultar la alerta
+          toast.success("Author Successfully Removed")
+          setTimeout(() => {
+            navigate('/');
+          }, 500);
+
+        }catch(error){
+            console.log(error)
+            if (typeof error.response.data.message === 'string') {
+                toast.error(error.response.data.message)
+            } else if (Array.isArray(error.response.data.message)) {
+                error.response.data.message.forEach(err => toast.error(err))
+            } else {
+                toast.error(error.response.data)
+            }
+        }
     };
 
     const handleNo = (event) => {
@@ -69,12 +106,12 @@ export default function FormAuthorUpdate() {
       setShowAlertDelete(false) // Ocultar la alerta
     }
 
-    let authores = useSelector(store=>store.author.author)
-    const authoresDate = authores?.date?.split('T')[0]
+    let author = useSelector(store=>store.author.author)
+    const authoresDate = author?.date?.split('T')[0]
 
     useEffect(
         ()=>{
-            if(authores){
+            if(author){
                 dispatch(read_author())
             }
         },[reload]
@@ -84,25 +121,26 @@ export default function FormAuthorUpdate() {
 
     useEffect(() => {
         
-        if (authores?.city && authores?.country) {
-          setInputValue(`${authores?.city}, ${authores?.country}`);
+        if (author?.city && author?.country) {
+          setInputValue(`${author?.city}, ${author?.country}`);
         }
-      }, [authores]);
+      }, [author]);
 
   return (
     <>
         
         <form className='form-author' ref={formRef}>
-            <input  className='input-author' type="text" name='name' defaultValue={authores?.name} required/>
-            <input  className='input-author' type="text" name='last_name' defaultValue={authores?.last_name}/>
-            <input  className='input-author' type="text" name='city_country' defaultValue={inputValue} required/>
+            <input  className='input-author' type="text" name='name' defaultValue={author?.name}  placeholder='Name' />
+            <input  className='input-author' type="text" name='last_name' defaultValue={author?.last_name} placeholder='Last Name'/>
+            <input  className='input-author' type="text" name='city_country' defaultValue={inputValue}  placeholder='City,Country'/>
             <input  className='input-author' type="Date" name='date' defaultValue={authoresDate} />
-            <input  className='input-author' type="text" name='photo' defaultValue={authores?.photo} required/>  
+            <input  className='input-author' type="text" name='photo' defaultValue={author?.photo}  placeholder='Photo'/>  
             <ButtonAuthor value='Save' class='green' onClick={handleSave}/>
             {showAlert && <AlertSave onAccept={handleAccept} text='Your changes are saved correctly!'/>} 
             <ButtonAuthor value='Delete Account' class='red' onClick={handleDelete}/>
             {showAlertDelete && <AlertDelete onYes={handleYes} onNo={handleNo} text='Are your sure you want to delete?'/>}
         </form>
+        <Toaster position="top-right" reverseOrder={false} />
     </>
   )
 }
