@@ -19,10 +19,10 @@ export default function AuthorUpdate() {
       }, [author]);
 
   return (
-    <div className='cont-author'>
-      <div className='cont-form-author'>
-        <h2 className='title-author'>Author</h2>
-        <div className='cont-formAuthor'>
+    <div className='cont-author-update'>
+      <div className='cont-form-author-update'>
+        <h2 className='title-author-update'>Author</h2>
+        <div className='cont-formAuthor-update'>
           <img src={inputValue} alt="perfil" className='img-author' />
           <FormAuthorUpdate/>
         </div>

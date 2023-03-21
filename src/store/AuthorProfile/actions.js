@@ -28,7 +28,6 @@ const update_author = createAsyncThunk(
         let url = 'http://localhost:8080/api/authors/me'
         try{
             let response = await axios.put(url,data,headers)
-            console.log(response.data);
             return{
                 author: response.data.upd
             }
