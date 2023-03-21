@@ -3,7 +3,7 @@
     flex-direction: row;
     min-height: 100vh;
     background-color: white;
-    padding-top: 25vh;
+    padding: 25vh 0 15vh 0;
     align-items: flex-start;
     justify-content: flex-start;
 } 
