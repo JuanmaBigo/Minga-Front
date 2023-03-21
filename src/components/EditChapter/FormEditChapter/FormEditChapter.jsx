@@ -80,6 +80,8 @@ export default function FormEditChapter() {
                     text: "Your changes has been saved"
                 }
                 dispatch(open(dataAlert))
+                dispatch(read_chapters({ id: manga_id, limit: 0 }))
+                console.log(chapters)
             }
         } catch (error) {
             if(typeof error === 'object'){
@@ -118,6 +120,7 @@ export default function FormEditChapter() {
             toast.success("Chapter Successfully Deleted")
             formChapter.current.reset()
             dispatch(get_chapter({}))
+            dispatch(read_chapters({ id: manga_id, limit: 0 }))
         } catch (error) {
             if (typeof error.response.data.message === 'string') {
                 toast.error(error.response.data.message)
