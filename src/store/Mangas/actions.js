@@ -9,7 +9,7 @@ const read_mangas = createAsyncThunk(
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let url = `http://localhost:8080/api/mangas?page=${inputPage}&title=${inputText.trim()}&category_id=${inputCheck.join()}`
         try {
-            let response = await axios.get(url,headers)
+            let response = await axios.get(url, headers)
             return {
                 mangas: response.data.mangas
             }
@@ -46,11 +46,11 @@ const read_chapters = createAsyncThunk(
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let url = ''
-        if(page){
-            url = 'http://localhost:8080/api/chapters?'+'manga_id='+id+'&page='+ page;
+        if (page) {
+            url = 'http://localhost:8080/api/chapters?' + 'manga_id=' + id + '&page=' + page;
         }
-        if (limit === 0){
-            url = 'http://localhost:8080/api/chapters?'+'manga_id='+id+'&limit='+ limit;
+        if (limit === 0) {
+            url = 'http://localhost:8080/api/chapters?' + 'manga_id=' + id + '&limit=' + limit;
         }
 
         try {
@@ -71,19 +71,27 @@ const read_chapters = createAsyncThunk(
 const get_chapter = createAsyncThunk(
     'get_chapter',
     async ({ id }) => {
-        let token = localStorage.getItem('token')
-        let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        let url = 'http://localhost:8080/api/chapters/'+ id;
-        try {
-            let response = await axios.get(url, headers)
-            return {
-                chapter: response.data.chapter
+        if (id) {
+
+            let token = localStorage.getItem('token')
+            let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+            let url = 'http://localhost:8080/api/chapters/' + id;
+            try {
+                let response = await axios.get(url, headers)
+                return {
+                    chapter: response.data.chapter
+                }
+            } catch (error) {
+                return {
+                    chapter: {}
+                }
             }
-        } catch (error) {
+        } else {
             return {
                 chapter: {}
             }
         }
+
     }
 )
 
