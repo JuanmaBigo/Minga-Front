@@ -8,7 +8,7 @@ import mangasActions from '../../../store/Mangas/actions';
 import AlertDelete from '../../AlertDelete/AlertDelete';
 import alertActions from '../../../store/Alert/actions';
 const { open } = alertActions
-const { get_chapter, read_chapters } = mangasActions;
+const { get_chapter, read_chapters, read_manga } = mangasActions;
 
 
 
@@ -18,10 +18,14 @@ export default function FormEditChapter() {
     const [showAlertDelete, setShowAlertDelete] = useState(false)
 
     let dispatch = useDispatch()
+
     useEffect(() => {
         dispatch(read_chapters({ id: manga_id, limit: 0 }))
+        dispatch(read_manga({ id: manga_id }))
     }, []);
     let chapters = useSelector(store => store.mangas.chapters)
+    let manga = useSelector(store => store.mangas.manga.title)
+
 
     let chapterSelected = useRef()
     function handleChangeChapter(event) {
@@ -32,7 +36,6 @@ export default function FormEditChapter() {
 
 
     let select = useRef()
-
     let dataToEdit = useRef()
     let formChapter = useRef()
 
@@ -137,7 +140,9 @@ export default function FormEditChapter() {
     return (
         <form className='form-edit-chapter' onSubmit={handleSubmit} ref={formChapter}>
             <h2 className='edit-chapter-title'>Edit Chapter</h2>
+
             <div className='edit-chapter-inputs'>
+                <h4>{manga}</h4>
                 <div className='input-edit-chapter'>
                     <select className='select-chapter' defaultValue='select' onChange={handleChangeChapter}>
                         <option value='select' disabled hidden>Select chapter</option>

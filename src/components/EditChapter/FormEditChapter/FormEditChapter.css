@@ -3,10 +3,12 @@
         width: 100vw;
         background-color: #EBEBEB !important;
     }
+
     .edit-chapter-inputs input {
         background-color: #EBEBEB !important;
     }
-    .form-edit-chapter select{
+
+    .form-edit-chapter select {
         background-color: #EBEBEB !important;
     }
 }
@@ -19,6 +21,12 @@
     justify-content: space-between;
     background-color: white;
     height: 542px;
+}
+
+.form-edit-chapter h4 {
+    font-weight: 300;
+    font-size: 26px;
+    text-align: center;
 }
 
 .edit-chapter-title {
