@@ -16,6 +16,7 @@ export default function FormEditChapter() {
     const { manga_id } = useParams()
     const [chapter_id, setChapter_id] = useState();
     const [showAlertDelete, setShowAlertDelete] = useState(false)
+    const [isChapterSelected, setIsChapterSelected] = useState(false);
 
     let dispatch = useDispatch()
 
@@ -26,12 +27,12 @@ export default function FormEditChapter() {
     let chapters = useSelector(store => store.mangas.chapters)
     let manga = useSelector(store => store.mangas.manga.title)
 
-
     let chapterSelected = useRef()
     function handleChangeChapter(event) {
         chapterSelected = event.target.value
         setChapter_id(chapterSelected)
         dispatch(get_chapter({ id: chapterSelected }))
+        setIsChapterSelected(true);
     }
 
 
@@ -67,14 +68,16 @@ export default function FormEditChapter() {
 
         try {
             if (data === '') {
-                throw new Error("Tou must select a data field to edit")
-            } else {
+                throw new Error("data")
+            } else if (!isChapterSelected){
+                throw new Error("chapter")
+            }else{
+
                 await axios.put(
                     url,
                     data,
                     headers
                 )
-
                 dispatch(get_chapter({ id: chapterSelected.current.value }))
                 let dataAlert = {
                     icon: "success",
@@ -84,9 +87,12 @@ export default function FormEditChapter() {
                 dispatch(read_chapters({ id: manga_id, limit: 0 }))
             }
         } catch (error) {
-            if (typeof error === 'object') {
-                toast.error(error.message)
-            } else if (typeof error.response.data.message === 'string') {
+            if (error.message === 'data') {
+                toast.error("You must select a data field to edit")
+            } else if (error.message === 'chapter'){
+                toast.error("You must select a chapter to edit")
+            } 
+            if (typeof error.response.data.message === 'string') {
                 toast.error(error.response.data.message)
             } else if (Array.isArray(error.response.data.message)) {
                 error.response.data.message.forEach(err => toast.error(err))
@@ -119,6 +125,7 @@ export default function FormEditChapter() {
             toast.success("Chapter Successfully Deleted")
             formChapter.current.reset()
             dispatch(get_chapter({}))
+            dispatch(read_chapters({ id: manga_id, limit: 0 }))
         } catch (error) {
             if (typeof error.response.data.message === 'string') {
                 toast.error(error.response.data.message)
