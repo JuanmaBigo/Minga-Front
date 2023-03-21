@@ -72,6 +72,7 @@ const get_chapter = createAsyncThunk(
     'get_chapter',
     async ({ id }) => {
         if (id) {
+
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
             let url = 'http://localhost:8080/api/chapters/' + id;
@@ -90,6 +91,7 @@ const get_chapter = createAsyncThunk(
                 chapter: {}
             }
         }
+
     }
 )
 
