@@ -1,0 +1,75 @@
+@media screen and (max-width: 768px) {
+    .form-edit-chapter {
+        width: 100vw;
+    }
+}
+.form-edit-chapter {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 50vw;
+    align-items: center;
+    justify-content: center;
+    background-color: #EBEBEB;
+}
+
+.edit-chapter-title {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 54px;
+    color: #222222;
+    margin-bottom: 75px;
+}
+
+.edit-chapter-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 115px;
+}
+
+.edit-chapter-inputs input {
+    background-color: #EBEBEB;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    width: 280px;
+    height: 24px;
+    border: none;
+}
+
+.input-edit-chapter .line {
+    position: relative;
+    bottom: 3px;
+    border-bottom: 1px solid #424242;
+}
+
+.form-edit-chapter-btn {
+    background: linear-gradient(162.88deg, #FF5722 -11.37%, #F97316 73.97%);
+    border-radius: 50000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 36px;
+    color: white;
+    letter-spacing: 0em;
+    width: 280px;
+    height: 62px;
+    border: none;
+}
+
+.form-edit-chapter-btn:hover {
+    cursor: pointer;
+}
+
+.select-chapter{
+    width: 100%;
+        border: none;
+        border-bottom: 1px solid grey;
+}
+
+.select-chapter:focus {
+    outline: none;
+}

@@ -1,13 +1,14 @@
 import { createReducer } from "@reduxjs/toolkit";
 import mangasActions from './actions'
 
-const {read_mangas, read_manga, read_chapters} = mangasActions
+const {read_mangas, read_manga, read_chapters, get_chapter} = mangasActions
 
 const initialState ={
     mangas: [],
     manga: {},
     chapters : [], 
-    count: 0
+    count: 0,
+    chapter: {}
 }
 
 const reducer = createReducer(
@@ -40,6 +41,16 @@ const reducer = createReducer(
                 ...state,
                 chapters: actions.payload.chapters,
                 count: actions.payload.count
+            }
+            return newState
+        }
+    )
+    .addCase(
+        get_chapter.fulfilled,
+        (state,actions)=>{
+            let newState = {
+                ...state,
+                chapter: actions.payload.chapter
             }
             return newState
         }

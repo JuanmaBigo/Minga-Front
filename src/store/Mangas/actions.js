@@ -26,11 +26,7 @@ const read_manga = createAsyncThunk(
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let url = 'http://localhost:8080/api/mangas/' + id;
         try {
-<<<<<<< HEAD
             let response = await axios.get(url, headers)
-=======
-            let response = await axios.get(url,headers)
->>>>>>> 5fcea2af3efb0ce4c7ed535de23bdd1ae48b4e76
             return {
                 manga: response.data.manga
             }
@@ -44,17 +40,19 @@ const read_manga = createAsyncThunk(
 
 const read_chapters = createAsyncThunk(
     'read_chapters',
-    async ({ id, page }) => {
+    async ({ id, page, limit }) => {
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        let url = 'http://localhost:8080/api/chapters?'+'manga_id='+id+'&page='+ page;
+        let url = ''
+        if(page){
+            url = 'http://localhost:8080/api/chapters?'+'manga_id='+id+'&page='+ page;
+        }
+        if (limit === 0){
+            url = 'http://localhost:8080/api/chapters?'+'manga_id='+id+'&limit='+ limit;
+        }
 
         try {
-<<<<<<< HEAD
             let response = await axios.get(url, headers)
-=======
-            let response = await axios.get(url,headers)
->>>>>>> 5fcea2af3efb0ce4c7ed535de23bdd1ae48b4e76
             return {
                 chapters: response.data.chapters,
                 count: response.data.count
@@ -68,8 +66,27 @@ const read_chapters = createAsyncThunk(
     }
 )
 
+const get_chapter = createAsyncThunk(
+    'get_chapter',
+    async ({ id }) => {
+        let token = localStorage.getItem('token')
+        let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+        let url = 'http://localhost:8080/api/chapters/'+ id;
+        try {
+            let response = await axios.get(url, headers)
+            return {
+                chapter: response.data.chapter
+            }
+        } catch (error) {
+            return {
+                chapter: {}
+            }
+        }
+    }
+)
 
 
-const actions = { read_mangas, read_manga, read_chapters }
+
+const actions = { read_mangas, read_manga, read_chapters, get_chapter }
 
 export default actions
