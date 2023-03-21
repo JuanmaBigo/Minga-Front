@@ -14,10 +14,6 @@ export default function FormEditChapter() {
     const { manga_id } = useParams()
     const [chapter_id, setChapter_id] = useState();
     const [showAlertDelete, setShowAlertDelete] = useState(false)
-<<<<<<< HEAD
-=======
-
->>>>>>> f0124b49839cc39e00aa5ba94aaffa0a908526d9
 
     let dispatch = useDispatch()
     useEffect(() => {
@@ -91,12 +87,6 @@ export default function FormEditChapter() {
         event.preventDefault()
         setShowAlertDelete(true)
     }
-<<<<<<< HEAD
-=======
-
-    async function handleYes(event) {
-        event.preventDefault();
->>>>>>> f0124b49839cc39e00aa5ba94aaffa0a908526d9
 
 
     async function handleYes (event) {
@@ -111,17 +101,9 @@ export default function FormEditChapter() {
                 url,
                 headers
             )
-<<<<<<< HEAD
-            toast.success("Chapter Successfully Edited")
-            dispatch(get_chapter({}))
-            setShowAlertDelete(false)
-            formChapter.current.reset()
-
-=======
             toast.success("Chapter Successfully Deleted")
             formChapter.current.reset()
             dispatch(get_chapter({}))
->>>>>>> f0124b49839cc39e00aa5ba94aaffa0a908526d9
         } catch (error) {
             if (typeof error.response.data.message === 'string') {
                 toast.error(error.response.data.message)
@@ -134,10 +116,6 @@ export default function FormEditChapter() {
         setShowAlertDelete(false)
     }
 
-    const handleNo = (event) => {
-        event.preventDefault()
-        setShowAlertDelete(false)
-    }
 
     const handleNo = (event) => {
         event.preventDefault()
@@ -158,11 +136,7 @@ export default function FormEditChapter() {
                     <p className='line'></p>
                 </div>
                 <div className='input-edit-chapter'>
-<<<<<<< HEAD
-                    <select className='select-chapter' onChange={handleChangeData} defaultValue='select'>
-=======
                     <select className='select-chapter' defaultValue='select' onChange={handleChangeData}>
->>>>>>> f0124b49839cc39e00aa5ba94aaffa0a908526d9
                         <option value='select' disabled hidden>Select data</option>
                         <option id='title' value='title'>Title</option>
                         <option id='order' value='order'>Order</option>
@@ -179,11 +153,7 @@ export default function FormEditChapter() {
             <div className='edit-chapter-btns'>
                 <input type='submit' className='form-edit-chapter-btn' value='Edit' />
                 <input type='button' className='delete-btn' value='Delete' onClick={handleDelete} />
-<<<<<<< HEAD
-                {showAlertDelete && <AlertDelete onYes={handleYes} onNo={handleNo} text='Are you sure you want to delete?'/>}
-=======
                 {showAlertDelete && <AlertDelete onYes={handleYes} onNo={handleNo} text='Are you sure you want to delete?' />}
->>>>>>> f0124b49839cc39e00aa5ba94aaffa0a908526d9
             </div>
             <Toaster position="top-right" reverseOrder={false} />
 
