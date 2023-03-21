@@ -21,7 +21,7 @@ export default function AuthorUpdate() {
   return (
     <div className='cont-author'>
       <div className='cont-form-author'>
-        <h2 className='title-author'>New Author</h2>
+        <h2 className='title-author'>Author</h2>
         <div className='cont-formAuthor'>
           <img src={inputValue} alt="perfil" className='img-author' />
           <FormAuthorUpdate/>
