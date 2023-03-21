@@ -30,10 +30,8 @@ export default function FormEditChapter() {
         dispatch(get_chapter({ id: chapterSelected }))
     }
 
-    let dataSelected = useRef()
-    function handleChangeData(event) {
-        dataSelected = event.target.value
-    }
+
+    let select = useRef()
 
     let dataToEdit = useRef()
     let formChapter = useRef()
@@ -41,7 +39,7 @@ export default function FormEditChapter() {
     async function handleSubmit(event) {
         event.preventDefault()
         let dataInput = dataToEdit.current.value
-
+        let dataSelected = select.current.value
         let data = {}
         if (dataSelected === "order") {
             data = {
@@ -51,14 +49,14 @@ export default function FormEditChapter() {
             data = {
                 [dataSelected]: dataInput.split(",")
             }
-        } else if([dataSelected][0] === 'title' | [dataSelected][0] === 'order'|[dataSelected][0] === 'pages'|[dataSelected][0] === 'cover_photo'){
+        } else if ([dataSelected][0] === 'title' | [dataSelected][0] === 'order' | [dataSelected][0] === 'pages' | [dataSelected][0] === 'cover_photo') {
             data = {
                 [dataSelected]: dataInput
             }
         } else {
             data = ''
         }
-        console.log(data)
+
 
         let url = 'http://localhost:8080/api/chapters/' + chapter_id;
         let token = localStorage.getItem('token');
@@ -66,7 +64,7 @@ export default function FormEditChapter() {
 
         try {
             if (data === '') {
-                throw new Error("You must select a data field to edit")
+                throw new Error("Tou must select a data field to edit")
             } else {
                 await axios.put(
                     url,
@@ -81,13 +79,11 @@ export default function FormEditChapter() {
                 }
                 dispatch(open(dataAlert))
                 dispatch(read_chapters({ id: manga_id, limit: 0 }))
-                console.log(chapters)
             }
         } catch (error) {
-            if(typeof error === 'object'){
+            if (typeof error === 'object') {
                 toast.error(error.message)
-            }
-            if (typeof error.response.data.message === 'string') {
+            } else if (typeof error.response.data.message === 'string') {
                 toast.error(error.response.data.message)
             } else if (Array.isArray(error.response.data.message)) {
                 error.response.data.message.forEach(err => toast.error(err))
@@ -120,7 +116,6 @@ export default function FormEditChapter() {
             toast.success("Chapter Successfully Deleted")
             formChapter.current.reset()
             dispatch(get_chapter({}))
-            dispatch(read_chapters({ id: manga_id, limit: 0 }))
         } catch (error) {
             if (typeof error.response.data.message === 'string') {
                 toast.error(error.response.data.message)
@@ -153,7 +148,7 @@ export default function FormEditChapter() {
                     <p className='line'></p>
                 </div>
                 <div className='input-edit-chapter'>
-                    <select className='select-chapter' defaultValue='select' onChange={handleChangeData}>
+                    <select className='select-chapter' defaultValue='select' ref={select}>
                         <option value='select' disabled hidden>Select data</option>
                         <option id='title' value='title'>Title</option>
                         <option id='order' value='order'>Order</option>
