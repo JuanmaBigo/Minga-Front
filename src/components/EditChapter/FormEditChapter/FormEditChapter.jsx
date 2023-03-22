@@ -78,7 +78,7 @@ export default function FormEditChapter() {
                     data,
                     headers
                 )
-                dispatch(get_chapter({ id: chapterSelected.current.value }))
+                dispatch(get_chapter({ id: chapter_id }))
                 let dataAlert = {
                     icon: "success",
                     text: "Your changes has been saved"
