@@ -1,11 +1,11 @@
-.cont-author{
+.cont-author-update{
     min-height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
-.title-author{
+.title-author-update{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -20,7 +20,7 @@
     object-fit: cover;
     object-position: center;
 }
-.cont-formAuthor{
+.cont-formAuthor-update{
     width: 40vw;
     height: 60vh;
     display: flex;
@@ -30,13 +30,13 @@
 }
 
 @media (max-width:767px){
-    .cont-author{
+    .cont-author-update{
         flex-direction: column-reverse; 
     }
-    .cont-formAuthor{
+    .cont-formAuthor-update{
         width: 60vw;
     }
-    .cont-form-author{
+    .cont-form-author-update{
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -45,7 +45,7 @@
     }
 }
 @media (max-width:424px){
-    .cont-formAuthor{
+    .cont-formAuthor-update{
         width: 80vw;
     }
 }

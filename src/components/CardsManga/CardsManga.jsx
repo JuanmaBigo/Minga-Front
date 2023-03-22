@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './cardsManga.css'
 import { useNavigate } from 'react-router'
 import DeleteMyMangas from '../DeleteMyMangas/DeleteMyMangas'
+import EditMyMangas from '../EditMyMangas/EditMyMangas'
 
 export default function CardsManga(props) {
 
@@ -25,7 +26,11 @@ export default function CardsManga(props) {
         <h3 className={`type-card ${props.category_.name.includes('shonen') ? 'red-type' : props.category_.name.includes('comic')?'orange-type':props.category_.name.includes('shojo')?'green-type':props.category_.name.includes('seinen')?'purple-type':''}`}>{props.category_.name}</h3>
         <div className='buttons'>
           <button onClick={handleNavegate} className='btn-read'>Read</button>
-          <button   className='btn-edit'>Edit</button>
+          <button  onClick={showModalEdit} className='btn-edit'>Edit
+          {
+            (modalEdit) ? (<EditMyMangas />) : (null)
+          }
+          </button>
           <button onClick={showModalDelete}  className='btn-delete'>Delete
           {
             (modalDelete) ? (<DeleteMyMangas />) : (null)
