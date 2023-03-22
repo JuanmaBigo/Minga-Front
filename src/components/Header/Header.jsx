@@ -72,6 +72,7 @@ export default function Header() {
         
                 <Anchor className='nav-btn' to='/'>Home</Anchor>
                 {token ? <Anchor className='nav-btn' to='/mangas/:page'>Manga</Anchor> :''}
+                {token ? <Anchor className='nav-btn' to='/mymangas'>My Mangas</Anchor> :''}
                 {token ? <Anchor className='nav-btn' to='/manga-form'>Manga-Form</Anchor> : ''}
                 {token ? <Anchor className='nav-btn' to='/chapter-form/:manga_id'>Chapter-Form</Anchor> : ''}
                 {token ? <Anchor className='nav-btn' to='/author-form'>Author-Form</Anchor> : ''}

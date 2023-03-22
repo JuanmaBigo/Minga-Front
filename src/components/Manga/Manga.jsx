@@ -57,7 +57,7 @@ export default function Manga() {
     }
     
 
-  return (
+    return (
     <div className='manga'>
         <div className='search-manga'>
             <h2 className='name-page'>Manga</h2>
@@ -84,5 +84,5 @@ export default function Manga() {
             </div>
         </div>
     </div>
-  )
+    )
 }

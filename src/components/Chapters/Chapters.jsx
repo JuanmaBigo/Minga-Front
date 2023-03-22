@@ -24,14 +24,14 @@ export default function Chapters() {
                 })
                 .catch(error => console.log(error))
             },
-            []
+            [ ]
         ) 
 
         let handlePrev = () => {
             setIndex( index - 1)
             navigate(`/chapters/${id}/${index - 1}`) 
             if( index <= 0 && chapter.order == 1){
-                navigate(`/manga/${chapter.manga_id}/${1}`)
+                navigate(`/manga/${chapter.manga_id}/1`)
             }
             else if( index <= 0 ) {
                 navigate(`/chapters/${prev}/0`)

@@ -4,6 +4,7 @@ import mangaReducer from './Mangas/reducer'
 import checkReducer from './checks/reducer'
 import alertReducer from './Alert/reducer'
 import authorReducer from './AuthorProfile/reducer'
+import getmangas_reducer from './MyMangas/reducer'
 
 export const store = configureStore({
     reducer:{
@@ -11,6 +12,7 @@ export const store = configureStore({
         mangas: mangaReducer,
         checks: checkReducer, 
         alert: alertReducer,
-        author:authorReducer
+        author:authorReducer,
+        getmangas: getmangas_reducer
     }
 })
