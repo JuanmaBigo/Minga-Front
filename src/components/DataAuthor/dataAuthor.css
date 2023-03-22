@@ -29,7 +29,14 @@
     font-size: 16px;
     line-height: 18px;
 }
-
+.img-author-data{
+    margin-left: 6vh;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    object-position: center;
+}
 @media (max-width: 767px){
     .data-author{
         min-height: 100vh;
