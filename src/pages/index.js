@@ -11,7 +11,9 @@ import Chapters from "../components/Chapters/Chapters";
 import MangaDetails from './MangaDetails/MangaDetails';
 import AuthorForm from './AuthorForm/AuthorForm';
 import AuthorProfile from './AuthorProfile/AuthorProfile';
+import MyMangas from './MyMangas/MyMangas';
 import EditChapterPage from './EditChapter/EditChapterPage';
+
 
 import { createBrowserRouter } from "react-router-dom"
 
@@ -45,7 +47,9 @@ export const router = createBrowserRouter([
             {path: '/manga/:id/:page', element: <MangaDetails/>},
             {path: '/author-form' , element:<AuthorForm/>},
             {path: '/profile', element:<AuthorProfile/>},
+            {path: '/mymangas', element: <MyMangas />},
             {path: '/edit/:manga_id', element:<EditChapterPage/>}
+
 
         ]
     } 
