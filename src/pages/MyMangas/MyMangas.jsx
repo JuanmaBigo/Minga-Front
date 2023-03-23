@@ -19,7 +19,7 @@ export default function MyMangas() {
         () => {
             dispatch(my_mangas({token}))
         },
-        [deleteState]
+        [ deleteState ]
     )
     let mangas = useSelector(store => store.getmangas.mangas)
     let name = ''
@@ -45,7 +45,9 @@ export default function MyMangas() {
                         <CardsManga key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id} /> )
                 } 
             </div>
-            { deleteState ? <ModalDelete /> : null}
+            {
+                deleteState ? <ModalDelete /> : null
+            }
         </div>
     </div>
     )
