@@ -1,23 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './cardsManga.css'
 import { useNavigate } from 'react-router'
-import DeleteMyMangas from '../DeleteMyMangas/DeleteMyMangas'
-import EditMyMangas from '../EditMyMangas/EditMyMangas'
+import { useDispatch } from 'react-redux'
+import modalDelete from '../../store/ModalDelete/actions'
+
 
 export default function CardsManga(props) {
 
-  let [ modalDelete, setModalDelete ] = useState(false)
-  let [ modalEdit, setModalEdit ] = useState(false)
-  let navigate = useNavigate()
+    let navigate = useNavigate()
+    let dispatch = useDispatch()
 
-  function handleNavegate(){
-    navigate(`/manga/${props._id}/1`)
-  }
-
-  const showModalDelete = () => setModalDelete(!modalDelete)
-  const showModalEdit = () => setModalDelete(!modalEdit)
+    const { showDeleteModal } = modalDelete
 
 
+    const handleRead = () =>{
+      navigate(`/manga/${props._id}/1`)
+    }
+
+    const handleDelete = (e) => {
+      dispatch( showDeleteModal({
+        state: true,
+        id: e.target.id
+      }))
+    }
+    
   return (
     <div className='card'>
       <span className={`span-card ${props.category_.name.includes('shonen') ? 'red-span' : props.category_.name.includes('comic')?'orange-span':props.category_.name.includes('shojo')?'green-span':props.category_.name.includes('seinen')?'purple-span':''}` }></span>
@@ -25,16 +31,9 @@ export default function CardsManga(props) {
         <h2 className='title-card'>{props.title_}</h2>
         <h3 className={`type-card ${props.category_.name.includes('shonen') ? 'red-type' : props.category_.name.includes('comic')?'orange-type':props.category_.name.includes('shojo')?'green-type':props.category_.name.includes('seinen')?'purple-type':''}`}>{props.category_.name}</h3>
         <div className='buttons'>
-          <button onClick={handleNavegate} className='btn-read'>Read</button>
-          <button  onClick={showModalEdit} className='btn-edit'>Edit
-          {
-            (modalEdit) ? (<EditMyMangas />) : (null)
-          }
-          </button>
-          <button onClick={showModalDelete}  className='btn-delete'>Delete
-          {
-            (modalDelete) ? (<DeleteMyMangas />) : (null)
-          }
+          <button onClick={handleRead} className='btn-read'>Read</button>
+          <button className='btn-edit'>Edit</button>
+          <button onClick={handleDelete} id={props._id}className='btn-delete'>Delete
           </button>
         </div>
       </div>
