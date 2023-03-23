@@ -4,6 +4,7 @@ import './mymangas.css'
 import getmangas from '../../store/MyMangas/actions'
 import CardsManga from '../../components/CardsManga/CardsManga'
 import ChecksManga from '../../components/ChecksManga/ChecksManga'
+import ModalDelete from '../../components/ModalDelete/ModalDelete'
 
 
 export default function MyMangas() {
@@ -11,19 +12,21 @@ export default function MyMangas() {
     let { my_mangas } = getmangas
     const dispatch = useDispatch()
     let token = localStorage.getItem('token')
+    let deleteState = useSelector(store => store.showModalDelete.state)
+
 
     useEffect(
         () => {
             dispatch(my_mangas({token}))
         },
-        []
+        [deleteState]
     )
     let mangas = useSelector(store => store.getmangas.mangas)
     let name = ''
     if (mangas[0]?.author_id.name || mangas[0]?.author_id.last_name){
         name = mangas[0].author_id.name
         if( mangas[0]?.author_id.last_name ){
-            name += mangas[0].author_id.last_name
+            name += ' ' + mangas[0].author_id.last_name
         }
     }
         
@@ -42,7 +45,7 @@ export default function MyMangas() {
                         <CardsManga key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id} /> )
                 } 
             </div>
-            
+            { deleteState ? <ModalDelete /> : null}
         </div>
     </div>
     )
