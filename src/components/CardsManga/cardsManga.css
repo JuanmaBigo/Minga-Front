@@ -48,7 +48,7 @@
     display: flex;
 }
 
-.btn-read{
+.btn-readManga{
     width: 92px;
     height: 35px;
     margin-top: 2vh;
@@ -68,45 +68,7 @@
     cursor: pointer;
 }
 
-.btn-edit{
-    width: 92px;
-    height: 35px;
-    margin-top: 2vh;
-    background: #8883f08e;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
-    border-radius: 50px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 95.19%;
-    border:none;
-    color: #00BA88;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
 
-.btn-delete {
-    width: 92px;
-    height: 35px;
-    margin-top: 2vh;
-    background: #fd690091;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
-    border-radius: 50px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 95.19%;
-    border:none;
-    color: #00BA88;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
 /*color type manga*/
 
 .red-span{
