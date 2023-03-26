@@ -39,6 +39,7 @@ export default function FormLogin() {
             try {
                 await axios.post(url,data)
                 .then(res => {
+                    console.log(res.data.user);
                  localStorage.setItem('token',res.data.token);
                  localStorage.setItem('user',JSON.stringify({
                     name:res.data.user.name,

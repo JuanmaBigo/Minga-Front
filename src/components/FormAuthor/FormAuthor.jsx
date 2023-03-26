@@ -29,10 +29,12 @@ export default function FormAuthor() {
                 photo: photo,
             }
 
+            let token = localStorage.getItem('token')
+            let headers = { headers: { 'Authorization': `Bearer ${token}` } }
             let url = 'http://localhost:8080/api/authors'
 
             try {
-                await axios.post(url,data) 
+                await axios.post(url,data,headers) 
                 toast.success('Authors created susccesfully')//*te permite crear el author pero recuerda implementar el passport en el back y en el front por headers para que se cumpla la condicion de autenticacion
             } catch (error) {
                 if(typeof error.response.data.message === 'string'){
@@ -57,7 +59,7 @@ export default function FormAuthor() {
             <input className='input-author' type="text" name='city-country' placeholder='City,Country' required/>
             <input className='input-author' type="Date" name='date' />
             <input className='input-author' type="text" name='photo' placeholder='URL Profile Image' required/>  
-            <ButtonAuthor/>
+            <ButtonAuthor value='Send' class='orange'/>
         </form>
         <Toaster
                 position="top-center"

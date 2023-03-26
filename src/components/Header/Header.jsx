@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import './Header.css'
 import Logo from '../../assets/img/Logo-2.png'
@@ -8,9 +8,12 @@ import BtnClose from '../../assets/img/Union.png'
 import LogoMin from '../../assets/img/logo-min.png'
 import { Link as Anchor } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
-
+import { useSelector,useDispatch } from 'react-redux'
+import authorAction from '../../store/AuthorProfile/actions'
+const {read_author} = authorAction
 
 export default function Header() {
+    const dispatch = useDispatch()
     
     const [isOpen, setIsOpen] = useState(true)
     let url = `http://localhost:8080/api/auth/token`
@@ -48,6 +51,14 @@ export default function Header() {
     let mail = user.mail
     let photo = user.photo
 
+    let author = useSelector(store => store.author.author)
+    useEffect(
+        ()=>{
+            if(author){
+                dispatch(read_author())
+            }
+        },[isOpen]
+    )
 
     return (
         <div className='header-container'>
@@ -72,9 +83,11 @@ export default function Header() {
         
                 <Anchor className='nav-btn' to='/'>Home</Anchor>
                 {token ? <Anchor className='nav-btn' to='/mangas/:page'>Manga</Anchor> :''}
+                {token ? <Anchor className='nav-btn' to='/mymangas'>My Mangas</Anchor> :''}
                 {token ? <Anchor className='nav-btn' to='/manga-form'>Manga-Form</Anchor> : ''}
                 {token ? <Anchor className='nav-btn' to='/chapter-form/:manga_id'>Chapter-Form</Anchor> : ''}
                 {token ? <Anchor className='nav-btn' to='/author-form'>Author-Form</Anchor> : ''}
+                {token && author?.active ? <Anchor className='nav-btn' to='/profile'>Author-Profile</Anchor> : ''}
                 {token ? '' : <Anchor className='nav-btn' to='/register'>Register</Anchor>}
                 {token ? '' : <Anchor className='nav-btn' to='/signin' text={'false'}>Login</Anchor>}
                 {token ? <Anchor className='nav-btn' onClick={handleSignOut}>Logout</Anchor> : ''}
