@@ -8,11 +8,11 @@ import ScrollToTop from '../../components/ScrollToTop/ScrollToTop'
 export default function LayoutMain(props) {
   return (
     <div className="main-container">
-    <ScrollToTop/>
+      <ScrollToTop />
       <Header />
-        <Outlet/>
+      <Outlet />
       <Footer />
-      <Alert/>
+      <Alert />
     </div>
   )
 }
