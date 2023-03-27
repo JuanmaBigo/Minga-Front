@@ -13,7 +13,7 @@ export default function Donate() {
         let donationAmount = (event.target.textContent).slice(1)
 
         let data = {
-            title: 'Donation of $' + donationAmount,
+            title: 'Donation',
             price: parseInt(donationAmount)
         }
 
