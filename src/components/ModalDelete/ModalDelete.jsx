@@ -4,6 +4,7 @@ import './modaldelete.css'
 import modalDelete from '../../store/ModalDelete/actions'
 import { toast, Toaster } from 'react-hot-toast'
 import axios from 'axios'
+import apiUrl from '../../configHost.js'
 
 
 export default function ModalDelete() {
@@ -13,7 +14,7 @@ export default function ModalDelete() {
     let manga_id = useSelector(store => store.showModalDelete.id)
     let token = localStorage.getItem('token')
     let headers = {  headers: { 'Authorization': `Bearer ${token}`}}
-    let url = `http://localhost:8080/api/mangas/${manga_id}`
+    let url = apiUrl + `mangas/${manga_id}`
 
 
     const handleDelete = async () =>{

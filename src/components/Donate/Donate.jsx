@@ -4,7 +4,7 @@ import './Donate.css'
 import { toast } from 'react-hot-toast';
 import character from '../../assets/img/character.png'
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
-
+import apiUrl from '../../configHost';
 
 
 export default function Donate() {
@@ -17,7 +17,7 @@ export default function Donate() {
             price: parseInt(donationAmount)
         }
 
-        let url = 'http://localhost:8080/api/donation'
+        let url = apiUrl +'donation'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         try {

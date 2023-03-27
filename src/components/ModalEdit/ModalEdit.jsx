@@ -5,6 +5,7 @@ import modalEdit from '../../store/ModalEdit/actions'
 import closeIcon from '../../assets/img/Union.png'
 import axios from 'axios'
 import { toast, Toaster } from 'react-hot-toast'
+import apiUrl from '../../configHost'
 
 
 
@@ -16,7 +17,7 @@ export default function ModalEdit() {
     let [ mangaEdit , setMangaEdit ] = useState({})
     let manga_id = useSelector(store => store.showModalEdit.id)
 
-    let url = 'http://localhost:8080/api/mangas/'
+    let url = apiUrl + 'mangas/'
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}`}}
     

@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import apiUrl from "../../configHost";
 
 
 const read_mangas = createAsyncThunk(
@@ -7,7 +8,7 @@ const read_mangas = createAsyncThunk(
     async ({ inputText, inputCheck, inputPage }) => {
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        let url = `http://localhost:8080/api/mangas?page=${inputPage}&title=${inputText.trim()}&category_id=${inputCheck.join()}`
+        let url = apiUrl + `mangas?page=${inputPage}&title=${inputText.trim()}&category_id=${inputCheck.join()}`
         try {
             let response = await axios.get(url, headers)
             return {
@@ -26,7 +27,7 @@ const read_manga = createAsyncThunk(
     async ({ id }) => {
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        let url = 'http://localhost:8080/api/mangas/' + id;
+        let url = apiUrl + 'mangas/' + id;
         try {
             let response = await axios.get(url, headers)
             return {
@@ -47,10 +48,10 @@ const read_chapters = createAsyncThunk(
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
         let url = ''
         if (page) {
-            url = 'http://localhost:8080/api/chapters?' + 'manga_id=' + id + '&page=' + page;
+            url = apiUrl + 'chapters?' + 'manga_id=' + id + '&page=' + page;
         }
         if (limit === 0) {
-            url = 'http://localhost:8080/api/chapters?' + 'manga_id=' + id + '&limit=' + limit;
+            url = apiUrl + 'chapters?' + 'manga_id=' + id + '&limit=' + limit;
         }
 
         try {
@@ -75,7 +76,7 @@ const get_chapter = createAsyncThunk(
 
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-            let url = 'http://localhost:8080/api/chapters/' + id;
+            let url = apiUrl + 'chapters/' + id;
             try {
                 let response = await axios.get(url, headers)
                 console.log(response)
