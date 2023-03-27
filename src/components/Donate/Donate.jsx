@@ -4,11 +4,7 @@ import './Donate.css'
 import { toast } from 'react-hot-toast';
 import character from '../../assets/img/character.png'
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
-<<<<<<< HEAD
 import apiUrl from '../../configHost';
-=======
-
->>>>>>> 4cf76543003fc2784d5341746b8ca7f417cfe8c9
 
 
 export default function Donate() {
