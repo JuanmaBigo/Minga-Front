@@ -7,6 +7,7 @@ import RatingStats from "./RatingStats/RatingStats";
 import DescriptionAndChapters from "./DescriptionAndChapters/DescriptionAndChapters";
 import { useDispatch } from 'react-redux';
 import mangasActions from '../../store/Mangas/actions';
+import ScrollToTop from '../ScrollToTop/ScrollToTop';
 const { read_manga, read_chapters } = mangasActions;
 
 export default function DetailsManga() {
@@ -26,6 +27,7 @@ export default function DetailsManga() {
 
     return (
         <div className='MangaDetails'>
+            <ScrollToTop />
             <DetailsMain />
             <LikeButtons />
             <RatingStats />

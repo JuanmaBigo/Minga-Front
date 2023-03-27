@@ -1,0 +1,65 @@
+@media screen and (max-width: 720px) {
+    .donate-main {
+        padding: 20vh 2rem 0vh 2rem !important;
+        align-items: center !important;
+    }
+    
+    .donate-main h1{
+        align-self: start !important;
+    }
+
+    .donate-main img{
+        margin-top: 5vh !important;
+        padding-top: 2rem !important;
+        padding-right: 1rem;
+        align-self: center !important;
+        height: 20rem !important;
+        width: 20rem !important;
+    }
+}
+
+.donate-main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: white;
+    padding: 25vh 10rem 15vh 10rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+
+
+.btns-donate {
+    margin-top: 56px;
+    display: flex;
+    width: 300px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btns-donate button {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+    background-color: #F97316;
+    color: #FAFCFC;
+    width: 90px;
+    height: 48px;
+    border: none;
+    border-radius: 10px;
+}
+
+.btns-donate button:hover{
+    cursor: pointer;
+    box-shadow: #F4B333 2px 2px 0px;
+}
+
+.donate-main img{
+    padding-top: 1rem;
+    width: 25rem;
+    height: 25rem;
+    object-fit: cover;
+    align-self: flex-end;
+    transform: scaleX(-1);
+}

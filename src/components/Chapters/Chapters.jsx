@@ -2,12 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './chapters.css'
+import apiUrl from '../../configHost.js'
 
 
 export default function Chapters() {
 
     let navigate = useNavigate()
-    let url = `http://localhost:8080/api/chapters/`
+    let url = apiUrl + 'chapters/'
     let { id, page } = useParams()    
     let [ chapter, setChapter ] = useState({})
     let [ next, setNext ] = useState('')

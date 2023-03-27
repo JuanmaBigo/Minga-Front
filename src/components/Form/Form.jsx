@@ -8,6 +8,7 @@ import Email from '../../assets/img/@.png'
 import Lock from '../../assets/img/lock1.png'
 import FormFields from '../FormFields/FormFields'
 import Camera from '../../assets/img/Camera.png'
+import apiUrl from '../../configHost';
 
 
 export default function Form() {
@@ -35,7 +36,7 @@ export default function Form() {
             [dataInputs[2].name]:dataInputs[2].value,
         }
 
-        let url = 'http://localhost:8080/api/auth/signup'
+        let url = apiUrl + 'auth/signup'
         try {
             await axios.post(
                 url,    /* URL del endpoint para crear una categoria */
