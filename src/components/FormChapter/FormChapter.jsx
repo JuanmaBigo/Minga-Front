@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
+import ScrollToTop from '../ScrollToTop/ScrollToTop'
 
 
 import './FormChapter.css'
@@ -67,6 +68,7 @@ export default function FormChapter() {
 
     return (
         <form className='form-chapter' onSubmit={handleSubmit} ref={formChapter}>
+            <ScrollToTop />
             <h2 className='new-chapter-title'>New Chapter</h2>
             <div className='chapter-inputs'>
                 <div className='input-chapter'>

@@ -78,6 +78,7 @@ const get_chapter = createAsyncThunk(
             let url = 'http://localhost:8080/api/chapters/' + id;
             try {
                 let response = await axios.get(url, headers)
+                console.log(response)
                 return {
                     chapter: response.data.chapter
                 }
