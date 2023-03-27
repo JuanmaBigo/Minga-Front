@@ -52,9 +52,9 @@ export default function FormLogin() {
                 })
                 formReg.current.reset()
                 toast.success("Successful session start")
-        
             } catch (error) {
                 toast.error("wrong credentials!")
+                toast.error("You haven't verified yourself, check your email",{duration:10000})
             }
             event.target.reset()
 

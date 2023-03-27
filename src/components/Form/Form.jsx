@@ -43,6 +43,7 @@ export default function Form() {
             )
             formReg.current.reset()
             toast.success("User Successfully Created")
+            toast.success("We have sent you a verification email",{duration:10000})
         } catch (error) {
             if(typeof error.response.data.message === 'string'){
                 toast.error(error.response.data.message)
