@@ -10,13 +10,14 @@ import { Link as Anchor } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { useSelector,useDispatch } from 'react-redux'
 import authorAction from '../../store/AuthorProfile/actions'
+import apiUrl from '../../configHost'
 const {read_author} = authorAction
 
 export default function Header() {
     const dispatch = useDispatch()
     
     const [isOpen, setIsOpen] = useState(true)
-    let url = `http://localhost:8080/api/auth/token`
+    let url = apiUrl + 'auth/token'
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 

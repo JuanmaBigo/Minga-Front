@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { Toaster,toast } from 'react-hot-toast'
 import ButtonAuthor from '../ButtonAuthor/ButtonAuthor'
 import axios from 'axios'
+import apiUrl from '../../configHost'
 
 export default function FormAuthor() {
     const formRef = useRef()
@@ -31,7 +32,7 @@ export default function FormAuthor() {
 
             let token = localStorage.getItem('token')
             let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-            let url = 'http://localhost:8080/api/authors'
+            let url = apiUrl + 'authors'
 
             try {
                 await axios.post(url,data,headers) 

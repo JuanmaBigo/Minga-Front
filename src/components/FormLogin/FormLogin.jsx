@@ -8,6 +8,7 @@ import Email from '../../assets/img/@.png'
 import Lock from '../../assets/img/lock1.png'
 import FormFields from '../FormFields/FormFields'
 import {useNavigate} from 'react-router-dom'
+import apiUrl from '../../configHost';
 
 
 export default function FormLogin() {
@@ -34,7 +35,7 @@ export default function FormLogin() {
         }
 
 
-        let url = 'http://localhost:8080/api/auth/signin'
+        let url = apiUrl + 'auth/signin'
 
             try {
                 await axios.post(url,data)

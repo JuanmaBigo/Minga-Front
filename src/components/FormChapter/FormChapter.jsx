@@ -3,6 +3,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 import ScrollToTop from '../ScrollToTop/ScrollToTop'
+import apiUrl from '../../configHost';
 
 
 import './FormChapter.css'
@@ -39,7 +40,7 @@ export default function FormChapter() {
             }
         }
 
-        let url = 'http://localhost:8080/api/chapters'
+        let url = apiUrl + 'chapters'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 

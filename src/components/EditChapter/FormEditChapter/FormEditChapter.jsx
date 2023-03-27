@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import mangasActions from '../../../store/Mangas/actions';
 import AlertDelete from '../../AlertDelete/AlertDelete';
 import alertActions from '../../../store/Alert/actions';
+import apiUrl from '../../../configHost';
 const { open } = alertActions
 const { get_chapter, read_chapters, read_manga } = mangasActions;
 
@@ -62,7 +63,7 @@ export default function FormEditChapter() {
         }
 
 
-        let url = 'http://localhost:8080/api/chapters/' + chapter_id;
+        let url = apiUrl +'chapters/' + chapter_id;
         let token = localStorage.getItem('token');
         let headers = { headers: { 'Authorization': `Bearer ${token}` } };
 
@@ -113,7 +114,7 @@ export default function FormEditChapter() {
     async function handleYes(event) {
         event.preventDefault();
 
-        let url = 'http://localhost:8080/api/chapters/' + chapter_id;
+        let url = apiUrl + 'chapters/' + chapter_id;
         let token = localStorage.getItem('token');
         let headers = { headers: { 'Authorization': `Bearer ${token}` } };
 
