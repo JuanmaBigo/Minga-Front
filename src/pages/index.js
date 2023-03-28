@@ -16,14 +16,14 @@ import EditChapterPage from './EditChapter/EditChapterPage';
 import VerifyMail from './VerifyMail/VerifyMail';
 import DonatePage from './Donate/DonatePage';
 import DonateSuccess from './Donate/DonateSuccess';
-
+import { Navigate } from 'react-router-dom';
 
 import { createBrowserRouter } from "react-router-dom"
 
-
+let token = localStorage.getItem('token')
 
 export const router = createBrowserRouter([
-
+    
     
 
     {
@@ -41,8 +41,8 @@ export const router = createBrowserRouter([
         element: <MainLayout/>,
         children:[
 
-            {path:'register',element : <AuthForm />},
-            {path:'signin',element : <AuthForm text ={'false'}/>},
+            {path:'register',element : token? <Navigate to='/'/>:<AuthForm />},
+            {path:'signin',element : token? <Navigate to='/'/>:<AuthForm text ={'false'}/>},
             {path:'/manga-form', element: <MangaForm />},
             {path: '/chapter-form/:manga_id', element: <ChapterForm/>},
             {path: '/mangas/:page', element: <Mangas/>},

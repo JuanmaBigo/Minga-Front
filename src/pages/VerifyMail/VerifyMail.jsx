@@ -2,17 +2,16 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import {useNavigate, useParams } from 'react-router-dom'
 import './verifyMail.css'
+import { Link as Anchor } from 'react-router-dom'
+import apiUrl from '../../configHost'
+
+
 
 export default function VerifyMail() {
     const [userlocal,setuserlocal] =useState()
     const user = localStorage.getItem('user')
     const {verify_code} = useParams()
     const navigate = useNavigate()
-
-    // console.log(user);
-    // console.log('verify_code',verify_code);
-
-    
 
     useEffect(()=>{
        (async ()=>{
@@ -23,7 +22,7 @@ export default function VerifyMail() {
         }else {
             if ( verify_code){
                 //get request
-                const response = await axios.get('http://localhost:8080/api/auth/verify?verify_code='+verify_code)//apiurl llega hasta api/
+                const response = await axios.get(apiUrl+'auth/verify?verify_code='+verify_code)//apiurl llega hasta api/
 
                 // console.log('res',response);
 
@@ -39,7 +38,8 @@ export default function VerifyMail() {
 
   return (
     <div className='cont-verify'>
-       {userlocal?.is_verified?<h1>verificado</h1>:<h1>no verificado</h1>}
+       <h1>Verified</h1>
+       <Anchor className='a-redirect' to='/'>Back to home</Anchor>
     </div>
   )
 }

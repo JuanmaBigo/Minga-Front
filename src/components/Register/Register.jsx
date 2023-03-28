@@ -23,10 +23,10 @@ export default function Register({text}) {
         setEsTexto2(Boolean(!text))
     },[text])
 
-    let token = localStorage.getItem('token')
+    
     return (
         <>
-            {token?<div className='cont-redirect'><Anchor className='a-redirect' to='/'>You must register or log in</Anchor></div>:<div className={`register-container ${!esTexto2 && "reverse"}`}>
+            <div className={`register-container ${!esTexto2 && "reverse"}`}>
                 <div className='form'>
                     <div className='text-container-3'>
                         <div className='logo'>
@@ -43,7 +43,7 @@ export default function Register({text}) {
                 </div>
                 <div className={`img-container ${!esTexto2 && "reverse"}`}>
                 </div>
-            </div>}
+            </div>
         </>
     )
 }
