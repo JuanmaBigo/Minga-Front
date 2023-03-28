@@ -184,6 +184,7 @@
     line-height: 15px;
     letter-spacing: 0em;
     color: white;
+    text-decoration: none;
 }
 
 .donate:hover {

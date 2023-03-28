@@ -1,0 +1,32 @@
+.form-author{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40vh;
+    width: 50%;
+}
+.input-author{
+    border: none;
+    border-bottom:1px solid black ;
+    padding-left: 1vh;
+    width: 30vw;
+}
+
+@media (max-width:767px){
+    .form-author{
+        width: 50vw;
+    }
+    .input-author{
+        width: 50vw;
+    }
+}
+
+@media (max-width:424px){
+    .form-author{
+        width: 60vw;
+    }
+    .input-author{
+        width: 60vw;
+    }
+}

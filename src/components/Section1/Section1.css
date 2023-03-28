@@ -73,6 +73,7 @@
     background-image: url(../../assets/img/Background1.png);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: -1px;
     display: flex;
     align-items: center;
 }

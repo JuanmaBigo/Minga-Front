@@ -4,12 +4,14 @@ import axios from 'axios';
 import { useState, useEffect } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import checkActions from '../../store/checks/actions'
+import apiUrl from '../../configHost.js'
 const {captureChecks} = checkActions
+
 
 export default function ChecksManga(props) {
 
   const dispatch = useDispatch()
-  let url = 'http://localhost:8080/api/mangas/category-manga'
+  let url = apiUrl+'mangas/category-manga'
 
     let [ categories, setCategories ] = useState([])
         useEffect(

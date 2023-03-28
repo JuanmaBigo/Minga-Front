@@ -2,12 +2,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './chapters.css'
+import apiUrl from '../../configHost.js'
 
 
 export default function Chapters() {
 
     let navigate = useNavigate()
-    let url = `http://localhost:8080/api/chapters/`
+    let url = apiUrl + 'chapters/'
     let { id, page } = useParams()    
     let [ chapter, setChapter ] = useState({})
     let [ next, setNext ] = useState('')
@@ -24,14 +25,14 @@ export default function Chapters() {
                 })
                 .catch(error => console.log(error))
             },
-            []
+            [ ]
         ) 
 
         let handlePrev = () => {
             setIndex( index - 1)
             navigate(`/chapters/${id}/${index - 1}`) 
             if( index <= 0 && chapter.order == 1){
-                navigate(`/manga/${chapter.manga_id}/${1}`)
+                navigate(`/manga/${chapter.manga_id}/1`)
             }
             else if( index <= 0 ) {
                 navigate(`/chapters/${prev}/0`)

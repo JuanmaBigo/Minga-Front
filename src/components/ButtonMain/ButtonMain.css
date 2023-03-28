@@ -12,5 +12,9 @@
     line-height: 95.19%;
     border-radius: 6px;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 

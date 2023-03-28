@@ -10,14 +10,20 @@ import Mangas from "./Mangas/Mangas";
 import Chapters from "../components/Chapters/Chapters";
 import MangaDetails from './MangaDetails/MangaDetails';
 import AuthorForm from './AuthorForm/AuthorForm';
-
+import AuthorProfile from './AuthorProfile/AuthorProfile';
+import MyMangas from './MyMangas/MyMangas';
+import EditChapterPage from './EditChapter/EditChapterPage';
+import VerifyMail from './VerifyMail/VerifyMail';
+import DonatePage from './Donate/DonatePage';
+import DonateSuccess from './Donate/DonateSuccess';
+import { Navigate } from 'react-router-dom';
 
 import { createBrowserRouter } from "react-router-dom"
 
-
+let token = localStorage.getItem('token')
 
 export const router = createBrowserRouter([
-
+    
     
 
     {
@@ -35,14 +41,21 @@ export const router = createBrowserRouter([
         element: <MainLayout/>,
         children:[
 
-            {path:'register',element : <AuthForm />},
-            {path:'signin',element : <AuthForm text ={'false'}/>},
+            {path:'register',element : token? <Navigate to='/'/>:<AuthForm />},
+            {path:'signin',element : token? <Navigate to='/'/>:<AuthForm text ={'false'}/>},
             {path:'/manga-form', element: <MangaForm />},
             {path: '/chapter-form/:manga_id', element: <ChapterForm/>},
             {path: '/mangas/:page', element: <Mangas/>},
             {path: '/chapters/:id/:page',element: <Chapters /> },
             {path: '/manga/:id/:page', element: <MangaDetails/>},
-            {path: '/author-form' , element:<AuthorForm/>}
+            {path: '/author-form' , element:<AuthorForm/>},
+            {path: '/profile', element:<AuthorProfile/>},
+            {path: '/mymangas', element: <MyMangas />},
+            {path: '/edit/:manga_id', element:<EditChapterPage/>},
+            {path: '/verify/:verify_code',element:<VerifyMail/>},
+            {path: '/donate', element:<DonatePage/>},
+            {path: '/donate/success', element:<DonateSuccess/>}
+
 
         ]
     } 

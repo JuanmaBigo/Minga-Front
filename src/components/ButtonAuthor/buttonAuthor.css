@@ -1,7 +1,6 @@
 .btn-send-author{
     width: 240px;
     height: 50px;
-    background: #F97316;
     border-radius: 5vh;
     border: none;
     font-family: 'Poppins';
@@ -12,4 +11,14 @@
     color: #FFFFFF;
     margin-top: 4vh;
     cursor: pointer;
+}
+.orange{
+    background: #F97316;
+}
+.green{   
+    background: #34D399;
+}
+.red{
+    background: #FBDDDC;
+    color: #EE8380;
 }

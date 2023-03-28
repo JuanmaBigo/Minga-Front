@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import './configHost.js'
 import { router } from './pages/index'
 import { RouterProvider } from 'react-router-dom'
 import {store} from './store/store'

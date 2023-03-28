@@ -7,6 +7,7 @@ import Facebook from '../../assets/img/Facebook.png'
 import Twitter from '../../assets/img/Twitter.png'
 import Vimeo from '../../assets/img/Vimeo.png'
 import Youtube from '../../assets/img/Youtube.png'
+import { Link as Anchor } from 'react-router-dom'
 
 
 export default function Footer() {
@@ -14,7 +15,6 @@ export default function Footer() {
     function handleClick(event){
         event.preventDefault()
     }
-    
     return (
         
 
@@ -43,7 +43,7 @@ export default function Footer() {
                         <a href='https://www.vimeo.com/'><img src={Vimeo} alt='vimeo logo'/></a>
                         <a href='https://www.youtube.com/'><img src={Youtube} alt='youtube logo'/></a>
                     </div>
-                    <button className='donate'><p>Donate</p><img src={Heart} alt=''></img></button>
+                    <Anchor className='donate' to='/donate'><p>Donate</p><img src={Heart} alt=''></img></Anchor>
                 </div>
             </div>
 

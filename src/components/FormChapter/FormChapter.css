@@ -1,3 +1,13 @@
+@media screen and (min-width: 720px) {
+    .form-chapter {
+        background-color: #FAFCFC !important;
+    }
+
+    .chapter-inputs input {
+        background-color: #FAFCFC !important;
+    }
+}
+
 .form-chapter {
     display: flex;
     flex-direction: column;
@@ -20,7 +30,6 @@
     flex-direction: column;
     gap: 25px;
     margin-bottom: 115px;
-    
 }
 
 .chapter-inputs input {
@@ -33,9 +42,14 @@
 
     border: none;
 }
+
+.chapter-inputs:focus {
+    outline: none;
+}
 .chapter-inputs:focus{
     outline: none;
 } 
+
 
 
 .line {

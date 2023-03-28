@@ -31,7 +31,7 @@
 }
 
 .title-card{
-    font-family: 'Poppins';
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
@@ -44,12 +44,15 @@
     font-size: 16px;
     line-height: 95.19%;
 }
-.btn-card{
+.buttons {
+    display: flex;
+}
+
+.btn-readManga{
     width: 92px;
     height: 35px;
     margin-top: 2vh;
     background: #D1FBF0;
-    padding: 1.68vh 4.48vh;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
     border-radius: 50px;
     font-family: 'Poppins';

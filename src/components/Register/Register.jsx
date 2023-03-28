@@ -23,24 +23,27 @@ export default function Register({text}) {
         setEsTexto2(Boolean(!text))
     },[text])
 
+    
     return (
-        <div className={`register-container ${!esTexto2 && "reverse"}`}>
-            <div className='form'>
-                <div className='text-container-3'>
-                    <div className='logo'>
-                        <img src={ImgLogo} alt='logo' />
+        <>
+            <div className={`register-container ${!esTexto2 && "reverse"}`}>
+                <div className='form'>
+                    <div className='text-container-3'>
+                        <div className='logo'>
+                            <img src={ImgLogo} alt='logo' />
+                        </div>
+                        <div className='title-form'>Welcome<h5>{textoWel}</h5>!</div>
+                        <p>Discover manga, manhua and manhwa, track your progress, have fun, read manga.</p>
                     </div>
-                    <div className='title-form'>Welcome<h5>{textoWel}</h5>!</div>
-                    <p>Discover manga, manhua and manhwa, track your progress, have fun, read manga.</p>
+                    <div>
+                        {TipeForm}
+                    </div>
+                    <p className='link first-link'>Already have an account? <Anchor  className='link-2' onClick={handleClick}>{textoLogin}</Anchor></p>
+                    <p className='link'>Go back to <Anchor to='/' className='link-2'>Home Page</Anchor></p>
                 </div>
-                <div>
-                    {TipeForm}
+                <div className={`img-container ${!esTexto2 && "reverse"}`}>
                 </div>
-                <p className='link first-link'>Already have an account? <Anchor  className='link-2' onClick={handleClick}>{textoLogin}</Anchor></p>
-                <p className='link'>Go back to <Anchor to='/' className='link-2'>Home Page</Anchor></p>
             </div>
-            <div className={`img-container ${!esTexto2 && "reverse"}`}>
-            </div>
-        </div>
+        </>
     )
 }

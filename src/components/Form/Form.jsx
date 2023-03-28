@@ -8,6 +8,7 @@ import Email from '../../assets/img/@.png'
 import Lock from '../../assets/img/lock1.png'
 import FormFields from '../FormFields/FormFields'
 import Camera from '../../assets/img/Camera.png'
+import apiUrl from '../../configHost';
 
 
 export default function Form() {
@@ -27,7 +28,6 @@ export default function Form() {
             }
         })
         dataInputs.pop()
-        console.log(dataInputs);
 
         let data = {
             [dataInputs[0].name]:dataInputs[0].value,
@@ -36,7 +36,7 @@ export default function Form() {
             [dataInputs[2].name]:dataInputs[2].value,
         }
 
-        let url = 'http://localhost:8080/api/auth/signup'
+        let url = apiUrl + 'auth/signup'
         try {
             await axios.post(
                 url,    /* URL del endpoint para crear una categoria */
@@ -44,6 +44,7 @@ export default function Form() {
             )
             formReg.current.reset()
             toast.success("User Successfully Created")
+            toast.success("We have sent you a verification email",{duration:10000})
         } catch (error) {
             if(typeof error.response.data.message === 'string'){
                 toast.error(error.response.data.message)
