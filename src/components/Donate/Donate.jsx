@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 import character from '../../assets/img/character.png'
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 import apiUrl from '../../configHost';
-
+import { Link as Anchor } from 'react-router-dom';
 
 export default function Donate() {
 
@@ -36,17 +36,21 @@ export default function Donate() {
 
     }
 
+    let token = localStorage.getItem('token')
+
     return (
-        <div className='donate-main'>
-            <ScrollToTop/>
-            <h1>Donate</h1>
-            <p>Thank you for using our app! If you enjoy it and would like to support us, please consider making a donation. Your contribution will help us continue to provide you with the best possible experience. Thank you for your support!</p>
-            <div className='btns-donate' >
-                <button onClick={handleClick}>$1000</button>
-                <button onClick={handleClick}>$5000</button>
-                <button onClick={handleClick}>$10000</button>
-            </div>
-            <img src={character} />
-        </div>
+        <>
+        { token?   <div className='donate-main'>
+                <ScrollToTop/>
+                <h1>Donate</h1>
+                <p>Thank you for using our app! If you enjoy it and would like to support us, please consider making a donation. Your contribution will help us continue to provide you with the best possible experience. Thank you for your support!</p>
+                <div className='btns-donate' >
+                    <button onClick={handleClick}>$1000</button>
+                    <button onClick={handleClick}>$5000</button>
+                    <button onClick={handleClick}>$10000</button>
+                </div>
+                <img src={character} />
+            </div>:<div className='cont-redirect'><Anchor className='a-redirect' to='/'>You must register or log in</Anchor></div>}
+        </>
     )
 }
