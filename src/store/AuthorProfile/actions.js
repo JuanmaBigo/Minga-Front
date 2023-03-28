@@ -15,7 +15,7 @@ const read_author = createAsyncThunk(
             }
         }catch(error){
             return{
-                author: []
+                author: {}
             }
         }
     }
@@ -36,7 +36,7 @@ const update_author = createAsyncThunk(
         }catch(error){
             console.log(error);
             return{
-                author: []
+                author: {}
             }
         }
     }
