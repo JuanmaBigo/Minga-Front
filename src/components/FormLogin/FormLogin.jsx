@@ -57,7 +57,7 @@ export default function FormLogin() {
                 toast.success("Successful session start")
             } catch (error) {
                 toast.error("wrong credentials!")
-                toast.error("You haven't verified yourself, check your email",{duration:10000})
+                toast.error("You haven't verified yourself, check your email",{duration:5000})
             }
             event.target.reset()
 
