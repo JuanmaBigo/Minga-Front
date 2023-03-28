@@ -7,7 +7,11 @@ import apiUrl from '../../configHost';
 
 export default function Selectmanga(props) {
 
+<<<<<<< HEAD
     let url = apiUrl + 'mangas/category-manga'
+=======
+    let url = 'http://localhost:8080/api/mangas/category-manga'
+>>>>>>> 58f4002560a68c80a495d830a5e1fee1af66901f
 
     let [ categories, setCategories ] = useState([])
         useEffect(

@@ -12,7 +12,11 @@ export default function LayoutMain(props) {
       <Header />
       <Outlet />
       <Footer />
+<<<<<<< HEAD
       <Alert />
+=======
+      <Alert/>
+>>>>>>> 58f4002560a68c80a495d830a5e1fee1af66901f
     </div>
   )
 }

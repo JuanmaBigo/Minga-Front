@@ -30,7 +30,6 @@
     flex-direction: column;
     gap: 25px;
     margin-bottom: 115px;
-
 }
 
 .chapter-inputs input {
@@ -47,6 +46,10 @@
 .chapter-inputs:focus {
     outline: none;
 }
+.chapter-inputs:focus{
+    outline: none;
+} 
+
 
 
 .line {

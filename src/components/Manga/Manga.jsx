@@ -56,6 +56,7 @@ export default function Manga() {
         dispatch(open(dataAler))
     }
     
+<<<<<<< HEAD
     let token = localStorage.getItem('token')
 
     return (
@@ -88,4 +89,35 @@ export default function Manga() {
             </div> : <div className='cont-redirect'><Anchor className='a-redirect' to='/'>You must register or log in</Anchor></div>}
         </>
     )
+=======
+
+  return (
+    <div className='manga'>
+        <div className='search-manga'>
+            <h2 className='name-page'>Manga</h2>
+            <div className='cont-searh-manga'>
+                <img className='img-search' src={searchImg} alt="search" />
+                <form className='form-search' >
+                    <input ref={title} defaultValue={defaultText} className='input-search' type="text" name="title" id="title" placeholder='Find your manga here' onChange={handleChange}/>
+                </form>
+            </div>
+        </div>
+        <div className='card-manga'>
+            <div className='cont-checks'>
+                <TypeManga/>
+                <ChecksManga />
+            </div>
+            <div className='cont-cards'>
+                {mangas.length?(mangas.map((manga) => (
+                        <CardsManga key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id}/>
+                    ))):<NoCard/>} 
+            </div>
+            <div className='page-manga'>
+                {pageNumber === 1 ? "" :<Anchor  className='btn-prev' to={'/mangas/' + (pageNumber - 1)}>Prev</Anchor>}
+                {mangas.length === 6 || mangas.length === 10 ? <Anchor  className='btn-next' to={'/mangas/' + (pageNumber + 1)}>Next</Anchor>: ""}
+            </div>
+        </div>
+    </div>
+  )
+>>>>>>> 58f4002560a68c80a495d830a5e1fee1af66901f
 }
