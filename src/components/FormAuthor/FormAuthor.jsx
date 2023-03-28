@@ -36,7 +36,7 @@ export default function FormAuthor() {
 
             try {
                 await axios.post(url,data,headers) 
-                toast.success('Authors created susccesfully')//*te permite crear el author pero recuerda implementar el passport en el back y en el front por headers para que se cumpla la condicion de autenticacion
+                toast.success('Authors created susccesfully')
             } catch (error) {
                 if(typeof error.response.data.message === 'string'){
                     toast.error(error.response.data.message)
