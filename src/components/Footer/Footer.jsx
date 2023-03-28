@@ -15,8 +15,8 @@ export default function Footer() {
     function handleClick(event){
         event.preventDefault()
     }
-
     return (
+        
 
         <div className='footer-container'>
             <img src={ImgFooter} alt='' className='footer-img' />

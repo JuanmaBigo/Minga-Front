@@ -47,6 +47,11 @@
 .chapter-inputs:focus {
     outline: none;
 }
+.chapter-inputs:focus{
+    outline: none;
+} 
+
+
 
 
 .line {
