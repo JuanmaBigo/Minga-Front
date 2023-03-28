@@ -19,7 +19,7 @@ export default function CardsManga(props) {
         <h2 className='title-card'>{props.title_}</h2>
         <h3 className={`type-card ${props.category_.name.includes('shonen') ? 'red-type' : props.category_.name.includes('comic')?'orange-type':props.category_.name.includes('shojo')?'green-type':props.category_.name.includes('seinen')?'purple-type':''}`}>{props.category_.name}</h3>
         <div className='buttons'>
-          <button onClick={handleRead} className='btn-read'>Read</button>
+          <button onClick={handleRead} className='btn-readManga'>Read</button>
         </div>
       </div>
       <img className='img-card' src={props.photo} alt="naruto" />

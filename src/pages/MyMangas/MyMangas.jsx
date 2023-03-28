@@ -8,7 +8,8 @@ import ModalDelete from '../../components/ModalDelete/ModalDelete'
 import ModalEdit from '../../components/ModalEdit/ModalEdit'
 import StaticCardMyMangas from '../../components/StaticCardMyMangas/StaticCardMyMangas'
 import { Link as Anchor } from 'react-router-dom'
-
+import authorAction from '../../store/AuthorProfile/actions'
+const {read_author} = authorAction
 
 export default function MyMangas() {
     
@@ -34,30 +35,42 @@ export default function MyMangas() {
             name += ' ' + mangas[0].author_id.last_name
         }
     }
+
+    
+    let author = useSelector(store => store.author.author)
+    useEffect(
+        ()=>{
+            if(author){
+                dispatch(read_author())
+            }
+        },[]
+    )
         
     return (
-        <div className='manga'>
-        <div className='search-manga'>
-            <h2 className='name-page'>{name}</h2>
-        </div>
-        <div className='card-manga'>
-            <div className='cont-checks'>
-                <ChecksManga />
-            </div>
-            <div className='cont-cards'>
-                <StaticCardMyMangas />
-                {
-                    mangas.map((manga) => 
-                        <CardsMyMangas key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id} /> )
-                } 
-            </div>
-            { deleteState ? <ModalDelete /> : null }
-            { editState ? <ModalEdit /> : null }
-        </div>
-        {/* <div className='page-manga'>
-                {pageNumber === 1 ? "" :<Anchor  className='btn-prev' to={'/mangas/' + (pageNumber - 1)}>Prev</Anchor>}
-                {mangas.length === 6 || mangas.length === 10 ? <Anchor  className='btn-next' to={'/mangas/' + (pageNumber + 1)}>Next</Anchor>: ""}
-        </div> */}
-    </div>
+        <>
+            {token && Object.keys(author).length?<div className='manga'>
+                <div className='search-manga'>
+                    <h2 className='name-page'>{name}</h2>
+                </div>
+                <div className='card-manga'>
+                    <div className='cont-checks'>
+                        <ChecksManga />
+                    </div>
+                    <div className='cont-cards'>
+                        <StaticCardMyMangas />
+                        {
+                            mangas.map((manga) => 
+                                <CardsMyMangas key={manga._id} title_={manga.title}  category_={manga.category_id} photo={manga.cover_photo} _id={manga._id} /> )
+                        } 
+                    </div>
+                    { deleteState ? <ModalDelete /> : null }
+                    { editState ? <ModalEdit /> : null }
+                </div>
+                {/* <div className='page-manga'>
+                        {pageNumber === 1 ? "" :<Anchor  className='btn-prev' to={'/mangas/' + (pageNumber - 1)}>Prev</Anchor>}
+                        {mangas.length === 6 || mangas.length === 10 ? <Anchor  className='btn-next' to={'/mangas/' + (pageNumber + 1)}>Next</Anchor>: ""}
+                </div> */}
+             </div>:<div className='cont-redirect'><Anchor className='a-redirect' to='/'>You must register as an Author</Anchor></div>}
+        </>
     )
 }
