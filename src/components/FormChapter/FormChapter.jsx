@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import { Toaster, toast } from 'react-hot-toast';
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
+import ScrollToTop from '../ScrollToTop/ScrollToTop'
+import apiUrl from '../../configHost';
 
 
 import './FormChapter.css'
@@ -38,7 +40,7 @@ export default function FormChapter() {
             }
         }
 
-        let url = 'http://localhost:8080/api/chapters'
+        let url = apiUrl + 'chapters'
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
@@ -67,6 +69,7 @@ export default function FormChapter() {
 
     return (
         <form className='form-chapter' onSubmit={handleSubmit} ref={formChapter}>
+            <ScrollToTop />
             <h2 className='new-chapter-title'>New Chapter</h2>
             <div className='chapter-inputs'>
                 <div className='input-chapter'>

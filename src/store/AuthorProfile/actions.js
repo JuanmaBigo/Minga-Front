@@ -1,12 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import apiUrl from "../../configHost";
 
 const read_author = createAsyncThunk(
     'read_author',
     async () => {
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        let url = 'http://localhost:8080/api/authors/me'
+        let url = apiUrl + 'authors/me'
         try{
             let response = await axios.get(url,headers)
             return{
@@ -25,7 +26,7 @@ const update_author = createAsyncThunk(
     async ({data}) => {
         let token = localStorage.getItem('token')
         let headers = { headers: { 'Authorization': `Bearer ${token}` } }
-        let url = 'http://localhost:8080/api/authors/me'
+        let url = apiUrl + 'authors/me'
         try{
             let response = await axios.put(url,data,headers)
             return{

@@ -10,6 +10,7 @@ import { Link as Anchor, useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { useSelector,useDispatch } from 'react-redux'
 import authorAction from '../../store/AuthorProfile/actions'
+import apiUrl from '../../configHost'
 const {read_author} = authorAction
 
 export default function Header() {
@@ -17,7 +18,7 @@ export default function Header() {
     let navigate = useNavigate()
     
     const [isOpen, setIsOpen] = useState(true)
-    let url = `http://localhost:8080/api/auth/token`
+    let url = apiUrl + 'auth/token'
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}` } }
 
