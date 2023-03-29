@@ -64,7 +64,7 @@ export default function Header() {
             }
         },[isOpen]
     )
-    console.log(author);
+    // console.log(author);
     return (
         <div className='header-container'>
             <div className="nav-toggler">

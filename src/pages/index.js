@@ -17,7 +17,7 @@ import VerifyMail from './VerifyMail/VerifyMail';
 import DonatePage from './Donate/DonatePage';
 import DonateSuccess from './Donate/DonateSuccess';
 import { Navigate } from 'react-router-dom';
-import NewRole from './NewRole/NewRole';
+import NewRole from './NewRole/NewRole'
 import CompanyForm from './CompanyForm/CompanyForm';
 
 import { createBrowserRouter } from "react-router-dom"
