@@ -95,6 +95,7 @@ export default function Header() {
                 {token && Object.keys(author).length? <Anchor className='nav-btn' to='/chapter-form/:manga_id'>Chapter-Form</Anchor> : ''}
                 {token ? '' : <Anchor className='nav-btn' to='/register'>Register</Anchor>}
                 {token ? '' : <Anchor className='nav-btn' to='/signin' text={'false'}>Login</Anchor>}
+                {token ? <Anchor className='nav-btn' to='/new-role'>New Role</Anchor> : ''}
                 {token ? <Anchor className='nav-btn' onClick={handleSignOut}>Logout</Anchor> : ''}
             </div>
 

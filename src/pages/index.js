@@ -17,6 +17,7 @@ import VerifyMail from './VerifyMail/VerifyMail';
 import DonatePage from './Donate/DonatePage';
 import DonateSuccess from './Donate/DonateSuccess';
 import { Navigate } from 'react-router-dom';
+import NewRole from './NewRole/NewRole';
 
 import { createBrowserRouter } from "react-router-dom"
 
@@ -54,7 +55,8 @@ export const router = createBrowserRouter([
             {path: '/edit/:manga_id', element:<EditChapterPage/>},
             {path: '/verify/:verify_code',element:<VerifyMail/>},
             {path: '/donate', element:<DonatePage/>},
-            {path: '/donate/success', element:<DonateSuccess/>}
+            {path: '/donate/success', element:<DonateSuccess/>},
+            {path: '/new-role', element:<NewRole/>}
 
 
         ]
