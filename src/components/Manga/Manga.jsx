@@ -82,7 +82,7 @@ export default function Manga() {
                     </div>
                     <div className='page-manga'>
                         {pageNumber === 1 ? "" :<Anchor  className='btn-prev' to={'/mangas/' + (pageNumber - 1)}>Prev</Anchor>}
-                        {mangas.length > 6 || mangas.length === 10 ? <Anchor  className='btn-next' to={'/mangas/' + (pageNumber + 1)}>Next</Anchor>: ""}
+                        {mangas.length === 6 || mangas.length === 10 ? <Anchor  className='btn-next' to={'/mangas/' + (pageNumber + 1)}>Next</Anchor>: ""}
                     </div>
                 </div>
             </div> : <div className='cont-redirect'><Anchor className='a-redirect' to='/'>You must register or log in</Anchor></div>}
