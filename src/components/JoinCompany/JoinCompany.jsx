@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 export default function JoinCompany() {
 
     let navigate = useNavigate()
+    
     let handleClick = () => navigate('/company-form')
 
     return (
