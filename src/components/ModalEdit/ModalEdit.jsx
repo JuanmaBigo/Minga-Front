@@ -43,17 +43,6 @@ export default function ModalEdit() {
             setTimeout( () => { handleClose()}, 1000 )
         } catch (error) {
             toast.error(error.response.data.message)
-            // if (error){
-            //     if(typeof error.response.data.message == 'string'){
-            //         toast.error( error.response.data.message )
-            //     }
-            //     else {
-            //         error.response.data.message.forEach( err => toast.error(err));
-            //     }
-            // }
-            // else {
-            //     toast.error(error.message)
-            // }
         }
     }
     
