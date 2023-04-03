@@ -4,7 +4,6 @@ import getAuthors from '../../store/PanelAuthors/actions.js'
 import icono from '../../assets/img/profile.png'
 import { useDispatch, useSelector } from 'react-redux'
 import SwitchPanel from '../SwitchPanel/SwitchPanel'
-import { computeHeadingLevel } from '@testing-library/react'
 
 
 export default function TableAuthors() {
