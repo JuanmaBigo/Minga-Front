@@ -22,7 +22,6 @@ export default function TableAuthors() {
 
     let activeAuthors = useSelector(store => store.panelAuthors.authors.activeAuthors)
     let inactiveAuthors = useSelector(store => store.panelAuthors.authors.inactiveAuthors)
-
     
     return (
     <div className='TableAuthors'>
