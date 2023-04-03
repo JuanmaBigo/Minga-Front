@@ -19,6 +19,7 @@ import DonateSuccess from './Donate/DonateSuccess';
 import { Navigate } from 'react-router-dom';
 import NewRole from './NewRole/NewRole'
 import CompanyForm from './CompanyForm/CompanyForm';
+import AdminPanel from './AdminPanel/AdminPanel';
 
 import { createBrowserRouter } from "react-router-dom"
 
@@ -58,7 +59,8 @@ export const router = createBrowserRouter([
             {path: '/donate', element:<DonatePage/>},
             {path: '/donate/success', element:<DonateSuccess/>},
             {path: '/company-form', element:<CompanyForm/>},
-            {path: '/new-role', element:<NewRole/>}
+            {path: '/new-role', element:<NewRole/>},
+            {path: '/admin', element:<AdminPanel/>}
 
         ]
     } 
