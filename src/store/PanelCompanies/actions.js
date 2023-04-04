@@ -1,26 +1,27 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import apiUrl from "../../configHost";
+import axios from "axios";
 
 
 
-const panelAuthors = createAsyncThunk(
+const panelCompanies = createAsyncThunk(
 
-    'panelAuthors',
+    'panelCompanies',
     async ({ token }) => {
-        let url = apiUrl+'auth/authors/admin'
+        let url = apiUrl+'auth/companies/admin'
         let headers = { headers: { 'Authorization': `Bearer ${token}`}}
         try {
             let response = await axios.get( url, headers )
-            return { authors: response.data}
+            return { companies: response.data}
         } catch (error) {
             console.log(error);
             return {
-                authors: []
+                companies: []
             }
         }
     }
+
 )
 
-const getAuthors = { panelAuthors }
-export default getAuthors
+const getCompanies = { panelCompanies }
+export default getCompanies

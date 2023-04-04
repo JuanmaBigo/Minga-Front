@@ -1,7 +1,8 @@
 import React from 'react'
 import './paneladmin.css'
 import line_entities from '../../assets/img/Line entities.png'
-import PanelAuthors from '../PanelAuthors/PanelAuthors'
+import TableAuthors from '../TableAuthors/TableAuthors'
+import TableCompanies from '../TableCompanies/TableCompanies'
 
 export default function PanelAdmin() {
     return (
@@ -12,7 +13,10 @@ export default function PanelAdmin() {
         <div className='entities'>
             <h3>Entities</h3>
             <img className='line-entities' src={line_entities} /> 
-            <PanelAuthors />
+            <div>
+            {/* <TableAuthors /> */}
+            <TableCompanies/> 
+            </div>
         </div>
     </div>
     )
