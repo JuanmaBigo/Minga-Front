@@ -1,14 +1,13 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import './switchpanel.css'
 
-export default function SwitchPanel(props) {
 
-    let suiche = useRef()
+export default function SwitchPanel() {
 
-    
+
     return (
         <label class="switch">
-            <input type="checkbox" ref={suiche} />
+            <input type="checkbox" />
             <span class="slider round"></span>
         </label>
     )

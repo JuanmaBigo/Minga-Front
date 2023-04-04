@@ -8,6 +8,8 @@ import getmangas_reducer from './MyMangas/reducer'
 import modalDelete_reducer from  './ModalDelete/reducer'
 import modalEdit_reducer from './ModalEdit/reducer' 
 import authorPanel_reducer from './PanelAuthors/reducer'
+import SwitchPanel_reducer from './SwitchPanel/reducer'
+import companyPanel_reducer from './PanelCompanies/reducer'
 
 export const store = configureStore({
     reducer:{
@@ -19,6 +21,8 @@ export const store = configureStore({
         getmangas: getmangas_reducer,
         showModalDelete: modalDelete_reducer,
         showModalEdit: modalEdit_reducer,
-        panelAuthors: authorPanel_reducer
+        panelAuthors: authorPanel_reducer,
+        switchPanel: SwitchPanel_reducer,
+        panelCompanies: companyPanel_reducer
     }
 })
