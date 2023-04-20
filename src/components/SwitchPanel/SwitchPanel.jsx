@@ -6,7 +6,7 @@ export default function SwitchPanel() {
 
 
     return (
-        <label class="switch">
+        <label class="switchPaneladmin">
             <input type="checkbox" />
             <span class="slider round"></span>
         </label>
