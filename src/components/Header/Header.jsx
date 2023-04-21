@@ -64,7 +64,6 @@ export default function Header() {
             }
         },[isOpen]
     )
-    console.log(author);
     return (
         <div className='header-container'>
             <div className="nav-toggler">
@@ -88,13 +87,13 @@ export default function Header() {
         
                 <Anchor className='nav-btn' to='/'>Home</Anchor>
                 {token ? <Anchor className='nav-btn' to='/mangas/:page'>Manga</Anchor> :''}
-                {token ? <Anchor className='nav-btn' to='/author-form'>Author-Form</Anchor> : ''}
                 {token && author?.active? <Anchor className='nav-btn' to='/profile'>Profile</Anchor> : ''}
                 {token && Object.keys(author).length? <Anchor className='nav-btn' to='/mymangas'>My Mangas</Anchor> :''}
                 {token && Object.keys(author).length? <Anchor className='nav-btn' to='/manga-form'>Manga-Form</Anchor> : ''}
                 {token && Object.keys(author).length? <Anchor className='nav-btn' to='/chapter-form/:manga_id'>Chapter-Form</Anchor> : ''}
                 {token ? '' : <Anchor className='nav-btn' to='/register'>Register</Anchor>}
                 {token ? '' : <Anchor className='nav-btn' to='/signin' text={'false'}>Login</Anchor>}
+                {token ? <Anchor className='nav-btn' to='/new-role'>New Role</Anchor> : ''}
                 {token ? <Anchor className='nav-btn' onClick={handleSignOut}>Logout</Anchor> : ''}
             </div>
 

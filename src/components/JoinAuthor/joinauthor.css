@@ -1,0 +1,38 @@
+.JoinAuthor {
+    border: 1px solid #E5E5E5;
+    border-radius: 15px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.JoinAuthor:hover {
+    cursor: pointer;
+    border-color: #F97316;
+}
+
+.JoinAuthor span {
+    color: #F97316;
+    font-weight: 500;
+    font-size: large;
+}
+
+.JoinAuthor p {
+    font-size: small;
+}
+
+.images-author {
+    display: flex;
+    margin-left: 2rem;
+}
+
+.images-author img {
+    width: 2rem;
+}
+
+.text-author{
+    width: 80%;
+}

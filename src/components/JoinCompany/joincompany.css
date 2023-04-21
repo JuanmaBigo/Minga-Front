@@ -1,0 +1,38 @@
+.JoinCompany {
+    border: 1px solid #E5E5E5;
+    border-radius: 15px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.JoinCompany:hover {
+    cursor: pointer;
+    border-color: #F97316;
+}
+
+.JoinCompany span {
+    color: #F97316;
+    font-weight: 500;
+    font-size: large;
+}
+
+.JoinCompany p {
+    font-size: small;
+}
+
+.images-company {
+    display: flex;
+    margin-left: 2rem;
+}
+
+.images-company img {
+    width: 2rem;
+}
+
+.text-company{
+    width: 80%;
+}
