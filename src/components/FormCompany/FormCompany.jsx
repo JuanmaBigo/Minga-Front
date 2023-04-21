@@ -3,6 +3,7 @@ import './formcompany.css'
 import image from '../../assets/img/perfil-author.png'
 import axios from 'axios'
 import { toast, Toaster } from 'react-hot-toast'
+import apiUrl from '../../configHost.js'
 
 export default function FormCompany() {
 
@@ -11,7 +12,7 @@ export default function FormCompany() {
     let logo = useRef()
     let description = useRef()
 
-    let url = 'http://localhost:8080/api/companies'
+    let url = apiUrl + 'companies'
     let token = localStorage.getItem('token')
     let headers = { headers: { 'Authorization': `Bearer ${token}`}}
 
